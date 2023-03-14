@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/bg_call_layout"
+                android:background="#8364F8"
                 android:gravity="center|start"
                 android:orientation="vertical">
 

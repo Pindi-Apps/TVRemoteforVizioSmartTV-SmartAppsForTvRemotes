@@ -1,12 +1,14 @@
 package com.viziotv.smartcast.remote.control.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 
+import com.viziotv.smartcast.remote.control.BuildConfig;
 import com.viziotv.smartcast.remote.control.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
         binding.cvScreenMirror.setOnClickListener(v -> {
 
         });
-        binding.cvShareApp.setOnClickListener(v -> {
 
+        binding.ivPrivacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse("http://www2.mouse-games.com/policy.htm"))));
+        binding.cvRateUs.setOnClickListener(v -> {
+            startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID)));
         });
         binding.ivMenu.setOnClickListener(v -> {
             binding.drawLayout.openDrawer(GravityCompat.START);

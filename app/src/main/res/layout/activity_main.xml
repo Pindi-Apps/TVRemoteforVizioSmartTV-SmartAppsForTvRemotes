@@ -18,7 +18,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#8264F8"
+        android:background="#8364F8"
         android:orientation="horizontal">
 
         <ImageView
@@ -175,7 +175,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvShareApp"
+            android:id="@+id/cvRateUs"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginHorizontal="10dp"
