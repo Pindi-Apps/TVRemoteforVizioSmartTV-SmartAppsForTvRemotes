@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../../New%20Android%20SDK/SDK/icons/material/materialicons/keyboard_arrow_up/baseline_keyboard_arrow_up_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../../New%20Android%20SDK/SDK/icons/material/materialicons/settings/baseline_settings_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -29,7 +29,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_new_arrow" />
+                            <entry key="outputName" value="ic_setting" />
                             <entry key="sourceFile" value="D:\Android\New Work\Remote Ui Project\LgAndRukoMirrorDesign" />
                           </map>
                         </option>

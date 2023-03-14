@@ -244,7 +244,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="5dp"
-                    android:src="@drawable/ic_refresh" />
+                    android:src="@drawable/ic_setting" />
             </com.google.android.material.card.MaterialCardView>
         </FrameLayout>
 
@@ -344,43 +344,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#A8A61D"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="serif"
-                    android:gravity="center"
-                    android:text="VURDU"
-                    android:textColor="@color/white" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/purple_500"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="serif"
-                    android:gravity="center"
-                    android:text="NETFLIX"
-                    android:textColor="@color/white" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
@@ -396,6 +360,59 @@
                     android:textColor="@color/white" />
 
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/holo_red_dark"
+                app:cardCornerRadius="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:text="NETFLIX"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#0B92FD"
+                app:cardCornerRadius="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:text="VURDU"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#C85D0B"
+                app:cardCornerRadius="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:text="MUTE"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
         <LinearLayout
@@ -403,6 +420,42 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:text="HULU"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/holo_orange_light"
+                app:cardCornerRadius="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:text="REDBOX"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
@@ -422,41 +475,7 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="5dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="serif"
-                    android:gravity="center"
-                    android:text="HULU"
-                    android:textColor="@color/black" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@android:color/holo_orange_light"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="serif"
-                    android:gravity="center"
-                    android:text="REDBOX"
-                    android:textColor="@color/white" />
-
-            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
         <LinearLayout
