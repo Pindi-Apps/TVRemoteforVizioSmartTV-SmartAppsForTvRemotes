@@ -40,7 +40,7 @@ public class RemoteViewActivity extends AppCompatActivity {
     int HDR_SPACE = 171;
     int BIT_MARK = 21;
 
-    
+
     int ONE_SPACE = 60;
     int ZERO_SPACE = 21;
     int[] sequence = IrCommandBuilder.buildRawSequence(
