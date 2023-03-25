@@ -56,7 +56,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     public Button F1;
     public Button G1;
     boolean H1;
-    private Vibrator I1;
+    private Vibrator vibrator;
     final HostnameVerifier K1 = new z(this);
     String X0 = "/pairing/start";
     String Y0 = "/pairing/pair";
@@ -111,8 +111,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(3, 7, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -121,8 +120,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(3, 2, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -131,8 +129,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(4, 0, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -141,8 +138,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(7, 1, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -151,8 +147,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(4, 6, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -161,8 +156,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(4, 8, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -171,8 +165,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(5, 0, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -181,8 +174,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(4, 3, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -191,8 +183,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.P("null", 5, "1");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -201,8 +192,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.P("\"https://my.vudu.com/castReceiver/index.html?launch-source=app-icon\"", 2, "31");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -212,7 +202,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
 
         public void onClick(View view) {
             WifiRemoteViewActivity.this.S(5, 4, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -221,8 +211,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.P("null", 3, "1");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -231,8 +220,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(8, 1, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -241,8 +229,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(11, 2, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -251,8 +238,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(8, 0, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -261,8 +247,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.P("null", 2, "4");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -271,8 +256,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(3, 8, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -281,8 +265,17 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.P("{\"CAST_NAMESPACE\":\"urn:x-cast:com.google.cast.media\",\"CAST_MESSAGE\":{\"type\":\"LOAD\",\"media\":{},\"autoplay\":true,\"currentTime\":0,\"customData\":{}}}", 0, "36E1EA1F");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
+        }
+    }
+
+
+    private void playVibrate() {
+        if (this.vibrator == null) {
+            this.vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            this.vibrator.vibrate(5);
+        } else {
+            this.vibrator.vibrate(5);
         }
     }
 
@@ -291,8 +284,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(3, 0, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            playVibrate();
         }
     }
 
@@ -301,8 +293,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.P("null", 2, "3");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -311,8 +302,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(3, 1, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -321,8 +311,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.P("null", 2, "41");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -331,8 +320,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.P("null", 2, "22");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -346,12 +334,12 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             String str = "KEYPRESS";
             if (WifiRemoteViewActivity_.H1) {
                 WifiRemoteViewActivity_.S(2, 3, str);
-                WifiRemoteViewActivity.this.I1.vibrate(5);
+                playVibrate();
                 WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
                 z = false;
             } else {
                 WifiRemoteViewActivity_.S(2, 2, str);
-                WifiRemoteViewActivity.this.I1.vibrate(5);
+                playVibrate();
                 WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
                 z = true;
             }
@@ -364,8 +352,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(2, 0, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -374,8 +361,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(2, 1, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -464,7 +450,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             String str2 = "AUTH_TOKEN";
             try {
                 WifiRemoteViewActivity WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
-                if(WifiRemoteViewActivity_.e1 != null)
+                if (WifiRemoteViewActivity_.e1 != null)
                     WifiRemoteViewActivity_.f1 = WifiRemoteViewActivity_.e1.getText().toString();
                 String format = String.format("%s%s", new Object[]{WifiRemoteViewActivity.L1, WifiRemoteViewActivity.this.Y0});
                 WifiRemoteViewActivity WifiRemoteViewActivity_2 = WifiRemoteViewActivity.this;
@@ -543,8 +529,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(5, 1, "KEYPRESS");
-            WifiRemoteViewActivity.this.I1.vibrate(5);
+            WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
 
@@ -755,7 +740,6 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     }
 
 
-
     private void P(String str, int i, String str2) {
         if (P1 != null) {
             new Thread(new y(str, i, str2)).start();
@@ -763,6 +747,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             U();
         }
     }
+
     private void R(String str, String str2) {
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         M1 = defaultSharedPreferences;
@@ -773,6 +758,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             onSharedPreferenceChanged(N1, null);
         }
     }
+
     private void S(int i, int i2, String str) {
         if (P1 != null) {
             new Thread(new x(i, i2, str)).start();
@@ -780,13 +766,16 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             U();
         }
     }
-    private  void e0() {
+
+    private void e0() {
         Bundle bundle = new Bundle();
         bundle.putString("content_type", "UTRC_Review_Vizio");
     }
+
     private void k0() {
         new w().start();
     }
+
     private static void m0() {
         TrustManager[] trustManagerArr = new TrustManager[]{new a0()};
         try {
@@ -797,28 +786,26 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             e.printStackTrace();
         }
     }
+
     public String Q(String str) {
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         N1 = defaultSharedPreferences;
         return defaultSharedPreferences.getString(str, null);
     }
+
     public void T() {
         new Thread(new t()).start();
     }
+
     public void U() {
         new Thread(new u()).start();
     }
+
     public void onBackPressed() {
         super.onBackPressed();
     }
 
 
-    
-    
-    
-    
-    
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -832,42 +819,133 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         Log.d(str, stringBuilder.toString());
         StringBuilder stringBuilder2 = new StringBuilder();
         stringBuilder2.append(L1);
-        stringBuilder2.append(WifiRemoteActivity.e1);
+        stringBuilder2.append(WifiRemoteActivity.vizUrl);
         stringBuilder2.append(":7345");
         str = stringBuilder2.toString();
         L1 = str;
         Log.d("CONNECTIONPATH", str);
         getWindow().addFlags(128);
-        this.I1 = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        this.vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         this.H1 = false;
-        findViewById(R.id.power_off_vizio).setOnClickListener(new k());
-        findViewById(R.id.volume_up).setOnClickListener(new v());
-        findViewById(R.id.volume_down).setOnClickListener(new g0());
+        findViewById(R.id.power_off_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(11, 2, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.volume_up).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(5, 1, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.volume_down).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(5, 0, "KEYPRESS");
+            playVibrate();
+        });
 //        findViewById(R.id.mute_vizio).setOnClickListener(new j0());
-        findViewById(R.id.channel_up).setOnClickListener(new k0());
-        findViewById(R.id.channel_down).setOnClickListener(new l0());
-        findViewById(R.id.ok_up).setOnClickListener(new m0());
-        findViewById(R.id.ok_down).setOnClickListener(new n0());
-        findViewById(R.id.ok_left).setOnClickListener(new o0());
-        findViewById(R.id.ok_right).setOnClickListener(new a());
-        findViewById(R.id.ok_button).setOnClickListener(new b());
-        findViewById(R.id.back_button).setOnClickListener(new c());
-        findViewById(R.id.button_source).setOnClickListener(new d());
-        findViewById(R.id.info_button).setOnClickListener(new e());
-        findViewById(R.id.button_menu).setOnClickListener(new f());
-        findViewById(R.id.buttonhome).setOnClickListener(new g());
-        findViewById(R.id.youtube_vizio).setOnClickListener(new h());
-        findViewById(R.id.vudu_vizio).setOnClickListener(new i());
-        findViewById(R.id.netflix_vizio).setOnClickListener(new j());
-        findViewById(R.id.primevideo_vizio).setOnClickListener(new l());
-        findViewById(R.id.xumo_vizio).setOnClickListener(new m());
-        findViewById(R.id.hulu_vizio).setOnClickListener(new n());
-        findViewById(R.id.redbox_vizio).setOnClickListener(new o());
-        findViewById(R.id.watchfree_vizio).setOnClickListener(new p());
-        findViewById(R.id.play_button).setOnClickListener(new q());
-        findViewById(R.id.fforward).setOnClickListener(new r());
-        findViewById(R.id.freverse).setOnClickListener(new s());
+        findViewById(R.id.channel_up).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(8, 1, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.channel_down).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(8, 0, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.ok_up).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(3, 8, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.ok_down).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(3, 0, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.ok_left).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(3, 1, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.ok_right).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(3, 7, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.ok_button).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(3, 2, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.back_button).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(4, 0, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.button_source).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(7, 1, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.info_button).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(4, 6, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.button_menu).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(4, 8, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.buttonhome).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(4, 3, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.youtube_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.P("null", 5, "1");
+            playVibrate();
+        });
+        findViewById(R.id.vudu_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.P("\"https://my.vudu.com/castReceiver/index.html?launch-source=app-icon\"", 2, "31");
+            playVibrate();
+        });
+        findViewById(R.id.netflix_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.P("null", 3, "1");
+            playVibrate();
+        });
+        findViewById(R.id.primevideo_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.P("null", 2, "4");
+            playVibrate();
+        });
+        findViewById(R.id.xumo_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.P("{\"CAST_NAMESPACE\":\"urn:x-cast:com.google.cast.media\",\"CAST_MESSAGE\":{\"type\":\"LOAD\",\"media\":{},\"autoplay\":true,\"currentTime\":0,\"customData\":{}}}", 0, "36E1EA1F");
+            playVibrate();
+        });
+        findViewById(R.id.hulu_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.P("null", 2, "3");
+            playVibrate();
+        });
+        findViewById(R.id.redbox_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.P("null", 2, "41");
+            playVibrate();
+        });
+        findViewById(R.id.watchfree_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.P("null", 2, "22");
+            playVibrate();
+        });
+        findViewById(R.id.play_button).setOnClickListener(v -> {
+            boolean z;
+            WifiRemoteViewActivity WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
+//            String str = "KEYPRESS";
+            if (WifiRemoteViewActivity_.H1) {
+                WifiRemoteViewActivity_.S(2, 3, "KEYPRESS");
+                playVibrate();
+                WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
+                z = false;
+            } else {
+                WifiRemoteViewActivity_.S(2, 2, "KEYPRESS");
+                playVibrate();
+                WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
+                z = true;
+            }
+            WifiRemoteViewActivity_.H1 = z;
+        });
+        findViewById(R.id.fforward).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(2, 0, "KEYPRESS");
+            playVibrate();
+        });
+        findViewById(R.id.freverse).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(2, 1, "KEYPRESS");
+            playVibrate();
+        });
         if (P1 == null) {
             T();
         }

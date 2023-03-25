@@ -9,37 +9,27 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="integrate IR remote but not tested">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/aa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/b.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/bb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/c.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/d.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/dd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/e.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/f.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/gsTv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pairing.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/rv_search_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="integrate Wifi remote and Ir remote fully tested">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/WifiRemoteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/WifiRemoteActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/WifiRemoteViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/WifiRemoteViewActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/aa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/b.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/ListViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/bb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/c.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/WifiRemoteUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/d.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/dd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/e.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/f.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/SetTextData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/gsTv.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage/FindVizAsyncTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wifi_remote.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wifi_remote.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wifi_remote_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wifi_remote_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,16 +72,16 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/muhammadasad/StudioProjects/Android_projects/pindi_apps/LgAndRukoMirrorDesign/LgAndRukoMirrorDesign/app/src/main/res/layout",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/muhammadasad/StudioProjects/Android_projects/pindi_apps/LgAndRukoMirrorDesign/LgAndRukoMirrorDesign/app/src/main/res/layout&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="android.template.-2071693359">
       <recent name="com.viziotv.smartcast.remote.control.activities" />
@@ -193,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679743667811</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="integrate Wifi remote and Ir remote fully tested">
+      <created>1679758178296</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679758178296</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +207,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="integrate IR remote but not tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrate IR remote but not tested" />
+    <MESSAGE value="integrate Wifi remote and Ir remote fully tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="integrate Wifi remote and Ir remote fully tested" />
   </component>
 </project>

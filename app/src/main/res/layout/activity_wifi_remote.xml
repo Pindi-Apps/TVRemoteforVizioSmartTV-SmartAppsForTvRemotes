@@ -40,7 +40,7 @@
         android:layout_width="0dp"
         android:id="@+id/tvTop"
         android:layout_height="60dp"
-        android:text="Searching For VIZIO SmartCast TV.."
+        android:text="Searching For VIZIO TV..."
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/toolBar"
@@ -67,20 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintBottom_toTopOf="@+id/tvBottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
-<TextView
-    android:layout_width="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:layout_height="wrap_content"
-    android:textColor="@color/white"
-    android:fontFamily="serif"
-    android:id="@+id/tvBottom"
-    app:layout_constraintBottom_toBottomOf="parent"
-    android:gravity="center"
-    android:layout_marginBottom="20dp"
-    android:text="Please Contact your VIZIO SmartCast TV and your\n Mobile Phone to the same Wifi Network"
-    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

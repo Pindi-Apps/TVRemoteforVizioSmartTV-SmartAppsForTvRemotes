@@ -14,19 +14,19 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 
-public class gsTv extends AsyncTask<Activity, Void, Void> {
+public class FindVizAsyncTask extends AsyncTask<Activity, Void, Void> {
     public static DatagramSocket c;
     private static final String DEFAULT_ADDRESS = "239.255.255.250";
     private static final String DEFAULT_QUERY = "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nMX: 1\r\nST: urn:dial-multiscreen-org:service:dial:1\r\n\r\n";
 
-    private Activity a;
-    private Context b;
+    private Activity currentActivity;
+    private Context mContext;
   //  private DatabaseReference mDatabase;
 
 
-    public gsTv(Activity activity) {
-        this.a =  activity;
-        this.b = activity.getApplicationContext();
+    public FindVizAsyncTask(Activity activity) {
+        this.currentActivity =  activity;
+        this.mContext = activity.getApplicationContext();
 // ...
        // mDatabase = FirebaseDatabase.getInstance().getReference();
 //        HashMap <String,Object> datamap = new HashMap<>();
@@ -43,14 +43,14 @@ public class gsTv extends AsyncTask<Activity, Void, Void> {
 
     }
 
-    public static void a(Activity activity) {
-        new gsTv(activity).execute(new Activity[0]);
+    public static void executeWithActivity(Activity activity) {
+        new FindVizAsyncTask(activity).execute();
     }
 
 
-    public Void doInBackground(Activity... activityArr) {
+    public Void doInBackground(Activity...  activityArr) {
         DatagramSocket datagramSocket;
-        WifiManager wifiManager = (WifiManager) this.b.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) this.mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (wifiManager != null) {
             MulticastLock createMulticastLock = wifiManager.createMulticastLock("The Lock");
             createMulticastLock.acquire();
@@ -67,7 +67,7 @@ public class gsTv extends AsyncTask<Activity, Void, Void> {
                     c.receive(datagramPacket);
                     String str = new String(datagramPacket.getData());
                     Log.d("DevSearch",datagramPacket.getAddress().getHostAddress());
-                    c cVar = new c(datagramPacket.getAddress().getHostAddress(), datagramPacket.getPort(), new String(datagramPacket.getData(), 0, datagramPacket.getLength()), a);
+                    WifiRemoteUtils wifiRemoteUtilsVar = new WifiRemoteUtils(datagramPacket.getAddress().getHostAddress(), datagramPacket.getPort(), new String(datagramPacket.getData(), 0, datagramPacket.getLength()), currentActivity);
 
                 }
                 datagramSocket = c;

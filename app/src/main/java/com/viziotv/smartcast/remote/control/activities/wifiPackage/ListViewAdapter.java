@@ -8,10 +8,10 @@ import android.widget.TextView;
 import com.viziotv.smartcast.remote.control.R;
 
 
-public class b extends ArrayAdapter<c> {
+public class ListViewAdapter extends ArrayAdapter<WifiRemoteUtils> {
     int F0;
 
-    public b(Context context, int i) {
+    public ListViewAdapter(Context context, int i) {
         super(context, i);
         this.F0 = i;
     }
@@ -20,14 +20,14 @@ public class b extends ArrayAdapter<c> {
         if (view == null) {
             view = View.inflate(getContext(), this.F0, null);
         }
-        c cVar = (c) getItem(i);
+        WifiRemoteUtils wifiRemoteUtilsVar = (WifiRemoteUtils) getItem(i);
         TextView textView = (TextView) view.findViewById(R.id.DeviceName);
         TextView textView2 = (TextView) view.findViewById(R.id.DeviceIP);
-        if (cVar != null) {
-            textView.setText(cVar.d());
+        if (wifiRemoteUtilsVar != null) {
+            textView.setText(wifiRemoteUtilsVar.getDeviceName());
         }
-        if (cVar != null) {
-            textView2.setText(cVar.b());
+        if (wifiRemoteUtilsVar != null) {
+            textView2.setText(wifiRemoteUtilsVar.b());
         }
         return view;
     }
