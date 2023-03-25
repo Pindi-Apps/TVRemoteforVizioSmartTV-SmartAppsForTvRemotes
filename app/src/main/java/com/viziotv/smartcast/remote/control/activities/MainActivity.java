@@ -19,11 +19,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        binding.nav.navRate.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID))));
+
+        binding.nav.navMoreApps.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW ,
+                Uri.parse("https://play.google.com/store/apps/dev?id=9133452689932095671"))));
+
+
+
         binding.cvWifiRemote.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
         });
         binding.cvIrRemote.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, RemoteViewActivity.class));
+            startActivity(new Intent(MainActivity.this, RemoteViewActivity.class).putExtra("brand_name", "Vizio"));
         });
         binding.cvScreenMirror.setOnClickListener(v -> {
 

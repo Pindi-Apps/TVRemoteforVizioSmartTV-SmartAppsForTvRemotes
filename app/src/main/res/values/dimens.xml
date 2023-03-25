@@ -1,0 +1,88 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+
+    <dimen name="navigation_drawer_width">304dp</dimen>
+    <dimen name="ime_editor_edge_vertical_margin">8dp</dimen>
+    <dimen name="ime_editor_hint_text_size">12sp</dimen>
+    <dimen name="ime_editor_icon_size">40dp</dimen>
+    <dimen name="ime_editor_line_top_margin">6dp</dimen>
+    <dimen name="ime_editor_padding">16dp</dimen>
+    <dimen name="ime_editor_text_size">18sp</dimen>
+    <dimen name="ime_editor_text_vertical_margin">8dp</dimen>
+    <dimen name="ime_editor_top_inset">16dp</dimen>
+    <dimen name="ime_editor_underline_height">1dp</dimen>
+    <dimen name="ime_editor_window_rounded_corner_radius">4dp</dimen>
+    <dimen name="hublist_button_text_size">18sp</dimen>
+    <dimen name="hublist_description_text_size">16sp</dimen>
+    <dimen name="about_item_description_text_size">12sp</dimen>
+    <dimen name="drawer_horizontal_padding">16dp</dimen>
+    <dimen name="drawer_item_height">48dp</dimen>
+    <dimen name="drawer_item_icon_height">24dp</dimen>
+    <dimen name="drawer_item_icon_margin_end">32dp</dimen>
+    <dimen name="drawer_item_icon_width">24dp</dimen>
+    <dimen name="drawer_separator_height">1dp</dimen>
+    <dimen name="drawer_separator_margin_vertical">8dp</dimen>
+    <dimen name="drawer_padding_top">8dp</dimen>
+    <dimen name="hublist_error_text_width">250dp</dimen>
+    <dimen name="hublist_item_height">112dp</dimen>
+    <dimen name="hublist_item_icon_margin_end">32dp</dimen>
+    <dimen name="hublist_item_text_padding">16dp</dimen>
+    <dimen name="hublist_line_spacing_multiplier">1.3156</dimen>
+    <dimen name="hublist_no_devices_error_message_bottom_margin">28dp</dimen>
+    <dimen name="hublist_no_devices_error_progress_size">78dp</dimen>
+    <dimen name="hublist_no_devices_error_status_bottom_margin">190dp</dimen>
+    <dimen name="hublist_no_devices_error_status_top_margin">38dp</dimen>
+    <dimen name="hublist_no_wifi_error_button_bottom_margin">184dp</dimen>
+    <dimen name="hublist_no_wifi_error_button_top_margin">28dp</dimen>
+    <dimen name="hublist_no_wifi_error_icon_size">141dp</dimen>
+    <dimen name="hublist_no_wifi_error_message_bottom_margin">28dp</dimen>
+    <dimen name="hublist_separator_height">1dp</dimen>
+
+    <dimen name="button_elevation">6dp</dimen>
+    <dimen name="button_elevation_activated">8dp</dimen>
+
+    <dimen name="pairing_edit_text_size">60dp</dimen>
+    <dimen name="pairing_vertical_margin">28dp</dimen>
+    <dimen name="permission_text_size">18sp</dimen>
+    <dimen name="permission_title_margin_top">120dp</dimen>
+    <dimen name="permission_title_text_size">28sp</dimen>
+    <dimen name="joystick_button_elevation">4dp</dimen>
+    <dimen name="joystick_button_elevation_activated">6dp</dimen>
+    <dimen name="connected_icon_bottom_margin">11dp</dimen>
+    <dimen name="connected_icon_size">68dp</dimen>
+    <dimen name="connecting_progress_bottom_margin">18dp</dimen>
+    <dimen name="about_item_vertical_padding">16dp</dimen>
+    <dimen name="remote_button_height">58dp</dimen>
+    <dimen name="speech_orb_size">70dp</dimen>
+    <dimen name="gp_buttons_padding">21dp</dimen>
+    <dimen name="gp_deadzone_radius">24dp</dimen>
+    <dimen name="gp_diameter">146dp</dimen>
+    <dimen name="gp_joystick_diameter">78dp</dimen>
+    <dimen name="gp_nav_button_height">62dp</dimen>
+    <dimen name="gp_nav_button_vertical_padding">17dp</dimen>
+    <dimen name="gp_nav_button_width">74dp</dimen>
+    <dimen name="touchpad_long_swipe_distance">75dp</dimen>
+    <dimen name="touchpad_short_swipe_distance">30dp</dimen>
+    <dimen name="touchpad_tap_radius">20dp</dimen>
+    <dimen name="dpad_chevron_length">16dp</dimen>
+    <dimen name="dpad_chevron_width">6dp</dimen>
+    <dimen name="dpad_cut_out_width">4dp</dimen>
+    <dimen name="dpad_inset_ratio">0.0038</dimen>
+    <dimen name="dpad_max_diameter">455dp</dimen>
+    <dimen name="dpad_select_diameter_ratio">0.4</dimen>
+    <dimen name="nav_button_height">90dp</dimen>
+    <dimen name="tos_body_text_size">14sp</dimen>
+    <dimen name="tos_body_width">280dp</dimen>
+    <dimen name="tos_button_height">36dp</dimen>
+    <dimen name="tos_button_spacer">12dp</dimen>
+    <dimen name="tos_button_text_size">14sp</dimen>
+    <dimen name="tos_button_width">206dp</dimen>
+    <dimen name="tos_header_text_size">20sp</dimen>
+    <dimen name="tos_icon_side">100dp</dimen>
+    <dimen name="tos_spacer_four">32dp</dimen>
+    <dimen name="tos_spacer_one">40dp</dimen>
+    <dimen name="tos_spacer_three">54dp</dimen>
+    <dimen name="tos_spacer_two">22dp</dimen>
+</resources>

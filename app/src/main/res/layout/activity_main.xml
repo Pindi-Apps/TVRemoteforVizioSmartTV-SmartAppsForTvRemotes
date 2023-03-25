@@ -18,7 +18,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#8364F8"
+        android:background="#0662C3"
         android:orientation="horizontal">
 
         <ImageView
