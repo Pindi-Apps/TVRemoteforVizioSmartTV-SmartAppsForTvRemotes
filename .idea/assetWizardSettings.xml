@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../../New%20Android%20SDK/SDK/icons/material/materialicons/settings/baseline_settings_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialiconsoutlined/help_outline/outline_help_outline_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -29,8 +29,8 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_setting" />
-                            <entry key="sourceFile" value="D:\Android\New Work\Remote Ui Project\LgAndRukoMirrorDesign" />
+                            <entry key="outputName" value="ic_help" />
+                            <entry key="sourceFile" value="/D:\Android\New Work\Remote Ui Project\LgAndRukoMirrorDesign" />
                           </map>
                         </option>
                       </PersistentState>

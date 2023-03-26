@@ -129,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding.ivPrivacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse(getString(R.string.privacyPolicyLink)))));
         binding.cvRateUs.setOnClickListener(v -> {
-            startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID)));
+            startActivity(new Intent(this , GuideActivity.class));
+//            startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID)));
         });
         binding.ivMenu.setOnClickListener(v -> {
             binding.drawLayout.openDrawer(GravityCompat.START);
