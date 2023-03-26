@@ -1,4 +1,4 @@
-package com.viziotv.smartcast.remote.control.activities.wifiPackage;
+package com.viziotv.smartcast.remote.control.remoteConfig.wifiPackage;
 
 public final class SetTextData {
     public static final int a = 2131886271;

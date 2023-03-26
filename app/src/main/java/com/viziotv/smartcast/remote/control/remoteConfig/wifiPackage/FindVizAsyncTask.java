@@ -1,4 +1,4 @@
-package com.viziotv.smartcast.remote.control.activities.wifiPackage;
+package com.viziotv.smartcast.remote.control.remoteConfig.wifiPackage;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,20 +27,6 @@ public class FindVizAsyncTask extends AsyncTask<Activity, Void, Void> {
     public FindVizAsyncTask(Activity activity) {
         this.currentActivity =  activity;
         this.mContext = activity.getApplicationContext();
-// ...
-       // mDatabase = FirebaseDatabase.getInstance().getReference();
-//        HashMap <String,Object> datamap = new HashMap<>();
-//        datamap.put("timeStamp",new Date());
-//        datamap.put("search_Start",true);
-//        datamap.put("DevName","test");
-//        mDatabase.push().setValue(datamap).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                e.printStackTrace();
-//                System.out.println(e.getLocalizedMessage());
-//            }
-//        });
-
     }
 
     public static void executeWithActivity(Activity activity) {
@@ -71,11 +57,8 @@ public class FindVizAsyncTask extends AsyncTask<Activity, Void, Void> {
 
                 }
                 datagramSocket = c;
-            } catch (UnknownHostException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
-                datagramSocket = c;
-            } catch (IOException e2) {
-                e2.printStackTrace();
                 datagramSocket = c;
             } catch (Throwable th) {
                 datagramSocket = c;

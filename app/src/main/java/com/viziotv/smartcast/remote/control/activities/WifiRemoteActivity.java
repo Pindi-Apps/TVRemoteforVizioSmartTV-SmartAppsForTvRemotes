@@ -11,9 +11,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.viziotv.smartcast.remote.control.R;
-import com.viziotv.smartcast.remote.control.activities.wifiPackage.ListViewAdapter;
-import com.viziotv.smartcast.remote.control.activities.wifiPackage.WifiRemoteUtils;
-import com.viziotv.smartcast.remote.control.activities.wifiPackage.FindVizAsyncTask;
+import com.viziotv.smartcast.remote.control.remoteConfig.wifiPackage.ListViewAdapter;
+import com.viziotv.smartcast.remote.control.remoteConfig.wifiPackage.WifiRemoteUtils;
+import com.viziotv.smartcast.remote.control.remoteConfig.wifiPackage.FindVizAsyncTask;
 
 import java.net.DatagramSocket;
 

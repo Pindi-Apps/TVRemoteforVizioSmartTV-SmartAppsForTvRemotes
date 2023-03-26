@@ -1,4 +1,4 @@
-package com.viziotv.smartcast.remote.control.activities.wifiPackage;
+package com.viziotv.smartcast.remote.control.remoteConfig.wifiPackage;
 
 import android.content.Context;
 import android.view.View;

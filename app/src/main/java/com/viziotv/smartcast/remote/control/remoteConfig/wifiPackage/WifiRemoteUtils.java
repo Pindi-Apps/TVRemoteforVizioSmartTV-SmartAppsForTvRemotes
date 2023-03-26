@@ -1,4 +1,4 @@
-package com.viziotv.smartcast.remote.control.activities.wifiPackage;
+package com.viziotv.smartcast.remote.control.remoteConfig.wifiPackage;
 
 import android.app.Activity;
 import android.content.SharedPreferences.Editor;
@@ -14,7 +14,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
@@ -28,8 +27,8 @@ public class WifiRemoteUtils {
     private String hotAddressC;
     String nodeValue = "";
 
-    class a implements Runnable {
-        final Activity F0;
+    class FetchDevices implements Runnable {
+        final Activity mActivity;
 
         class FilterDevices implements Runnable {
             final WifiRemoteUtils wifiRemoteUtils;
@@ -47,7 +46,6 @@ public class WifiRemoteUtils {
                     if (WifiRemoteActivity.listViewAdapter.getCount() > 0) {
 
 
-
                     } else if (WifiRemoteUtils.this.b().equals(WifiRemoteActivity.o1)) {
                         if (WifiRemoteUtils.this.b().equals(WifiRemoteActivity.o1)) {
                             if (WifiRemoteActivity.i1 != null)
@@ -61,7 +59,7 @@ public class WifiRemoteUtils {
                             WifiRemoteActivity.progressBar.setVisibility(View.GONE);
                         if (WifiRemoteActivity.i1 != null)
                             WifiRemoteActivity.i1.setText(SetTextData.a);
-                        edit = a.this.F0.getSharedPreferences("vizio_saved_device", 0).edit();
+                        edit = FetchDevices.this.mActivity.getSharedPreferences("vizio_saved_device", 0).edit();
                         edit.putString("vizio_device", String.valueOf(WifiRemoteUtils.this.getDeviceName()));
                         edit.apply();
                     }
@@ -83,7 +81,7 @@ public class WifiRemoteUtils {
                     if (WifiRemoteActivity.i1 != null)
                         WifiRemoteActivity.i1.setText(SetTextData.a);
 
-                    edit = a.this.F0.getSharedPreferences("vizio_saved_device", 0).edit();
+                    edit = FetchDevices.this.mActivity.getSharedPreferences("vizio_saved_device", 0).edit();
                     edit.putString("vizio_device", String.valueOf(WifiRemoteUtils.this.getDeviceName()));
                     edit.apply();
                 }
@@ -93,32 +91,28 @@ public class WifiRemoteUtils {
             }
         }
 
-        a(Activity activity) {
-            this.F0 = activity;
+        FetchDevices(Activity activity) {
+            this.mActivity = activity;
         }
 
         public void run() {
             try {
-                // System.out.println("url is "+WifiRemoteUtils.this.WifiRemoteUtils());
-                if (WifiRemoteUtils.this.c().trim().isEmpty()) {
+                if (WifiRemoteUtils.this.getHotAddressC().trim().isEmpty()) {
                     Log.d("Vizio", "url is empty");
                     return;
                 }
-                Document parse = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new URL(WifiRemoteUtils.this.c()).openStream()));
+                Document parse = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new URL(WifiRemoteUtils.this.getHotAddressC()).openStream()));
                 parse.getDocumentElement().normalize();
                 Element element = (Element) parse.getElementsByTagName("device").item(0);
-                String nodeValue = ((Element) element.getElementsByTagName("friendlyName").item(0)).getChildNodes().item(0).getNodeValue();
+                String nodeValue = element.getElementsByTagName("friendlyName").item(0).getChildNodes().item(0).getNodeValue();
                 Log.d("Device", nodeValue);
-                HashMap<String, Object> datamap = new HashMap<>();
-                datamap.put("timeStamp", new Date());
-                datamap.put("DevName", nodeValue);
-
-                String nodeValue2 = ((Element) element.getElementsByTagName("manufacturer").item(0)).getChildNodes().item(0).getNodeValue();
-                NodeList childNodes = ((Element) element.getElementsByTagName("modelName").item(0)).getChildNodes();
-                datamap.put("manufacturer", nodeValue2);
-                datamap.put("modelName", childNodes);
-
-
+                HashMap<String, Object> dataMap = new HashMap<>();
+                dataMap.put("timeStamp", new Date());
+                dataMap.put("DevName", nodeValue);
+                String nodeValue2 = element.getElementsByTagName("manufacturer").item(0).getChildNodes().item(0).getNodeValue();
+                NodeList childNodes = element.getElementsByTagName("modelName").item(0).getChildNodes();
+                dataMap.put("manufacturer", nodeValue2);
+                dataMap.put("modelName", childNodes);
                 if (childNodes != null) {
                     WifiRemoteUtils.this.nodeValue = childNodes.item(0).getNodeValue();
                 }
@@ -133,33 +127,27 @@ public class WifiRemoteUtils {
                 stringBuilder.append("+");
                 stringBuilder.append(WifiRemoteUtils.this.nodeValue);
                 stringBuilder.append(" )");
-                wifiRemoteUtilsVar.i(stringBuilder.toString());
-                this.F0.runOnUiThread(new FilterDevices(new WifiRemoteUtils(WifiRemoteUtils.this.hotAddressB, WifiRemoteUtils.this.getDeviceName())));
-            } catch (MalformedURLException e) {
+                wifiRemoteUtilsVar.setDeviceName(stringBuilder.toString());
+                this.mActivity.runOnUiThread(new FilterDevices(new WifiRemoteUtils(WifiRemoteUtils.this.hotAddressB, WifiRemoteUtils.this.getDeviceName())));
+            } catch (ParserConfigurationException | IOException | SAXException e) {
                 e.printStackTrace();
-            } catch (ParserConfigurationException e2) {
-                e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            } catch (SAXException e4) {
-                e4.printStackTrace();
             }
         }
     }
 
     public WifiRemoteUtils(String str, int i, String str2, Activity activity) {
         this.hotAddressB = str;
-        g(str);
+        getHotAddressB(str);
         str = e(str2, "LOCATION:");
         this.hotAddressC = str;
-        h(str);
-        f(activity);
+        setHotAddressC(str);
+        startFetchingDevices(activity);
     }
 
     public WifiRemoteUtils(String str, String str2) {
         this.hotAddressB = str;
-        g(str);
-        i(str2);
+        getHotAddressB(str);
+        setDeviceName(str2);
     }
 
     private String e(String str, String str2) {
@@ -171,15 +159,15 @@ public class WifiRemoteUtils {
         return str.substring(indexOf, str.indexOf("\r\n", indexOf));
     }
 
-    private void f(Activity activity) {
-        new Thread(new a(activity)).start();
+    private void startFetchingDevices(Activity activity) {
+        new Thread(new FetchDevices(activity)).start();
     }
 
     public String b() {
         return this.hotAddressB;
     }
 
-    public String c() {
+    public String getHotAddressC() {
         return this.hotAddressC;
     }
 
@@ -187,16 +175,16 @@ public class WifiRemoteUtils {
         return this.deviceName;
     }
 
-    public void g(String str) {
+    public void getHotAddressB(String str) {
         this.hotAddressB = str;
     }
 
-    public void h(String str) {
+    public void setHotAddressC(String str) {
         this.hotAddressC = str;
     }
 
-    public void i(String str) {
-        this.deviceName = str;
+    public void setDeviceName(String name) {
+        this.deviceName = name;
     }
 
 }
