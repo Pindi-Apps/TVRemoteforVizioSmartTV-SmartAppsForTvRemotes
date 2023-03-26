@@ -201,7 +201,6 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
 
         public void onClick(View view) {
-            WifiRemoteViewActivity.this.S(5, 4, "KEYPRESS");
             WifiRemoteViewActivity.this.vibrator.vibrate(5);
         }
     }
@@ -840,7 +839,10 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             WifiRemoteViewActivity.this.S(5, 0, "KEYPRESS");
             playVibrate();
         });
-//        findViewById(R.id.mute_vizio).setOnClickListener(new j0());
+        findViewById(R.id.mute_vizio).setOnClickListener(v -> {
+            WifiRemoteViewActivity.this.S(5, 4, "KEYPRESS");
+            playVibrate();
+        });
         findViewById(R.id.channel_up).setOnClickListener(v -> {
             WifiRemoteViewActivity.this.S(8, 1, "KEYPRESS");
             playVibrate();

@@ -418,6 +418,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
+                android:id="@+id/mute_vizio"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
                 app:cardBackgroundColor="#C85D0B"
