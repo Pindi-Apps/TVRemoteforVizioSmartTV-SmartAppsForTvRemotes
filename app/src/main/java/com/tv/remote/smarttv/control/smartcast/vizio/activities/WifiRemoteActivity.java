@@ -26,18 +26,8 @@ public class WifiRemoteActivity extends AppCompatActivity {
     public static TextView h1;
     public static TextView i1;
     public static ProgressBar progressBar;
-//    public static boolean removeNativeAds;
-//    public static boolean m1;
     public static String n1;
     public static String o1;
-//    public static LinearLayout p1;
-//    private Button X0;
-//    private Button Y0;
-//    private Button Z0;
-//    private Button a1;
-//    SharedPreferences vizPreference;
-//    int vizAndroid;
-//    LinearLayout d1;
 
     class e implements View.OnClickListener {
         e() {

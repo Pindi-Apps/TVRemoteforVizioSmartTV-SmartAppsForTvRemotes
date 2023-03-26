@@ -18,6 +18,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.chaos.view.PinView;
 import com.google.android.material.button.MaterialButton;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 
@@ -64,8 +65,8 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     String b1 = "";
     String c1 = "VizMaticsMote";
     Dialog d1;
-    EditText e1;
-    String f1;
+    PinView pinView;
+    String getPinText;
     public Button g1;
     public Button h1;
     public Button i1;
@@ -449,8 +450,8 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             String str2 = "AUTH_TOKEN";
             try {
                 WifiRemoteViewActivity WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
-                if (WifiRemoteViewActivity_.e1 != null)
-                    WifiRemoteViewActivity_.f1 = WifiRemoteViewActivity_.e1.getText().toString();
+                if (WifiRemoteViewActivity_.pinView.getText() != null)
+                    WifiRemoteViewActivity_.getPinText = WifiRemoteViewActivity_.pinView.getText().toString();
                 String format = String.format("%s%s", new Object[]{WifiRemoteViewActivity.L1, WifiRemoteViewActivity.this.Y0});
                 WifiRemoteViewActivity WifiRemoteViewActivity_2 = WifiRemoteViewActivity.this;
                 StringBuilder stringBuilder = new StringBuilder();
@@ -464,7 +465,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
                 stringBuilder2.append(WifiRemoteViewActivity.this.b1);
                 stringBuilder2.append(111);
                 stringBuilder2.append("\",\"CHALLENGE_TYPE\": 1,\"RESPONSE_VALUE\": \"");
-                stringBuilder2.append(WifiRemoteViewActivity.this.f1);
+                stringBuilder2.append(WifiRemoteViewActivity.this.getPinText);
                 stringBuilder2.append("\",\"PAIRING_REQ_TOKEN\":");
                 stringBuilder2.append(WifiRemoteViewActivity.O1);
                 stringBuilder2.append("}");
@@ -580,7 +581,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
                 MaterialButton button = (MaterialButton) WifiRemoteViewActivity.this.d1.findViewById(R.id.pairing_ok);
                 MaterialButton button2 = (MaterialButton) WifiRemoteViewActivity.this.d1.findViewById(R.id.pairing_cancel);
                 WifiRemoteViewActivity WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
-                WifiRemoteViewActivity_.e1 = (EditText) WifiRemoteViewActivity_.d1.findViewById(R.id.pairing_pin);
+                WifiRemoteViewActivity_.pinView = (PinView) WifiRemoteViewActivity_.d1.findViewById(R.id.pairing_pin);
                 button2.setOnClickListener(new aa());
                 button.setOnClickListener(new b());
                 WifiRemoteViewActivity.this.d1.setCancelable(false);

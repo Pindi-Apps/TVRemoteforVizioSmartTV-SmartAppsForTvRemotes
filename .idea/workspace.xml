@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="optimize code part 4">
+    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="change package name of whole app 2">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
@@ -20,25 +20,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/viziotv/smartcast/remote/control/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/tv/remote/smarttv/control/ExampleInstrumentedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/RemoteViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/RemoteViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/SplashActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/WifiRemoteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/WifiRemoteActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/WifiRemoteViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/WifiRemoteViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/irRemote/ConsumerIrManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/irRemote/ConsumerIrManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/irRemote/ConsumerIrManagerCompat.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/irRemote/ConsumerIrManagerCompat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/irRemote/ConsumerIrManagerSamsung.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/irRemote/ConsumerIrManagerSamsung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/irRemote/IrCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/irRemote/IrCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/irRemote/IrCommandBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/irRemote/IrCommandBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/wifiPackage/FindVizAsyncTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/wifiPackage/FindVizAsyncTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/wifiPackage/ListViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/wifiPackage/ListViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/wifiPackage/SetTextData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/wifiPackage/SetTextData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/remoteConfig/wifiPackage/WifiRemoteUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/wifiPackage/WifiRemoteUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/viziotv/smartcast/remote/control/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/tv/remote/smarttv/control/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/WifiRemoteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/WifiRemoteActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/WifiRemoteViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/WifiRemoteViewActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/wifiPackage/SetTextData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/wifiPackage/SetTextData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/wifiPackage/WifiRemoteUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/remoteConfig/wifiPackage/WifiRemoteUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pairing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pairing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +224,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679804021596</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="change package name of whole app">
+      <created>1679806225480</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679806225480</updated>
+    </task>
+    <task id="LOCAL-00010" summary="change package name of whole app 2">
+      <created>1679806248943</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679806248943</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +260,8 @@
     <MESSAGE value="optimize code part 2" />
     <MESSAGE value="optimize code part 3" />
     <MESSAGE value="optimize code part 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize code part 4" />
+    <MESSAGE value="change package name of whole app" />
+    <MESSAGE value="change package name of whole app 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="change package name of whole app 2" />
   </component>
 </project>

@@ -57,7 +57,7 @@ public class WifiRemoteUtils {
                         if (WifiRemoteActivity.progressBar != null)
                             WifiRemoteActivity.progressBar.setVisibility(View.GONE);
                         if (WifiRemoteActivity.i1 != null)
-                            WifiRemoteActivity.i1.setText(SetTextData.a);
+                            WifiRemoteActivity.i1.setText(SetTextData.textId);
                         edit = FetchDevices.this.mActivity.getSharedPreferences("vizio_saved_device", 0).edit();
                         edit.putString("vizio_device", String.valueOf(WifiRemoteUtils.this.getDeviceName()));
                         edit.apply();
@@ -78,7 +78,7 @@ public class WifiRemoteUtils {
                     if (WifiRemoteActivity.progressBar != null)
                         WifiRemoteActivity.progressBar.setVisibility(View.GONE);
                     if (WifiRemoteActivity.i1 != null)
-                        WifiRemoteActivity.i1.setText(SetTextData.a);
+                        WifiRemoteActivity.i1.setText(SetTextData.textId);
 
                     edit = FetchDevices.this.mActivity.getSharedPreferences("vizio_saved_device", 0).edit();
                     edit.putString("vizio_device", String.valueOf(WifiRemoteUtils.this.getDeviceName()));
