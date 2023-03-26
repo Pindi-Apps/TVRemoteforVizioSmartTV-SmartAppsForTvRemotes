@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.viziotv.smartcast.remote.control'
+    namespace 'com.tv.remote.smarttv.control.smartcast.vizio'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.viziotv.smartcast.remote.control"
+        applicationId "com.tv.remote.smarttv.control.smartcast.vizio"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -50,7 +50,7 @@ dependencies {
     implementation 'com.stanfy:gson-xml-java:0.1.7'
     implementation 'com.anjlab.android.iab.v3:library:2.0.3'
     implementation "androidx.multidex:multidex:2.0.1"
-    implementation 'com.github.bumptech.glide:glide:4.14.1'
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
