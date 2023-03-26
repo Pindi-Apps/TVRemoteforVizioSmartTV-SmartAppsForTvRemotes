@@ -26,7 +26,6 @@ public class WifiRemoteUtils {
     private String hotAddressB;
     private String hotAddressC;
     String nodeValue = "";
-
     class FetchDevices implements Runnable {
         final Activity mActivity;
 
