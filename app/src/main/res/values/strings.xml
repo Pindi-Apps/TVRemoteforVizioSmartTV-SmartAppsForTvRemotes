@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Lg and Ruko Mirror</string>
+
+
+
+    <string name="admobAppId">ca-app-pub-3940256099942544~3347511713</string>
+
+
 </resources>
