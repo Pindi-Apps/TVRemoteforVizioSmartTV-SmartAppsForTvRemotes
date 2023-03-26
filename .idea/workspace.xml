@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="optimize code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/WifiRemoteViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/WifiRemoteViewActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="optimize code part 3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,7 +176,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679766954363</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="optimize code part 2">
+      <created>1679803862212</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679803862212</updated>
+    </task>
+    <task id="LOCAL-00006" summary="optimize code part 2">
+      <created>1679803875307</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679803875307</updated>
+    </task>
+    <task id="LOCAL-00007" summary="optimize code part 3">
+      <created>1679803901055</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679803901055</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +216,8 @@
     <MESSAGE value="integrate IR remote but not tested" />
     <MESSAGE value="integrate Wifi remote and Ir remote fully tested" />
     <MESSAGE value="optimize code" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize code" />
+    <MESSAGE value="optimize code part 2" />
+    <MESSAGE value="optimize code part 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize code part 3" />
   </component>
 </project>
