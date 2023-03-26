@@ -166,7 +166,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (binding.drawLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawLayout.closeDrawer(GravityCompat.START);
-        } else
-            super.onBackPressed();
+        } else {
+            startActivity(new Intent(this , BackActivity.class));
+        }
     }
 }

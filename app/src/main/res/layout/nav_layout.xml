@@ -30,7 +30,7 @@
                     android:layout_height="80dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_share_app" />
+                    android:src="@drawable/app_icon" />
 
                 <TextView
                     android:id="@+id/profile_name"

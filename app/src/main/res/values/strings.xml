@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Lg and Ruko Mirror</string>
+    <string name="app_name">Vizio Tv Remote</string>
 
 
-    <string name="moreAppsLink">https://play.google.com/store/apps/dev?id=9133452689932095671</string>
-    <string name="privacyPolicyLink">http://www2.mouse-games.com/policy.htm</string>
+    <string name="moreAppsLink">https://play.google.com/store/apps/developer?id=Smart+Apps+For+Tv+Remotes</string>
+    <string name="privacyPolicyLink">https://besttvremote.blogspot.com/2021/02/privacy-policy.html</string>
 
 
     <string name="admobAppId">ca-app-pub-3940256099942544~3347511713</string>
@@ -15,5 +15,13 @@
 
 
     <string name="guideText">To use your Vizio TV remote for a WiFi app, you will need to first ensure that your TV is connected to WiFi and that you have downloaded the Vizio SmartCast app on your smartphone or tablet.\n<b>Once you have done this, follow these steps:</b>\n\n<b>1. </b>Ensure that your TV and mobile device are on the same WiFi network.\n\n<b>2. </b>Open the Vizio SmartCast app on your mobile device.\n\n<b>3. </b>Press the "WIFI REMOTE" button located at the top of the screen.\n\n<b>4. </b>Select your VIZIO TV from the list of available devices.\n\n<b>5. </b>The content on your mobile device will now be displayed on your TV screen. You can use your Vizio TV remote to control the app.\n\n<b>Note that some features of the app may not be accessible through the remote control and may require you to use your mobile device to control them.</b></string>
+
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="thanks_for_using_our_app">Thanks! For Using Our App</string>
+    <string name="are_you_sure_you_want_to_exit_app">Are You Sure You Want to Exit App?</string>
+
+
 
 </resources>
