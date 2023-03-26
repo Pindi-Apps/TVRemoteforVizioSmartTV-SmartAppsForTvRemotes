@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="app_color">#313234</color>
     <color name="bg_color">#424242</color>
+
+
+
+    <color name="native_ad_background_color">#1010</color>
 </resources>

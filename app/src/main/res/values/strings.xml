@@ -3,7 +3,15 @@
 
 
 
-    <string name="admobAppId">ca-app-pub-3940256099942544~3347511713</string>
 
+    <string name="moreAppsLink">https://play.google.com/store/apps/dev?id=9133452689932095671</string>
+    <string name="privacyPolicyLink">http://www2.mouse-games.com/policy.htm</string>
+
+
+    <string name="admobAppId">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admobNativeId">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="admobInterstitialId">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admobBannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admobOpenId">ca-app-pub-3940256099942544/3419835294</string>
 
 </resources>

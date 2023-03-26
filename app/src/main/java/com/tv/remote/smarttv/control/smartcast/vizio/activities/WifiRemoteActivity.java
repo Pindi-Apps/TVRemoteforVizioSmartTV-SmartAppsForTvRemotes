@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.wifiPackage.ListViewAdapter;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.wifiPackage.WifiRemoteUtils;
@@ -124,6 +126,10 @@ public class WifiRemoteActivity extends AppCompatActivity {
         o1 = getSharedPreferences("vizio_url", 0).getString("vizio_url_string", str);
         super.onCreate(bundle);
         setContentView(R.layout.activity_wifi_remote);
+        AdView adView = findViewById(R.id.adView);
+        adView.loadAd(new AdRequest.Builder().build());
+
+
         //  TextView textView = (TextView) findViewById(d.T);
         //  p1 = (LinearLayout) findViewById(d.x);
         // TextView textView2 = (TextView) findViewById(d.R);
@@ -140,6 +146,9 @@ public class WifiRemoteActivity extends AppCompatActivity {
         progressBar =  findViewById(R.id.progressBar_vizio);
 //        WifiRemoteActivity.progressBar = progressBar;
         progressBar.setIndeterminate(true);
+
+        findViewById(R.id.ivBack).setOnClickListener(v -> finish());
+
 //        this.vizAndroid = 0;
 
         listViewAdapter = new ListViewAdapter(this, R.layout.rv_search_list);

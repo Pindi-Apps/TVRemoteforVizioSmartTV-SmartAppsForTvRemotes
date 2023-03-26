@@ -12,23 +12,24 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.chaos.view.PinView;
 import com.google.android.material.button.MaterialButton;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -52,7 +53,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     String a1 = "/app/launch";
     String b1 = "";
     String c1 = "VizMaticsMote";
-    Dialog d1;
+    Dialog dialogPairing;
     PinView pinView;
     String getPinText;
 
@@ -82,6 +83,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             this.vibrator.vibrate(5);
         }
     }
+
     class t implements Runnable {
         t() {
         }
@@ -247,7 +249,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
                 }
 
                 public void onClick(View view) {
-                    WifiRemoteViewActivity.this.d1.dismiss();
+                    WifiRemoteViewActivity.this.dialogPairing.dismiss();
                 }
             }
 
@@ -268,7 +270,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
 
                 public void onClick(View view) {
                     WifiRemoteViewActivity.this.U();
-                    WifiRemoteViewActivity.this.d1.dismiss();
+                    WifiRemoteViewActivity.this.dialogPairing.dismiss();
                     new Handler(Looper.getMainLooper()).postDelayed(new aaa(), 60000);
                 }
             }
@@ -277,20 +279,19 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             }
 
             public void run() {
-                WifiRemoteViewActivity.this.d1 = new Dialog(WifiRemoteViewActivity.this);
-                WifiRemoteViewActivity.this.d1.setContentView(R.layout.fragment_pairing);
-                WifiRemoteViewActivity.this.d1.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                if (Build.VERSION.SDK_INT >= 3) {
-                    WifiRemoteViewActivity.this.d1.getWindow().setSoftInputMode(5);
-                }
-                MaterialButton button = (MaterialButton) WifiRemoteViewActivity.this.d1.findViewById(R.id.pairing_ok);
-                MaterialButton button2 = (MaterialButton) WifiRemoteViewActivity.this.d1.findViewById(R.id.pairing_cancel);
+                WifiRemoteViewActivity.this.dialogPairing = new Dialog(WifiRemoteViewActivity.this);
+                WifiRemoteViewActivity.this.dialogPairing.setContentView(R.layout.fragment_pairing);
+                WifiRemoteViewActivity.this.dialogPairing.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                WifiRemoteViewActivity.this.dialogPairing.getWindow().setSoftInputMode(5);
+
+                MaterialButton button = (MaterialButton) WifiRemoteViewActivity.this.dialogPairing.findViewById(R.id.pairing_ok);
+                MaterialButton button2 = (MaterialButton) WifiRemoteViewActivity.this.dialogPairing.findViewById(R.id.pairing_cancel);
                 WifiRemoteViewActivity WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
-                WifiRemoteViewActivity_.pinView = (PinView) WifiRemoteViewActivity_.d1.findViewById(R.id.pairing_pin);
+                WifiRemoteViewActivity_.pinView = (PinView) WifiRemoteViewActivity_.dialogPairing.findViewById(R.id.pairing_pin);
                 button2.setOnClickListener(new aa());
                 button.setOnClickListener(new b());
-                WifiRemoteViewActivity.this.d1.setCancelable(false);
-                WifiRemoteViewActivity.this.d1.show();
+                WifiRemoteViewActivity.this.dialogPairing.setCancelable(false);
+                WifiRemoteViewActivity.this.dialogPairing.show();
             }
         }
 

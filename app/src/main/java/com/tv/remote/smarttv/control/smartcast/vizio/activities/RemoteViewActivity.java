@@ -18,6 +18,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.irRemote.ConsumerIrManager;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.irRemote.IrCommandBuilder;
@@ -74,6 +77,10 @@ public class RemoteViewActivity extends AppCompatActivity {
         } catch (Exception ignored) {
             ignored.printStackTrace();
         }
+
+
+        AdView adView = findViewById(R.id.adView);
+        adView.loadAd(new AdRequest.Builder().build());
 
 
         try {

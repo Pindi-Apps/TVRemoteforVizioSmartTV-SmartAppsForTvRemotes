@@ -2,217 +2,281 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_color"
-    android:id="@+id/drawLayout"
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#0662C3"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
-            android:id="@+id/ivMenu"
-            android:padding="3dp"
-            android:src="@drawable/ic_menu" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="LG and Roku Mirror"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:id="@+id/ivPrivacy"
-            android:layout_marginEnd="5dp"
-            android:padding="3dp"
-            android:layout_gravity="end"
-            android:src="@drawable/ic_privacy" />
-    </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvWifiRemote"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            android:outlineAmbientShadowColor="@color/white"
-            android:outlineSpotShadowColor="@color/white"
-            app:cardBackgroundColor="@color/bg_color"
-            app:cardCornerRadius="10dp">
-
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="70dp"
+                android:background="#0662C3"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:padding="15dp"
-                    android:src="@drawable/ic_wifi_remote" />
+                    android:id="@+id/ivMenu"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_menu" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
-                    android:text="Wifi Remote"
+                    android:text="LG and Roku Mirror"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-            </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvIrRemote"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            android:outlineAmbientShadowColor="@color/white"
-            android:outlineSpotShadowColor="@color/white"
-            app:cardBackgroundColor="@color/bg_color"
-            app:cardCornerRadius="10dp">
+                <ImageView
+                    android:id="@+id/ivPrivacy"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="5dp"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_privacy" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvWifiRemote"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginHorizontal="10dp"
                     android:layout_weight="1"
-                    android:padding="15dp"
-                    android:src="@drawable/ic_ir_remote" />
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/bg_color"
+                    app:cardCornerRadius="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_wifi_remote" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="Wifi Remote"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvIrRemote"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginHorizontal="10dp"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="IR Remote"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/bg_color"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_ir_remote" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="IR Remote"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvScreenMirror"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            android:outlineAmbientShadowColor="@color/white"
-            android:outlineSpotShadowColor="@color/white"
-            app:cardBackgroundColor="@color/bg_color"
-            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvScreenMirror"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginHorizontal="10dp"
                     android:layout_weight="1"
-                    android:padding="15dp"
-                    android:src="@drawable/ic_screen_mirror" />
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/bg_color"
+                    app:cardCornerRadius="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_screen_mirror" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="Screen Mirror"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvRateUs"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginHorizontal="10dp"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="Screen Mirror"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/bg_color"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_rate" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="Rate App"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvRateUs"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            android:outlineAmbientShadowColor="@color/white"
-            android:outlineSpotShadowColor="@color/white"
-            app:cardBackgroundColor="@color/bg_color"
-            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:padding="15dp"
-                    android:src="@drawable/ic_rate" />
-
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="Rate App"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Advertisement"
+                    android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <include android:id="@+id/nativeAdPlaceHolder"
+                            layout="@layout/native_ad_place_holder"
+                            />
+
+
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/nativeAd"
+                            />
+
+
+                    </FrameLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
-    </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
