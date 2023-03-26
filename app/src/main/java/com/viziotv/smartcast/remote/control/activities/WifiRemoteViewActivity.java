@@ -753,7 +753,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         M1 = defaultSharedPreferences;
         SharedPreferences.Editor edit = defaultSharedPreferences.edit();
         edit.putString(str, str2);
-        edit.commit();
+        edit.apply();
         if (str2 == null) {
             onSharedPreferenceChanged(N1, null);
         }
