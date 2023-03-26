@@ -18,11 +18,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.irRemote.ConsumerIrManager;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.irRemote.IrCommandBuilder;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
