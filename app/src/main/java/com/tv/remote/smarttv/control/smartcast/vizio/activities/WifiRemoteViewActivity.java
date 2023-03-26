@@ -14,14 +14,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.chaos.view.PinView;
 import com.google.android.material.button.MaterialButton;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
@@ -33,7 +29,6 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
-
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -48,13 +43,6 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     public static SharedPreferences N1;
     public static String O1;
     public static String P1;
-    public Button A1;
-    public Button B1;
-    public Button C1;
-    public Button D1;
-    public Button E1;
-    public Button F1;
-    public Button G1;
     boolean H1;
     private Vibrator vibrator;
     final HostnameVerifier K1 = new z(this);
@@ -67,26 +55,6 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     Dialog d1;
     PinView pinView;
     String getPinText;
-    public Button g1;
-    public Button h1;
-    public Button i1;
-    public Button j1;
-    public Button k1;
-    public Button l1;
-    public Button m1;
-    public Button n1;
-    public Button o1;
-    public Button p1;
-    public Button powerq1;
-    public Button r1;
-    public CheckBox mutes1;
-    public Button volups1;
-    public Button u1;
-    public Button v1;
-    public Button w1;
-    public Button x1;
-    public Button y1;
-    public Button z1;
 
     static class a0 implements X509TrustManager {
         a0() {
@@ -106,169 +74,6 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         }
     }
 
-    class a implements View.OnClickListener {
-        a() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class b implements View.OnClickListener {
-        b() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class c implements View.OnClickListener {
-        c() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class d implements View.OnClickListener {
-        d() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class e implements View.OnClickListener {
-        e() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class f implements View.OnClickListener {
-        f() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class g0 implements View.OnClickListener {
-        g0() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class g implements View.OnClickListener {
-        g() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class h implements View.OnClickListener {
-        h() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class i implements View.OnClickListener {
-        i() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class j0 implements View.OnClickListener {
-        j0() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class j implements View.OnClickListener {
-        j() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class k0 implements View.OnClickListener {
-        k0() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class k implements View.OnClickListener {
-        k() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class l0 implements View.OnClickListener {
-        l0() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class l implements View.OnClickListener {
-        l() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class m0 implements View.OnClickListener {
-        m0() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class m implements View.OnClickListener {
-        m() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-
     private void playVibrate() {
         if (this.vibrator == null) {
             this.vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -277,93 +82,6 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             this.vibrator.vibrate(5);
         }
     }
-
-    class n0 implements View.OnClickListener {
-        n0() {
-        }
-
-        public void onClick(View view) {
-            playVibrate();
-        }
-    }
-
-    class n implements View.OnClickListener {
-        n() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class o0 implements View.OnClickListener {
-        o0() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class o implements View.OnClickListener {
-        o() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class p implements View.OnClickListener {
-        p() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class q implements View.OnClickListener {
-        q() {
-        }
-
-        public void onClick(View view) {
-            boolean z;
-            WifiRemoteViewActivity WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
-            String str = "KEYPRESS";
-            if (WifiRemoteViewActivity_.H1) {
-                WifiRemoteViewActivity_.S(2, 3, str);
-                playVibrate();
-                WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
-                z = false;
-            } else {
-                WifiRemoteViewActivity_.S(2, 2, str);
-                playVibrate();
-                WifiRemoteViewActivity_ = WifiRemoteViewActivity.this;
-                z = true;
-            }
-            WifiRemoteViewActivity_.H1 = z;
-        }
-    }
-
-    class r implements View.OnClickListener {
-        r() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
-    class s implements View.OnClickListener {
-        s() {
-        }
-
-        public void onClick(View view) {
-            WifiRemoteViewActivity.this.vibrator.vibrate(5);
-        }
-    }
-
     class t implements Runnable {
         t() {
         }
@@ -418,14 +136,8 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
                     }
                 }
                 httpsURLConnection.disconnect();
-            } catch (ProtocolException e) {
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            } catch (JSONException e4) {
-                e4.printStackTrace();
             }
         }
     }
@@ -511,14 +223,8 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
                         return;
                     }
                 }
-            } catch (ProtocolException e) {
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            } catch (JSONException e4) {
-                e4.printStackTrace();
             }
         }
     }
@@ -648,14 +354,8 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
                         return;
                     }
                 }
-            } catch (ProtocolException e) {
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            } catch (JSONException e4) {
-                e4.printStackTrace();
             }
         }
     }
@@ -711,14 +411,8 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
                         return;
                     }
                 }
-            } catch (ProtocolException e) {
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            } catch (JSONException e4) {
-                e4.printStackTrace();
             }
         }
     }
