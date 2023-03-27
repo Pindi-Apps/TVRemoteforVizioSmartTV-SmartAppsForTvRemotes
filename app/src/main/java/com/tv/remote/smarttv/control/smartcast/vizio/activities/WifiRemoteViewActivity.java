@@ -501,6 +501,7 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     }
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
