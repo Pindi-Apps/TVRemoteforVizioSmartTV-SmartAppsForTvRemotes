@@ -9,3 +9,5 @@
 integrate IR remote and Wifi remote with backend.
 Its tested and working fine.
 Optimize code with architecture
+
+integrate admob ads
