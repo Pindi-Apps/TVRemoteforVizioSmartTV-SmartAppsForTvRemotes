@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "221180324317",
+    "project_id": "vizio-remote-3e059",
+    "storage_bucket": "vizio-remote-3e059.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221180324317:android:d555f5015a4e3f60bc2e34",
+        "android_client_info": {
+          "package_name": "com.tv.remote.smarttv.control.smartcast.vizio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221180324317-e8d7jk6hlrcffprloacspm595sgalqeh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT7p60obSROygl5rt020rR5VoELvElIvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221180324317-e8d7jk6hlrcffprloacspm595sgalqeh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
