@@ -60,7 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTop"
-        app:layout_constraintBottom_toTopOf="@id/adView"
+        app:layout_constraintBottom_toTopOf="@id/bannerView"
         />
 
     <ProgressBar
@@ -73,17 +73,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/admobBannerId"
-        />
+    <com.yodo1.mas.banner.Yodo1MasBannerAdView
+        xmlns:masads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bannerView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        masads:adSize="Banner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 

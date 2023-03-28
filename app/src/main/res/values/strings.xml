@@ -14,6 +14,13 @@
 
 
 
+    <string name="yodaMasAppKey">ad0AFSXEi7</string>
+    <string name="yodaMasAdmobId">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="yodaMasInterstitial">GameOver</string>
+
+
+
+
     <string name="guideText">To use your Vizio TV remote for a WiFi app, you will need to first ensure that your TV is connected to WiFi and that you have downloaded the Vizio SmartCast app on your smartphone or tablet.\n<b>Once you have done this, follow these steps:</b>\n\n<b>1. </b>Ensure that your TV and mobile device are on the same WiFi network.\n\n<b>2. </b>Open the Vizio SmartCast app on your mobile device.\n\n<b>3. </b>Press the "WIFI REMOTE" button located at the top of the screen.\n\n<b>4. </b>Select your VIZIO TV from the list of available devices.\n\n<b>5. </b>The content on your mobile device will now be displayed on your TV screen. You can use your Vizio TV remote to control the app.\n\n<b>Note that some features of the app may not be accessible through the remote control and may require you to use your mobile device to control them.</b></string>
 
 

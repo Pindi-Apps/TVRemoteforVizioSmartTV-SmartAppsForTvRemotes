@@ -16,6 +16,7 @@ import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.wifiPackage.ListViewAdapter;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.wifiPackage.WifiRemoteUtils;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.wifiPackage.FindVizAsyncTask;
+import com.yodo1.mas.banner.Yodo1MasBannerAdView;
 
 import java.net.DatagramSocket;
 
@@ -126,9 +127,8 @@ public class WifiRemoteActivity extends AppCompatActivity {
         o1 = getSharedPreferences("vizio_url", 0).getString("vizio_url_string", str);
         super.onCreate(bundle);
         setContentView(R.layout.activity_wifi_remote);
-        AdView adView = findViewById(R.id.adView);
-        adView.loadAd(new AdRequest.Builder().build());
-
+        Yodo1MasBannerAdView adView = findViewById(R.id.bannerView);
+        adView.loadAd();
 
         //  TextView textView = (TextView) findViewById(d.T);
         //  p1 = (LinearLayout) findViewById(d.x);

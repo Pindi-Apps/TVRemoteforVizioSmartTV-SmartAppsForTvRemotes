@@ -18,7 +18,6 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
-        android:name=".utils.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -38,7 +37,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admobAppId" />
+            android:value="@string/yodaMasAdmobId" />
 
         <activity
             android:name=".activities.WifiRemoteActivity"

@@ -28,72 +28,73 @@ import com.google.android.gms.ads.nativead.NativeAdView;
 import com.tv.remote.smarttv.control.smartcast.vizio.BuildConfig;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityMainBinding;
+import com.yodo1.mas.Yodo1Mas;
+import com.yodo1.mas.error.Yodo1MasError;
+import com.yodo1.mas.interstitial.Yodo1MasInterstitialAd;
+import com.yodo1.mas.interstitial.Yodo1MasInterstitialAdListener;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-    private NativeAd mNativeAd;
-    private InterstitialAd mInterstitialAd;
 
 
-
-    private void loadNative() {
-        AdLoader.Builder builder = new AdLoader.Builder(this, getString(R.string.admobNativeId));
-        builder.forNativeAd( forNativeAd -> {
-            boolean isDestroy = false;
-            isDestroy = this.isDestroyed();
-            if (isDestroy || this.isFinishing() || this.isChangingConfigurations()){
-                forNativeAd.destroy();
-            }else {
-                if (this.mNativeAd != null){
-                    this.mNativeAd.destroy();
-                }
-                this.mNativeAd = forNativeAd;
-                binding.nativeAd.removeAllViews();
-                binding.nativeAdPlaceHolder.llRoot.setVisibility(View.GONE);
-                NativeAdView view = (NativeAdView) LayoutInflater.from(this).inflate(R.layout.native_ad, null);
-                if (view != null){
-                    populateNativeAd(forNativeAd , view);
-                    binding.nativeAd.addView(view);
-                }
-            }
-        });
-        VideoOptions videoOptions = new VideoOptions.Builder().setStartMuted(true).build();
-        NativeAdOptions adOptions = new NativeAdOptions.Builder().setVideoOptions(videoOptions).build();
-        builder.withNativeAdOptions(adOptions);
-        builder.build().loadAd(new AdRequest.Builder().build());
-    }
-
-    private void populateNativeAd(NativeAd nativeAd,NativeAdView adView){
-        adView.setMediaView((MediaView) adView.findViewById(R.id.ad_media));
-        adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
-        adView.setBodyView(adView.findViewById(R.id.ad_body));
-        adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
-        ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
-        adView.getMediaView().setMediaContent(nativeAd.getMediaContent());
-
-        if (nativeAd.getBody() == null){
-            adView.getBodyView().setVisibility(View.INVISIBLE);
-        }else {
-            adView.getBodyView().setVisibility(View.VISIBLE);
-            ((TextView) adView.getBodyView()).setText(nativeAd.getBody());
-        }
-        if (nativeAd.getCallToAction() == null) {
-            adView.getCallToActionView().setVisibility(View.INVISIBLE);
-        } else {
-            adView.getCallToActionView().setVisibility(View.VISIBLE);
-            ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
-        }
-        adView.setNativeAd(nativeAd);
-        if (nativeAd.getMediaContent() != null && nativeAd.getMediaContent().hasVideoContent()) {
-            VideoController vc = nativeAd.getMediaContent().getVideoController();
-            vc.setVideoLifecycleCallbacks(new VideoController.VideoLifecycleCallbacks() {
-                @Override
-                public void onVideoEnd() {
-                    super.onVideoEnd();
-                }
-            });
-        }
-    }
+//    private void loadNative() {
+//        AdLoader.Builder builder = new AdLoader.Builder(this, getString(R.string.admobNativeId));
+//        builder.forNativeAd( forNativeAd -> {
+//            boolean isDestroy = false;
+//            isDestroy = this.isDestroyed();
+//            if (isDestroy || this.isFinishing() || this.isChangingConfigurations()){
+//                forNativeAd.destroy();
+//            }else {
+//                if (this.mNativeAd != null){
+//                    this.mNativeAd.destroy();
+//                }
+//                this.mNativeAd = forNativeAd;
+//                binding.nativeAd.removeAllViews();
+//                binding.nativeAdPlaceHolder.llRoot.setVisibility(View.GONE);
+//                NativeAdView view = (NativeAdView) LayoutInflater.from(this).inflate(R.layout.native_ad, null);
+//                if (view != null){
+//                    populateNativeAd(forNativeAd , view);
+//                    binding.nativeAd.addView(view);
+//                }
+//            }
+//        });
+//        VideoOptions videoOptions = new VideoOptions.Builder().setStartMuted(true).build();
+//        NativeAdOptions adOptions = new NativeAdOptions.Builder().setVideoOptions(videoOptions).build();
+//        builder.withNativeAdOptions(adOptions);
+//        builder.build().loadAd(new AdRequest.Builder().build());
+//    }
+//
+//    private void populateNativeAd(NativeAd nativeAd,NativeAdView adView){
+//        adView.setMediaView((MediaView) adView.findViewById(R.id.ad_media));
+//        adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
+//        adView.setBodyView(adView.findViewById(R.id.ad_body));
+//        adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
+//        ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
+//        adView.getMediaView().setMediaContent(nativeAd.getMediaContent());
+//
+//        if (nativeAd.getBody() == null){
+//            adView.getBodyView().setVisibility(View.INVISIBLE);
+//        }else {
+//            adView.getBodyView().setVisibility(View.VISIBLE);
+//            ((TextView) adView.getBodyView()).setText(nativeAd.getBody());
+//        }
+//        if (nativeAd.getCallToAction() == null) {
+//            adView.getCallToActionView().setVisibility(View.INVISIBLE);
+//        } else {
+//            adView.getCallToActionView().setVisibility(View.VISIBLE);
+//            ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
+//        }
+//        adView.setNativeAd(nativeAd);
+//        if (nativeAd.getMediaContent() != null && nativeAd.getMediaContent().hasVideoContent()) {
+//            VideoController vc = nativeAd.getMediaContent().getVideoController();
+//            vc.setVideoLifecycleCallbacks(new VideoController.VideoLifecycleCallbacks() {
+//                @Override
+//                public void onVideoEnd() {
+//                    super.onVideoEnd();
+//                }
+//            });
+//        }
+//    }
 
 
     @Override
@@ -101,18 +102,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        loadNative();
+        binding.yodo1MasNative.loadAd();
         loadInterstitial();
-
-        binding.nav.navRate.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID))));
-
-        binding.nav.navMoreApps.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW ,
+        binding.nav.navRate.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID))));
+        binding.nav.navMoreApps.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse(getString(R.string.moreAppsLink)))));
-
         binding.cvWifiRemote.setOnClickListener(v -> {
-            if (mInterstitialAd != null){
-                mInterstitialAd.show(this);
-            }else {
+            boolean isLoaded = Yodo1MasInterstitialAd.getInstance().isLoaded();
+            if (isLoaded) {
+                Yodo1MasInterstitialAd.getInstance().showAd(MainActivity.this, getString(R.string.yodaMasInterstitial));
+            } else {
                 startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
             }
         });
@@ -127,9 +126,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.ivPrivacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse(getString(R.string.privacyPolicyLink)))));
+        binding.ivPrivacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacyPolicyLink)))));
         binding.cvRateUs.setOnClickListener(v -> {
-            startActivity(new Intent(this , GuideActivity.class));
+            startActivity(new Intent(this, GuideActivity.class));
 //            startActivity(new Intent(Intent.ACTION_VIEW , Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID)));
         });
         binding.ivMenu.setOnClickListener(v -> {
@@ -139,27 +138,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadInterstitial() {
-        InterstitialAd.load(this, getString(R.string.admobInterstitialId), new AdRequest.Builder().build(),
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        super.onAdFailedToLoad(loadAdError);
-                        mInterstitialAd = null;
-                    }
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        super.onAdLoaded(interstitialAd);
-                        mInterstitialAd = interstitialAd;
-                        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-                            @Override
-                            public void onAdDismissedFullScreenContent() {
-                                super.onAdDismissedFullScreenContent();
-                                mInterstitialAd = null;
-                                startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
-                            }
-                        });
-                    }
-                });
+        Yodo1MasInterstitialAd.getInstance().loadAd(MainActivity.this);
+        Yodo1MasInterstitialAd.getInstance().setAdListener(new Yodo1MasInterstitialAdListener() {
+            @Override
+            public void onInterstitialAdLoaded(Yodo1MasInterstitialAd ad) {
+
+            }
+
+            @Override
+            public void onInterstitialAdFailedToLoad(Yodo1MasInterstitialAd ad, @NonNull Yodo1MasError error) {
+
+            }
+
+            @Override
+            public void onInterstitialAdOpened(Yodo1MasInterstitialAd ad) {
+
+            }
+
+            @Override
+            public void onInterstitialAdFailedToOpen(Yodo1MasInterstitialAd ad, @NonNull Yodo1MasError error) {
+                startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
+            }
+
+            @Override
+            public void onInterstitialAdClosed(Yodo1MasInterstitialAd ad) {
+                startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
+            }
+        });
     }
 
     @Override
@@ -167,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
         if (binding.drawLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawLayout.closeDrawer(GravityCompat.START);
         } else {
-            startActivity(new Intent(this , BackActivity.class));
+            startActivity(new Intent(this, BackActivity.class));
         }
     }
 }

@@ -54,7 +54,16 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'io.github.chaosleung:pinview:1.4.4'
-    implementation 'com.google.android.gms:play-services-ads:21.5.0'
+
+
+
+//    implementation 'com.google.android.gms:play-services-ads:21.5.0'
+
+    implementation 'com.yodo1.mas:lite:4.8.7'
+
+
+
+
     implementation 'androidx.lifecycle:lifecycle-process:2.6.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10"
 //    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.6.0"

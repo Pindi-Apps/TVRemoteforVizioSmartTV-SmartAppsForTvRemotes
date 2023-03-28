@@ -1,5 +1,6 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -24,6 +25,10 @@ import com.google.android.gms.ads.AdView;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.irRemote.ConsumerIrManager;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.irRemote.IrCommandBuilder;
+import com.yodo1.mas.banner.Yodo1MasBannerAdListener;
+import com.yodo1.mas.banner.Yodo1MasBannerAdView;
+import com.yodo1.mas.error.Yodo1MasError;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -60,9 +65,6 @@ public class RemoteViewActivity extends AppCompatActivity {
     ConsumerIrManager consumerIrManager;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,12 +79,6 @@ public class RemoteViewActivity extends AppCompatActivity {
         } catch (Exception ignored) {
             ignored.printStackTrace();
         }
-
-
-        AdView adView = findViewById(R.id.adView);
-        adView.loadAd(new AdRequest.Builder().build());
-
-
         try {
             if (consumerIrManager.hasIrEmitter()) {
                 android.hardware.ConsumerIrManager.CarrierFrequencyRange[] ranges = consumerIrManager.getCarrierFrequencies();
@@ -99,7 +95,8 @@ public class RemoteViewActivity extends AppCompatActivity {
 
 
 
-
+        Yodo1MasBannerAdView adView = findViewById(R.id.bannerView);
+        adView.loadAd();
 
     }
 
@@ -166,9 +163,6 @@ public class RemoteViewActivity extends AppCompatActivity {
         cancel_btn.setOnClickListener(view -> alertDialog.dismiss());
         alertDialog.show();
     }
-
-
-
 
 
     protected String hex2dec(String irData) {
@@ -5794,7 +5788,6 @@ public class RemoteViewActivity extends AppCompatActivity {
                 break;
         }
     }
-
 
 
 }

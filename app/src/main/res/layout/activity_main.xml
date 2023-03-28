@@ -246,18 +246,12 @@
                         android:layout_height="wrap_content"
                         >
 
-                        <include android:id="@+id/nativeAdPlaceHolder"
-                            layout="@layout/native_ad_place_holder"
-                            />
-
-
-
-
-                        <FrameLayout
+                        <com.yodo1.mas.nativeads.Yodo1MasNativeAdView
+                            android:id="@+id/yodo1_mas_native"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/nativeAd"
-                            />
+                            android:layout_height="300dp"
+                            android:layout_gravity="center_horizontal|top"/>
+
 
 
                     </FrameLayout>
