@@ -34,6 +34,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocket;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
@@ -73,6 +74,9 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
             Log.d("Host_Name_getAccepted:", "X509Certificate getAcceptedIssuers");
             return new X509Certificate[0];
         }
+
+
+
     }
 
     private void playVibrate() {
@@ -474,8 +478,14 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
 
         TrustManager[] trustManagerArr = new TrustManager[]{new a0()};
         try {
-            SSLContext instance = SSLContext.getInstance("SSL");
+            SSLContext instance = SSLContext.getInstance("TLS");
             instance.init(null, trustManagerArr, new SecureRandom());
+//            SSLSocket sSLSocket = (SSLSocket) instance.getSocketFactory().createSocket(str, i);
+//            sSLSocket.setNeedClientAuth(true);
+//            sSLSocket.setUseClientMode(true);
+//            sSLSocket.setKeepAlive(true);
+//            sSLSocket.setTcpNoDelay(true);
+//            sSLSocket.startHandshake();
             HttpsURLConnection.setDefaultSSLSocketFactory(instance.getSocketFactory());
         } catch (Exception e) {
             e.printStackTrace();
