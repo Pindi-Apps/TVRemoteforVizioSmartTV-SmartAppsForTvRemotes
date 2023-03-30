@@ -1,5 +1,6 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,18 +17,27 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chaos.view.PinView;
+import com.google.android.gms.common.util.IOUtils;
 import com.google.android.material.button.MaterialButton;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.wifiPackage.WifiRemoteUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateExpiredException;
+import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
 
 import javax.net.ssl.HostnameVerifier;
@@ -36,6 +46,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
 public class WifiRemoteViewActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -59,22 +70,33 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     String getPinText;
 
     static class a0 implements X509TrustManager {
-        a0() {
-        }
 
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {
             Log.d("Host_Name__CheckClient:", "checkClientTrusted");
         }
 
-        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) {
+        public void checkServerTrusted(X509Certificate[] chain, String authType) {
             Log.d("Host_Name_Server:", "checkServerTrusted");
+            try {
+                if (chain != null && chain.length != 0 && authType != null && authType.length() != 0 &&
+                !authType.equalsIgnoreCase("ECDHE_RSA") &&
+                        !authType.equalsIgnoreCase("ECDHE_ECDSA") &&
+                        !authType.equalsIgnoreCase("RSA") &&
+                        !authType.equalsIgnoreCase("ECDSA")){
+                    chain[0].checkValidity();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d("Host_Name_Server:", "error check validity=" + e.getMessage());
+            }
+
+
         }
 
         public X509Certificate[] getAcceptedIssuers() {
             Log.d("Host_Name_getAccepted:", "X509Certificate getAcceptedIssuers");
             return new X509Certificate[0];
         }
-
 
 
     }
@@ -474,13 +496,29 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
         new w().start();
     }
 
+
+//    private KeyStore getKeyStore() throws KeyStoreException, IOException, NoSuchAlgorithmException, CertificateException {
+//        KeyStore ks = KeyStore.getInstance("JKS");
+//        InputStream is = new ClassPathResource("META-INF/lib_rest_api/certificate/letsencrypt-truststore").getInputStream();
+//        try {
+//            ks.load(is, "letsencrypt".toCharArray());
+//        } finally {
+//            IOUtils.closeQuietly(is);
+//        }
+//        return ks;
+//    }
+
+
     private static void m0() {
 
         TrustManager[] trustManagerArr = new TrustManager[]{new a0()};
+
         try {
+//            final TrustManagerFactory customCaTrustManager = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+//            customCaTrustManager.init();
             SSLContext instance = SSLContext.getInstance("TLS");
             instance.init(null, trustManagerArr, new SecureRandom());
-//            SSLSocket sSLSocket = (SSLSocket) instance.getSocketFactory().createSocket(str, i);
+//            SSLSocket sSLSocket = (SSLSocket) instance.getSocketFactory().createSocket()
 //            sSLSocket.setNeedClientAuth(true);
 //            sSLSocket.setUseClientMode(true);
 //            sSLSocket.setKeepAlive(true);
@@ -509,7 +547,6 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
     public void onBackPressed() {
         super.onBackPressed();
     }
-
 
 
     @Override
