@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
+    private String currentClick = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         binding.nav.navMoreApps.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse(getString(R.string.moreAppsLink)))));
         binding.cvWifiRemote.setOnClickListener(v -> {
+            currentClick = "wifi";
             boolean isLoaded = Yodo1MasInterstitialAd.getInstance().isLoaded();
             if (isLoaded) {
                 Yodo1MasInterstitialAd.getInstance().showAd(MainActivity.this, getString(R.string.yodaMasInterstitial));
@@ -116,7 +119,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.cvIrRemote.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RemoteViewActivity.class).putExtra("brand_name", "Vizio")));
+        binding.cvIrRemote.setOnClickListener(v -> {
+            currentClick = "ir";
+            boolean isLoaded = Yodo1MasInterstitialAd.getInstance().isLoaded();
+            if (isLoaded) {
+                Yodo1MasInterstitialAd.getInstance().showAd(MainActivity.this, getString(R.string.yodaMasInterstitial));
+            } else {
+                startActivity(new Intent(MainActivity.this, RemoteViewActivity.class).putExtra("brand_name", "Vizio"));
+            }
+        });
 
         binding.cvScreenMirror.setOnClickListener(v -> {
             try {
@@ -157,12 +168,25 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onInterstitialAdFailedToOpen(Yodo1MasInterstitialAd ad, @NonNull Yodo1MasError error) {
-                startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
+                if (currentClick.equalsIgnoreCase("wifi")) {
+                    currentClick = "";
+                    startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
+                } else {
+                    currentClick = "";
+                    startActivity(new Intent(MainActivity.this, RemoteViewActivity.class).putExtra("brand_name", "Vizio"));
+                }
             }
 
             @Override
             public void onInterstitialAdClosed(Yodo1MasInterstitialAd ad) {
-                startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
+                Yodo1MasInterstitialAd.getInstance().loadAd(MainActivity.this);
+                if (currentClick.equalsIgnoreCase("wifi")) {
+                    currentClick = "";
+                    startActivity(new Intent(MainActivity.this, WifiRemoteActivity.class));
+                } else {
+                    currentClick = "";
+                    startActivity(new Intent(MainActivity.this, RemoteViewActivity.class).putExtra("brand_name", "Vizio"));
+                }
             }
         });
     }

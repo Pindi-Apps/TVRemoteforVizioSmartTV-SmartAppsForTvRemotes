@@ -47,18 +47,18 @@ public class RemoteViewActivity extends AppCompatActivity {
 
     int ONE_SPACE = 60;
     int ZERO_SPACE = 21;
-    int[] sequence = IrCommandBuilder.buildRawSequence(
-            HDR_MARK, HDR_SPACE,  // Lead-in sequence
-            BIT_MARK, ONE_SPACE,  // 1
-            BIT_MARK, ONE_SPACE,  // 1
-            BIT_MARK, ONE_SPACE,  // 1
-            BIT_MARK, ONE_SPACE,  // 1
-            BIT_MARK, ONE_SPACE,  // 1
-            BIT_MARK, ONE_SPACE,  // 1
-            BIT_MARK, ZERO_SPACE, // 0
-            BIT_MARK, ZERO_SPACE, // 0
-            BIT_MARK              // lead-out sequence
-    );
+//    int[] sequence = IrCommandBuilder.buildRawSequence(
+//            HDR_MARK, HDR_SPACE,  // Lead-in sequence
+//            BIT_MARK, ONE_SPACE,  // 1
+//            BIT_MARK, ONE_SPACE,  // 1
+//            BIT_MARK, ONE_SPACE,  // 1
+//            BIT_MARK, ONE_SPACE,  // 1
+//            BIT_MARK, ONE_SPACE,  // 1
+//            BIT_MARK, ONE_SPACE,  // 1
+//            BIT_MARK, ZERO_SPACE, // 0
+//            BIT_MARK, ZERO_SPACE, // 0
+//            BIT_MARK              // lead-out sequence
+//    );
 
     SparseArray irData;
 
