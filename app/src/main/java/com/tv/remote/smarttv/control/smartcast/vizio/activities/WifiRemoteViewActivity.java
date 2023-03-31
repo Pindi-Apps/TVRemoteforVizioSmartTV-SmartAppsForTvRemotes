@@ -511,13 +511,21 @@ public class WifiRemoteViewActivity extends AppCompatActivity implements SharedP
 
     private static void m0() {
 
-        TrustManager[] trustManagerArr = new TrustManager[]{new a0()};
+//        TrustManager[] trustManagerArr = new TrustManager[]{new a0()};
+
+
 
         try {
+
+
+            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            trustManagerFactory.init((KeyStore) null);
+
+
 //            final TrustManagerFactory customCaTrustManager = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 //            customCaTrustManager.init();
-            SSLContext instance = SSLContext.getInstance("TLS");
-            instance.init(null, trustManagerArr, new SecureRandom());
+            SSLContext instance = SSLContext.getDefault();
+            instance.init(null, trustManagerFactory.getTrustManagers(), new SecureRandom());
 //            SSLSocket sSLSocket = (SSLSocket) instance.getSocketFactory().createSocket()
 //            sSLSocket.setNeedClientAuth(true);
 //            sSLSocket.setUseClientMode(true);
