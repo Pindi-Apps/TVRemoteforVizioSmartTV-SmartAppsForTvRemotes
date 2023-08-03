@@ -17,27 +17,17 @@ import com.yodo1.mas.interstitial.Yodo1MasInterstitialAdListener;
 public class SplashActivity extends AppCompatActivity {
 
 
-//    Handler handler;
-//    Runnable runnable;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         Yodo1MasAdBuildConfig config = new Yodo1MasAdBuildConfig.Builder().enableUserPrivacyDialog(true).build();
         Yodo1Mas.getInstance().setAdBuildConfig(config);
+//        goToNext();
         Yodo1Mas.getInstance().initMas(this, getString(R.string.yodaMasAppKey), new Yodo1Mas.InitListener() {
             @Override
             public void onMasInitSuccessful() {
                 Yodo1MasInterstitialAd.getInstance().loadAd(SplashActivity.this);
-//                        boolean isLoaded = Yodo1MasInterstitialAd.getInstance().isLoaded();
-//
-//                        if (isLoaded){
-//                            Yodo1MasInterstitialAd.getInstance().showAd(SplashActivity.this, getString(R.string.yodaMasInterstitial));
-//                        }else{
-//                            goToNext();
-//                        }
                 Yodo1MasInterstitialAd.getInstance().setAdListener(new Yodo1MasInterstitialAdListener() {
                     @Override
                     public void onInterstitialAdLoaded(Yodo1MasInterstitialAd ad) {
@@ -46,7 +36,6 @@ public class SplashActivity extends AppCompatActivity {
 
                     @Override
                     public void onInterstitialAdFailedToLoad(Yodo1MasInterstitialAd ad, @NonNull Yodo1MasError error) {
-//                                ad.loadAd(SplashActivity.this);
                         goToNext();
                     }
 

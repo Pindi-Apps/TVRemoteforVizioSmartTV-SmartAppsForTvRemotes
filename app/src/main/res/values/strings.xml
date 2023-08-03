@@ -6,11 +6,11 @@
     <string name="privacyPolicyLink">https://besttvremote.blogspot.com/2021/02/privacy-policy.html</string>
 
 
-    <string name="admobAppId">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admobNativeId">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="admobInterstitialId">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="admobBannerId">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="admobOpenId">ca-app-pub-3940256099942544/3419835294</string>
+<!--    <string name="admobAppId">ca-app-pub-3940256099942544~3347511713</string>-->
+<!--    <string name="admobNativeId">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="admobInterstitialId">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="admobBannerId">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="admobOpenId">ca-app-pub-3940256099942544/3419835294</string>-->
 
 
     <string name="yodaMasAppKey">ad0AFSXEi7</string>
@@ -25,6 +25,11 @@
     <string name="no">No</string>
     <string name="thanks_for_using_our_app">Thanks! For Using Our App</string>
     <string name="are_you_sure_you_want_to_exit_app">Are You Sure You Want to Exit App?</string>
+
+    <string name="pairing_explanation">Enter The Pairing Code displayed on TV</string>
+    <string name="pairing_pin_hint">0000</string>
+
+
 
 
 </resources>
