@@ -69,6 +69,9 @@ public class RemoteViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remote_view);
+
+
+        
         irData = new SparseArray<String>();
         new Handler().postDelayed(this::remotes_codes, 200);
         consumerIrManager = ConsumerIrManager.getSupportConsumerIrManager(this);
