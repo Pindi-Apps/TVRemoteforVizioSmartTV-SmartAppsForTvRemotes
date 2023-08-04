@@ -1,12 +1,12 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi;
 
 
+import com.squareup.okhttp.CertificatePinner;
+
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 import javax.net.ssl.X509TrustManager;
-
-import okhttp3.CertificatePinner;
 
 public class Custom implements X509TrustManager {
     // Replace the below pins with the actual SHA-256 fingerprints or public keys

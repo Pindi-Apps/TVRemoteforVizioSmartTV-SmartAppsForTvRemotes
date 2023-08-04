@@ -216,60 +216,9 @@
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
-
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Advertisement"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="8dp">
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-
-                        <com.yodo1.mas.nativeads.Yodo1MasNativeAdView
-                            android:id="@+id/yodo1_mas_native"
-                            android:layout_width="match_parent"
-                            android:layout_height="300dp"
-                            android:layout_gravity="center_horizontal|top"/>
-
-
-
-                    </FrameLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-
-            </LinearLayout>
-
-
-
-
-
-
         </LinearLayout>
     </ScrollView>
-
-
 
 
     <com.google.android.material.navigation.NavigationView
