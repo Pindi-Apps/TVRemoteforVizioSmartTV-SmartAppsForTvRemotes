@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onAdDismissedFullScreenContent() {
                                 super.onAdDismissedFullScreenContent();
+                                mInterstitialAd = null;
                                 startActivity(new Intent(MainActivity.this, FindActivity.class));
 
                             }

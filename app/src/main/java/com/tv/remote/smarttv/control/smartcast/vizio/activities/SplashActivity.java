@@ -3,6 +3,8 @@ package com.tv.remote.smarttv.control.smartcast.vizio.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -12,7 +14,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        goToNext();
+        new Handler().postDelayed(this::goToNext, 4000);
+
     }
 
 
