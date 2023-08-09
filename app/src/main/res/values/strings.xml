@@ -32,6 +32,8 @@
 
     <string name="adMobAppId">ca-app-pub-3940256099942544~3347511713</string>
     <string name="adMobInterstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="adMobInterstitialSplash">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="adMobNativeId">ca-app-pub-3940256099942544/2247696110</string>
 
 
 </resources>
