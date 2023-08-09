@@ -40,7 +40,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
-                    android:text="LG and Roku Mirror"
+                    android:text="Vizio Remote"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
