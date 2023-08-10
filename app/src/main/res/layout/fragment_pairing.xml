@@ -9,24 +9,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/pairing_bg">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+       >
 
         <TextView
             android:id="@+id/pairing_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:text="@string/pairing_explanation"
             android:textColor="@color/white"
             android:textSize="15dp" />
+        <TextView
+            android:id="@+id/pairing_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/pairing_text"
+            android:layout_marginBottom="10dp"
+            android:text="Unlocking Entertainment: Enter the Code, Ignite the Connection!"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
 
         <EditText
             android:id="@+id/pairing_pin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pairing_text"
+            android:layout_below="@+id/pairing_desc"
             android:layout_centerHorizontal="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -34,19 +47,20 @@
             android:inputType="number"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black">
+            android:textColor="@color/white"
+            >
 
             <requestFocus />
         </EditText>
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_below="@+id/pairing_pin"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <Button

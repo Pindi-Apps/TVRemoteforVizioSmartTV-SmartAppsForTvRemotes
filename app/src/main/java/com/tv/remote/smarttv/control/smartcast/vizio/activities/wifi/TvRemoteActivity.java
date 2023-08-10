@@ -1,5 +1,7 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi;
 
+import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,6 +17,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -529,7 +532,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                 TvRemoteActivity.this.pairingDialog = new Dialog(TvRemoteActivity.this);
                 TvRemoteActivity.this.pairingDialog.setContentView(R.layout.fragment_pairing);
                 TvRemoteActivity.this.pairingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                TvRemoteActivity.this.pairingDialog.getWindow().setSoftInputMode(5);
+                TvRemoteActivity.this.pairingDialog.getWindow().setSoftInputMode(SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                 Button button = (Button) TvRemoteActivity.this.pairingDialog.findViewById(R.id.pairing_ok);
                 Button button2 = (Button) TvRemoteActivity.this.pairingDialog.findViewById(R.id.pairing_cancel);
                 TvRemoteActivity tvRemoteActivity_ = TvRemoteActivity.this;
@@ -764,7 +767,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         stringBuilder2.append(":7345");
         auth_token = stringBuilder2.toString();
         base = auth_token;
-        getWindow().addFlags(128);
+//        getWindow().addFlags(128);
         this.vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         this.playToggle = false;
 
