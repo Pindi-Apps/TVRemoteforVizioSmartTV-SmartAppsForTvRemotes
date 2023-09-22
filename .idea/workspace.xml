@@ -9,8 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="integrate splash interstitial and native ads">
+    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="fixing errors, removing extra permissions, change pin screen design,">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ad_logo.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
@@ -20,6 +22,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/ConnectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/ConnectionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_connection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_connection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/native_ad.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/native_ad.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +92,8 @@
     "SHOW_ALL_PROCESSES": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_directory_selection": "/Users/muhammadasad/StudioProjects/Android_projects/pindi_apps/LgAndRukoMirrorDesign/LgAndRukoMirrorDesign/app/src/main/res/drawable",
-    "last_opened_file_path": "/Users/muhammadasad/StudioProjects/Android_projects/pindi_apps/vizio-old-remote-redesign/app/src/main/res/layout",
+    "last_directory_selection": "/Users/muhammadasad/StudioProjects/Android_projects/pindi_apps/vizio-old-remote-redesign/app/src/main/res/drawable",
+    "last_opened_file_path": "/Users/muhammadasad/StudioProjects/Android_projects/pindi_apps/vizio-old-remote-redesign/app/src/main/res/drawable",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -89,8 +102,8 @@
       <recent name="com.viziotv.smartcast.remote.control.activities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/viziotv/smartcast/remote/control/activities/wifiPackage" />
@@ -123,7 +136,6 @@
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -139,6 +151,8 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -146,14 +160,21 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
-      <Java />
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
         <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -384,7 +405,21 @@
       <option name="project" value="LOCAL" />
       <updated>1691577103902</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="integrate splash interstitial and native ads">
+      <created>1691577285721</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1691577285721</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fixing errors, removing extra permissions, change pin screen design,">
+      <created>1691648456090</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1691648456090</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -399,7 +434,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="optimize code part 2" />
     <MESSAGE value="optimize code part 3" />
     <MESSAGE value="optimize code part 4" />
     <MESSAGE value="change package name of whole app" />
@@ -424,24 +458,25 @@
     <MESSAGE value="optimize admob ad" />
     <MESSAGE value="test build for play store" />
     <MESSAGE value="integrate splash interstitial and native ads" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrate splash interstitial and native ads" />
+    <MESSAGE value="fixing errors, removing extra permissions, change pin screen design," />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing errors, removing extra permissions, change pin screen design," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>724</line>
+          <line>727</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>725</line>
+          <line>728</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>726</line>
+          <line>729</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -461,62 +496,62 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>358</line>
+          <line>361</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>357</line>
+          <line>360</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>739</line>
+          <line>742</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>798</line>
+          <line>801</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>797</line>
+          <line>800</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>755</line>
+          <line>758</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>754</line>
+          <line>757</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>753</line>
+          <line>756</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>799</line>
+          <line>802</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>734</line>
+          <line>737</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>735</line>
+          <line>738</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
-          <line>756</line>
+          <line>759</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>

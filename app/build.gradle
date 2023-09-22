@@ -41,43 +41,25 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.yodo1.mas:lite:4.8.7'
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
-
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'com.stanfy:gson-xml-java:0.1.7'
-//    implementation 'com.anjlab.android.iab.v3:library:2.0.3'
     implementation "androidx.multidex:multidex:2.0.1"
-    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'io.github.chaosleung:pinview:1.4.4'
-
-
-
-//    implementation 'com.google.android.gms:play-services-ads:21.5.0'
-
-    implementation 'com.yodo1.mas:lite:4.8.7'
-
     implementation 'com.squareup.okhttp:okhttp:2.7.5'
-
     implementation platform('com.google.firebase:firebase-bom:31.3.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics'
-
-
     implementation 'com.google.android.gms:play-services-ads:22.2.0'
-
     implementation 'androidx.lifecycle:lifecycle-process:2.6.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10"
-//    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.6.0"
-
-
-
-
 }
