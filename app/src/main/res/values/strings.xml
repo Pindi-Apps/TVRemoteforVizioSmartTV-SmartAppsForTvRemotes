@@ -13,9 +13,6 @@
     <string name="pairing_pin_hint">0000</string>
 
 
-
-
-
     <string name="adMobAppId">ca-app-pub-3940256099942544~3347511713</string>
     <string name="adMobInterstitial">ca-app-pub-3940256099942544/1033173712</string>
     <string name="adMobInterstitialSplash">ca-app-pub-3940256099942544/1033173712</string>
@@ -24,10 +21,7 @@
     <string name="ad_app_name" translatable="false">Vizio Smart Cast TV Remote</string>
     <string name="ad_description" translatable="false">With our app, you can control your TV with ease from your smartphone or tablet.</string>
     <string name="adLink" translatable="false">https://play.google.com/store/apps/details?id=com.vizio.smartcast.tvremote.control</string>
-
-
-
-
+    <string name="please_wait">Please wait</string>
 
 
 </resources>

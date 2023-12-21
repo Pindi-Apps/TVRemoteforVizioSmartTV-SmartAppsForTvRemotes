@@ -1,36 +1,37 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities;
 
+import static com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.AppExtKt.permissionsChecker;
+
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 
-import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.VideoController;
-import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.google.android.gms.ads.nativead.NativeAd;
-import com.google.android.gms.ads.nativead.NativeAdOptions;
-import com.google.android.gms.ads.nativead.NativeAdView;
+import com.nabinbhandari.android.permissions.PermissionHandler;
+import com.nabinbhandari.android.permissions.Permissions;
 import com.tv.remote.smarttv.control.smartcast.vizio.BuildConfig;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.FindActivity;
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityMainBinding;
+import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.AppExtKt;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    String[] array;
 
 
     private InterstitialAd mInterstitialAd;
@@ -47,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         loadInterstitial();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            array = new String[]{
+                    android.Manifest.permission.READ_MEDIA_AUDIO,
+                    android.Manifest.permission.READ_MEDIA_IMAGES,
+                    android.Manifest.permission.READ_MEDIA_VIDEO
+            };
+        } else {
+            array = new String[]{
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+            };
+        }
+
         binding.nav.navRate.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID))));
         binding.nav.navMoreApps.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse(getString(R.string.moreAppsLink)))));
@@ -66,8 +80,26 @@ public class MainActivity extends AppCompatActivity {
         binding.cvRateUs.setOnClickListener(v -> startActivity(new Intent(this, GuideActivity.class)));
         binding.ivMenu.setOnClickListener(v -> binding.drawLayout.openDrawer(GravityCompat.START));
         binding.nav.navHome.setOnClickListener(v -> binding.drawLayout.closeDrawer(GravityCompat.START));
-
+        binding.photosBtn.setOnClickListener(view -> checkPermission(PhotosActivity.class));
+        binding.videosBtn.setOnClickListener(view -> checkPermission(VideosActivity.class));
+        binding.audiosBtn.setOnClickListener(view -> checkPermission(AudiosActivity.class));
         binding.adLayout.adCallToAction.setOnClickListener(v -> openLink(getString(R.string.adLink)));
+
+    }
+
+    private void checkPermission(Class<? extends Activity> clazz){
+        Permissions.check(this, array,null, null, new PermissionHandler() {
+            @Override
+            public void onGranted() {
+                AppExtKt.openActivity(MainActivity.this , clazz);
+            }
+
+            @Override
+            public void onDenied(Context context, ArrayList<String> deniedPermissions) {
+                super.onDenied(context, deniedPermissions);
+                AppExtKt.showToast(MainActivity.this , "Permission Denied!");
+            }
+        });
 
     }
 
