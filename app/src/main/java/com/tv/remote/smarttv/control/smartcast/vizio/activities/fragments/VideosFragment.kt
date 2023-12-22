@@ -9,6 +9,7 @@ import android.text.format.Formatter
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosActivity
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideoCastCastActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.GalleryAdapter
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.background.AsyncTaskForFiles
@@ -38,9 +39,12 @@ class VideosFragment : BaseFragment<FragmentVideosBinding>() {
 
     override fun initViews() {
         imagesAdapter=GalleryAdapter(requireActivity(),listPhotos){
-            currentIndex = it
-//            openOptionDialog()
-//            castToTv()
+            if (listPhotos.isNotEmpty()){
+                currentIndex = it
+                AppConstant.videoList.clear()
+                AppConstant.videoList.addAll(listPhotos)
+                goToNextWithData(VideoCastCastActivity::class.java,currentIndex)
+            }
         }
 
         binding.photosRv.apply {

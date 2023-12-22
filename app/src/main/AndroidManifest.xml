@@ -34,6 +34,12 @@
             android:name=".activities.PhotosCastActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.VideoCastCastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AudioCastCastActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.TestActivity"
             android:exported="false" />
         <activity

@@ -45,7 +45,7 @@ class PhotosCastActivity : BaseActivity<ActivityPhotosCastBinding>() {
         }
         binding.playListBtn.setOnClickListener {
             val bottomSheet = BottomSheetDesignBinding.inflate(layoutInflater)
-            val bottom = BottomSheetDialog(this)
+            val bottom = BottomSheetDialog(this,R.style.MyTransparentBottomSheetDialogTheme)
             bottom.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             bottom.requestWindowFeature(Window.FEATURE_NO_TITLE)
             bottom.setContentView(bottomSheet.root)

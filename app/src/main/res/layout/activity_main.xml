@@ -46,13 +46,14 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/ivPrivacy"
+                    android:id="@+id/ivCast"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:layout_marginEnd="5dp"
                     android:padding="3dp"
-                    android:src="@drawable/ic_privacy" />
+                    android:src="@drawable/castvizio"
+                    app:tint="@color/white" />
             </FrameLayout>
 
             <LinearLayout

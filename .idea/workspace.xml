@@ -9,80 +9,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="update native ad">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/AudiosActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderAudiosShowActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderImagesShowActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderVideosShowActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/TestActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/VideosActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/adapter/AudioAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/adapter/AudioAdapter2.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/adapter/FolderDetailAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/adapter/GallaryAdapter2.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/adapter/GalleryAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/adapter/PhotosViewPager.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/background/AsyncTaskForFiles.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/background/AsyncTaskForFolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/AudiosFolderFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/AudiosFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/PhotosFolderFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/PhotosFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/VideosFolderFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/VideosFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/model/GalleryImagesModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/model/ImageFolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/base/BaseActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/base/BaseDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/base/BaseFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/db/SessionManager.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/utils/extension/AppExt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/utils/extension/ApplicationClass.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/utils/extension/CustomTrustManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/utils/general/AppConstant.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background_gradient.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/botton_sheet_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/castvizio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/gallerystrok.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/minus_new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/musicalstroke.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/playlist_new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/playlist_screen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/round_arrow_back_ios_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rounded_bg_grey.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sound_waves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/stopnew.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/videostrok.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/font/albra.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/font/benton.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/font/bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_audios.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_folder_audios_show.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_folder_images_show.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_folder_videos_show.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_photos.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_photos_cast.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_test.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_videos.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/audios_design.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/bottom_sheet_design.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_audios.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_audios_folder.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_photos.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_photos_folder.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_videos.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_videos_folder.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/photos_design.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/progress_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/rv_folder_audio_design.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/rv_folder_design.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimen_positive.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="working on photos">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/AudioCastCastActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/VideoCastCastActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bottom_sheet_background_audio.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/minus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/volume_down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/volume_up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_audio_cast.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_video_cast.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/bottom_sheet_design_audios.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -91,25 +29,26 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderAudiosShowActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderAudiosShowActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderImagesShowActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderImagesShowActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderVideosShowActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/FolderVideosShowActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/AudiosFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/AudiosFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/VideosFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/fragments/VideosFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/AppConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/AppConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wifi_remote_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wifi_remote_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/nav_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[edda3d8]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-edda3d8-mPzLfC._adb-tls-connect._tcp]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -507,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695380475491</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="working on photos">
+      <created>1703168900577</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1703168900577</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -522,7 +468,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="optimize code part 4" />
     <MESSAGE value="change package name of whole app" />
     <MESSAGE value="change package name of whole app 2" />
     <MESSAGE value="working on pin view dialog" />
@@ -547,7 +492,8 @@
     <MESSAGE value="integrate splash interstitial and native ads" />
     <MESSAGE value="fixing errors, removing extra permissions, change pin screen design," />
     <MESSAGE value="update native ad" />
-    <option name="LAST_COMMIT_MESSAGE" value="update native ad" />
+    <MESSAGE value="working on photos" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on photos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,87 +587,6 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java</url>
           <line>759</line>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>95</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>94</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>93</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>92</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>91</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>90</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>78</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>79</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>80</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>81</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>82</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>83</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>70</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>67</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/PhotosCastActivity.kt</url>
-          <line>68</line>
-          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

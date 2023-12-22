@@ -31,7 +31,6 @@ class FolderImagesShowActivity : BaseActivity<ActivityFolderImagesShowBinding>()
     var folderAdapter: FolderDetailAdapter? = null
     private var taskFiles: TaskForFiles? = null
     private var indexPosition = 0
-    private var currentIndex: Int = -1
 
 
 
@@ -105,7 +104,12 @@ class FolderImagesShowActivity : BaseActivity<ActivityFolderImagesShowBinding>()
 
         listPhotos = ArrayList()
         folderAdapter = FolderDetailAdapter(this, listPhotos) {
-            indexPosition = it
+            if (listPhotos.isNotEmpty()){
+                indexPosition = it
+                AppConstant.photosList.clear()
+                AppConstant.photosList.addAll(listPhotos)
+                goToNextWithData(PhotosCastActivity::class.java,it)
+            }
 //            openOptionDialog()
 //            castToTv()
         }

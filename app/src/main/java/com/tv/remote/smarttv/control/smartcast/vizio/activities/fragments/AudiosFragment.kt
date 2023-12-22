@@ -9,6 +9,7 @@ import android.text.format.Formatter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.AudioCastCastActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.AudiosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideosActivity
@@ -42,7 +43,13 @@ class AudiosFragment : BaseFragment<FragmentAudiosBinding>() {
 
     override fun initViews() {
         imagesAdapter=AudioAdapter(requireActivity(),listPhotos){
-            currentIndex = it
+            if (listPhotos.isNotEmpty()){
+                currentIndex = it
+                AppConstant.audiosList.clear()
+                AppConstant.audiosList.addAll(listPhotos)
+                goToNextWithData(AudioCastCastActivity::class.java,currentIndex)
+            }
+
 //            openOptionDialog()
 //            castToTv()
         }

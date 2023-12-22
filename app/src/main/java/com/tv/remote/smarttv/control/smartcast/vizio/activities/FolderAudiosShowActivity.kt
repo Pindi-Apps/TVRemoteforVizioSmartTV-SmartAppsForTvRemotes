@@ -109,9 +109,12 @@ class FolderAudiosShowActivity : BaseActivity<ActivityFolderAudiosShowBinding>()
 
         listPhotos = ArrayList()
         folderAdapter = AudioAdapter(this, listPhotos) {
-            indexPosition = it
-//            openOptionDialog()
-//            castToTv()
+            if (listPhotos.isNotEmpty()){
+                indexPosition = it
+                AppConstant.videoList.clear()
+                AppConstant.videoList.addAll(listPhotos)
+                goToNextWithData(AudioCastCastActivity::class.java,it)
+            }
         }
 
         binding.rvAdapter.apply {

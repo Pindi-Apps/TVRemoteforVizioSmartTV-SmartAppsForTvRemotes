@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.cvScreenMirror.setOnClickListener(v -> startActivity(new Intent(this, ConnectionActivity.class)));
 
-        binding.ivPrivacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacyPolicyLink)))));
+        binding.nav.ivPrivacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacyPolicyLink)))));
         binding.cvRateUs.setOnClickListener(v -> startActivity(new Intent(this, GuideActivity.class)));
         binding.ivMenu.setOnClickListener(v -> binding.drawLayout.openDrawer(GravityCompat.START));
         binding.nav.navHome.setOnClickListener(v -> binding.drawLayout.closeDrawer(GravityCompat.START));

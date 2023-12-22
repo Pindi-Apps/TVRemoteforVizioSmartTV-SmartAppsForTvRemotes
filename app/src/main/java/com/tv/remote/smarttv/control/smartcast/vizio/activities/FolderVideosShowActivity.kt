@@ -106,8 +106,13 @@ class FolderVideosShowActivity : BaseActivity<ActivityFolderVideosShowBinding>()
 
         listPhotos = ArrayList()
         folderAdapter = FolderDetailAdapter(this, listPhotos) {
-            indexPosition = it
-//            openOptionDialog()
+            if (listPhotos.isNotEmpty()){
+                indexPosition = it
+                AppConstant.videoList.clear()
+                AppConstant.videoList.addAll(listPhotos)
+                goToNextWithData(VideoCastCastActivity::class.java,it)
+//            openOptionDialog(
+            }
 //            castToTv()
         }
 

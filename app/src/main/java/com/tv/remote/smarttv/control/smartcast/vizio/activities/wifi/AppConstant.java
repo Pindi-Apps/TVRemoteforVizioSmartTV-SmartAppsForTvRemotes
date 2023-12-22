@@ -13,6 +13,8 @@ public class AppConstant {
     public static File localPhoto  = null;
     public static ImageFolder imageFolderPath=null;
     public static ArrayList<GalleryImagesModel> photosList = new ArrayList<>();
+    public static ArrayList<GalleryImagesModel> videoList = new ArrayList<>();
+    public static ArrayList<GalleryImagesModel> audiosList = new ArrayList<>();
 
 
     public static final String format = "%s%s";
