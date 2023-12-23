@@ -11,6 +11,11 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
 
     <application
         android:name=".general.ApplicationClass"
@@ -25,6 +30,36 @@
         android:theme="@style/Theme.LgAndRukoMirror"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.PhotosCastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.VideoCastCastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AudioCastCastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PhotosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.VideosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AudiosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FolderImagesShowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FolderVideosShowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FolderAudiosShowActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.ConnectionActivity"
             android:exported="false" />
