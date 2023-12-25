@@ -7,59 +7,144 @@
     tools:context=".activities.GuideActivity">
 
     <View
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/app_color_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="#0662C3"
-        android:id="@+id/toolBar"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
+        android:id="@+id/ivBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:id="@+id/ivBack"
-        app:layout_constraintStart_toStartOf="@+id/toolBar"
         android:layout_marginStart="10dp"
-        app:layout_constraintTop_toTopOf="@+id/toolBar"
         android:src="@drawable/ic_back"
         app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        />
+        app:layout_constraintStart_toStartOf="@+id/toolBar"
+        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/toolBar"
+        android:fontFamily="serif"
         android:text="How to use"
         android:textColor="@color/white"
-        android:fontFamily="serif"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintStart_toStartOf="@+id/toolBar"
         app:layout_constraintEnd_toEndOf="@+id/toolBar"
-        />
-
+        app:layout_constraintStart_toStartOf="@+id/toolBar"
+        app:layout_constraintTop_toTopOf="@+id/toolBar" />
 
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolBar"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:scrollbars="none">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBar">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/guideText"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            android:textSize="15sp"
-            android:gravity="start|top"
-            android:padding="10dp"
-            />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textHeading"
+                android:textColor="@color/app_color_2"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Step no: 1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textNormal"
+                android:textColor="@color/app_color"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:text="Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here "
+                />
+
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_yodo1_close"
+                />
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textHeading"
+                android:textColor="@color/app_color_2"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Step no: 2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textNormal"
+                android:textColor="@color/app_color"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:text="Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here "
+                />
+
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_yodo1_close"
+                />
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textHeading"
+                android:textColor="@color/app_color_2"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Step no: 3"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/textNormal"
+                android:textColor="@color/app_color"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:text="Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here "
+                />
+
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_yodo1_close"
+                />
+
+
+
+
+        </LinearLayout>
 
     </ScrollView>
 

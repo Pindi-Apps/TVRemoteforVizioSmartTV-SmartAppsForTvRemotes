@@ -34,7 +34,7 @@ class PhotosActivity : BaseActivity<ActivityPhotosBinding>() {
     }
 
     override fun actions() {
-        binding.icBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
     }

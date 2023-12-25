@@ -40,7 +40,7 @@ class PhotosCastActivity : BaseActivity<ActivityPhotosCastBinding>() {
     }
 
     override fun actions() {
-        binding.icBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
         binding.playListBtn.setOnClickListener {

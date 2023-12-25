@@ -41,7 +41,7 @@ class VideoCastCastActivity : BaseActivity<ActivityVideoCastBinding>() {
     }
 
     override fun actions() {
-        binding.icBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
         binding.playListBtn.setOnClickListener {

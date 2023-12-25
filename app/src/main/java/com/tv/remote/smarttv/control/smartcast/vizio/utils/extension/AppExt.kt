@@ -578,6 +578,15 @@ fun getIndex(spinner: Spinner, myString: String): Int {
     return 0
 }
 
+fun Activity.openWifiSetting() {
+    try {
+        this.startActivity(Intent(Settings.ACTION_WIFI_SETTINGS));
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+
 fun Activity.shareText() {
     try {
         val shareIntent = Intent(Intent.ACTION_SEND)

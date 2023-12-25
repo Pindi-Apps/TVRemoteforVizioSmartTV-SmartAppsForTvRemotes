@@ -37,7 +37,7 @@ class VideosActivity : BaseActivity<ActivityVideosBinding>() {
     }
 
     override fun actions() {
-        binding.icBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
     }

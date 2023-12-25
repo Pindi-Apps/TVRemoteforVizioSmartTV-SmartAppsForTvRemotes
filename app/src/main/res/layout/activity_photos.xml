@@ -8,35 +8,53 @@
     android:orientation="vertical"
     tools:context=".activities.PhotosActivity">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp">
+        android:layout_height="wrap_content">
+
+
+        <View
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/app_color_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ic_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="start"
-            android:src="@drawable/round_arrow_back_ios_24"
-            app:tint="@color/white" />
+            android:id="@+id/ivBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintStart_toStartOf="@+id/toolBar"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
 
         <TextView
-            style="@style/textHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:fontFamily="serif"
             android:text="Photos"
             android:textColor="@color/white"
-            android:textSize="18sp" />
-    </FrameLayout>
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toEndOf="@+id/toolBar"
+            app:layout_constraintStart_toStartOf="@+id/toolBar"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_height="wrap_content"
-        android:background="@color/bg_color"
+        android:background="@color/app_color"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        app:tabBackground="@drawable/tab_selecter"
         app:tabIndicatorColor="@color/white"
         app:tabIndicator="@null"
         app:tabInlineLabel="true"

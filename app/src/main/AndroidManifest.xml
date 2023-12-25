@@ -30,6 +30,11 @@
         android:theme="@style/Theme.LgAndRukoMirror"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <activity android:name=".activities.SideMenuActivity"
+            android:exported="false"
+            />
+
         <activity
             android:name=".activities.PhotosCastActivity"
             android:exported="false" />

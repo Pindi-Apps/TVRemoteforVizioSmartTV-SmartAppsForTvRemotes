@@ -60,10 +60,6 @@ public class MainActivity extends AppCompatActivity {
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE
             };
         }
-
-        binding.nav.navRate.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID))));
-        binding.nav.navMoreApps.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse(getString(R.string.moreAppsLink)))));
         binding.cvWifiRemote.setOnClickListener(v -> {
             if (mInterstitialAd != null) {
                 mInterstitialAd.show(this);
@@ -76,10 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding.cvScreenMirror.setOnClickListener(v -> startActivity(new Intent(this, ConnectionActivity.class)));
 
-        binding.nav.ivPrivacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacyPolicyLink)))));
         binding.cvRateUs.setOnClickListener(v -> startActivity(new Intent(this, GuideActivity.class)));
-        binding.ivMenu.setOnClickListener(v -> binding.drawLayout.openDrawer(GravityCompat.START));
-        binding.nav.navHome.setOnClickListener(v -> binding.drawLayout.closeDrawer(GravityCompat.START));
+        binding.ivMenu.setOnClickListener(v -> AppExtKt.openActivity(MainActivity.this, SideMenuActivity.class));
         binding.photosBtn.setOnClickListener(view -> checkPermission(PhotosActivity.class));
         binding.videosBtn.setOnClickListener(view -> checkPermission(VideosActivity.class));
         binding.audiosBtn.setOnClickListener(view -> checkPermission(AudiosActivity.class));
@@ -87,17 +81,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void checkPermission(Class<? extends Activity> clazz){
-        Permissions.check(this, array,null, null, new PermissionHandler() {
+    private void checkPermission(Class<? extends Activity> clazz) {
+        Permissions.check(this, array, null, null, new PermissionHandler() {
             @Override
             public void onGranted() {
-                AppExtKt.openActivity(MainActivity.this , clazz);
+                AppExtKt.openActivity(MainActivity.this, clazz);
             }
 
             @Override
             public void onDenied(Context context, ArrayList<String> deniedPermissions) {
                 super.onDenied(context, deniedPermissions);
-                AppExtKt.showToast(MainActivity.this , "Permission Denied!");
+                AppExtKt.showToast(MainActivity.this, "Permission Denied!");
             }
         });
 
@@ -146,10 +140,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (binding.drawLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawLayout.closeDrawer(GravityCompat.START);
-        } else {
-            startActivity(new Intent(this, BackActivity.class));
-        }
+        startActivity(new Intent(this, BackActivity.class));
     }
 }

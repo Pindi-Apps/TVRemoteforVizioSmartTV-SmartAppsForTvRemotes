@@ -37,7 +37,7 @@ class AudiosActivity : BaseActivity<ActivityAudiosBinding>() {
     }
 
     override fun actions() {
-        binding.icBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
     }
