@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <bitmap android:src="@drawable/bg_shades"
+            android:tint="@color/white"
+            />
+
+
+<!--        <shape android:shape="oval">-->
+<!--            <solid android:color="@color/bg_color"-->
+<!--                />-->
+
+
+<!--            <padding android:left="@dimen/_30sdp"-->
+<!--                android:right="@dimen/_30sdp"-->
+<!--                android:top="@dimen/_30sdp"-->
+<!--                android:bottom="@dimen/_30sdp"-->
+<!--                />-->
+
+
+<!--        </shape>-->
+
+    </item>
+
+
+
+
+
+
+<!--    <item>-->
+<!--        <shape android:shape="oval">-->
+<!--            <solid android:color="@color/bg_color"-->
+<!--                />-->
+<!--            <padding android:left="@dimen/_30sdp"-->
+<!--                android:right="@dimen/_30sdp"-->
+<!--                android:top="@dimen/_30sdp"-->
+<!--                android:bottom="@dimen/_30sdp"-->
+<!--                />-->
+
+
+<!--        </shape>-->
+
+<!--    </item>-->
+
+
+
+
+
+<!--    <item>-->
+
+<!--        <shape android:shape="oval">-->
+<!--            <solid android:color="@color/bg_color"-->
+<!--                />-->
+
+
+<!--            <padding android:left="@dimen/_10sdp"-->
+<!--                android:right="@dimen/_10sdp"-->
+<!--                android:top="@dimen/_10sdp"-->
+<!--                android:bottom="@dimen/_10sdp"-->
+<!--                />-->
+<!--        </shape>-->
+
+<!--    </item>-->
+
+
+
+
+
+
+
+
+</layer-list>

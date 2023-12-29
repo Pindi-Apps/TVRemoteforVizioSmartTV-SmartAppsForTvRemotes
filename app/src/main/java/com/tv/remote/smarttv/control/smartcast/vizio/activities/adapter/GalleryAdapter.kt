@@ -13,10 +13,10 @@ import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.loadImage
 class GalleryAdapter(
     var activity: Activity,
     var list: ArrayList<GalleryImagesModel>,
-    var click: (Int) -> Unit
+    private var click: (Int) -> Unit
 ) : RecyclerView.Adapter<PhotosViewHodler>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHodler {
-        var view = LayoutInflater.from(activity).inflate(R.layout.photos_design, parent, false)
+        val view = LayoutInflater.from(activity).inflate(R.layout.photos_design, parent, false)
         return PhotosViewHodler(view)
 
     }
@@ -26,7 +26,7 @@ class GalleryAdapter(
     }
 
     override fun onBindViewHolder(holder: PhotosViewHodler, position: Int) {
-        var get = list[position]
+        val get = list[position]
         get.picturepath?.let {
             holder.image.loadImage(it, activity)
         }
@@ -39,6 +39,6 @@ class GalleryAdapter(
 }
 
 class PhotosViewHodler(view: View) : RecyclerView.ViewHolder(view) {
-    var image = view.findViewById<ImageView>(R.id.cvImage)
+    var image: ImageView = view.findViewById(R.id.cvImage)
 
 }
