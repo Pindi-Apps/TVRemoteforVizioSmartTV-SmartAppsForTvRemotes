@@ -15,6 +15,7 @@ import android.os.Looper;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
@@ -23,7 +24,9 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ChannelBottomSheetBinding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,8 +62,6 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
     String pairingStart = "/pairing/start";
     String appLaunch = "/app/launch";
     String keyCommand = "/key_command/";
-
-
 
 
     class okRight implements OnClickListener {
@@ -553,8 +554,8 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
     }
 
     class x implements Runnable {
-        final  int F0;
-        final  int G0;
+        final int F0;
+        final int G0;
         final String H0;
 
         x(int i, int i2, String str) {
@@ -566,7 +567,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         public void run() {
             String str = "application/json";
             try {
-                String format = String.format(AppConstant.format , TvRemoteActivity.base, TvRemoteActivity.this.keyCommand);
+                String format = String.format(AppConstant.format, TvRemoteActivity.base, TvRemoteActivity.this.keyCommand);
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.append("{\"KEYLIST\": [{\"CODESET\": \"");
                 stringBuilder.append(this.F0);
@@ -770,15 +771,14 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
 //        getWindow().addFlags(128);
         this.vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         this.playToggle = false;
-
         findViewById(R.id.ok_button).setOnClickListener(new okBtn());
         findViewById(R.id.back_button).setOnClickListener(new backButton());
         findViewById(R.id.button_source).setOnClickListener(new btnSource());
         findViewById(R.id.info_button).setOnClickListener(new infoButton());
-        findViewById(R.id.netflix_vizio).setOnClickListener(new netflizVizio());
-        findViewById(R.id.primevideo_vizio).setOnClickListener(new primeVideoVizio());
-        findViewById(R.id.xumo_vizio).setOnClickListener(new xumoVizio());
-        findViewById(R.id.hulu_vizio).setOnClickListener(new huluVizio());
+//        findViewById(R.id.netflix_vizio).setOnClickListener(new netflizVizio());
+//        findViewById(R.id.primevideo_vizio).setOnClickListener(new primeVideoVizio());
+//        findViewById(R.id.xumo_vizio).setOnClickListener(new xumoVizio());
+//        findViewById(R.id.hulu_vizio).setOnClickListener(new huluVizio());
         findViewById(R.id.power_off_vizio).setOnClickListener(new powerOff());
         findViewById(R.id.volume_up).setOnClickListener(new volumeUp());
         findViewById(R.id.volume_down).setOnClickListener(new volumeDown());
@@ -789,7 +789,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         findViewById(R.id.ok_down).setOnClickListener(new okDown());
         findViewById(R.id.ok_left).setOnClickListener(new okLeft());
         findViewById(R.id.ok_right).setOnClickListener(new okRight());
-        findViewById(R.id.redbox_vizio).setOnClickListener(new redBoxVizio());
+//        findViewById(R.id.redbox_vizio).setOnClickListener(new redBoxVizio());
         findViewById(R.id.watchfree_vizio).setOnClickListener(new watchFreeVizio());
         findViewById(R.id.play_button).setOnClickListener(new playButtonVizio());
         findViewById(R.id.fforward).setOnClickListener(new forwardVizio());
@@ -797,11 +797,134 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         findViewById(R.id.button_menu).setOnClickListener(new buttonMenu());
         findViewById(R.id.buttonhome).setOnClickListener(new buttonHome());
         findViewById(R.id.youtube_vizio).setOnClickListener(new youtubeVizio());
-        findViewById(R.id.vudu_vizio).setOnClickListener(new vuduVizio());
+//        findViewById(R.id.vudu_vizio).setOnClickListener(new vuduVizio());
+
+
+        findViewById(R.id.cvChannels).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(TvRemoteActivity.this);
+                ChannelBottomSheetBinding binding = ChannelBottomSheetBinding.inflate(getLayoutInflater());
+                bottomSheetDialog.setContentView(binding.getRoot());
+                binding.llHulu.setOnClickListener(v1 -> {
+                    new huluVizio();
+                    bottomSheetDialog.dismiss();
+                });
+                binding.llYoutube.setOnClickListener(v1 -> {
+                    new youtubeVizio();
+                    bottomSheetDialog.dismiss();
+                });
+                binding.llNetflix.setOnClickListener(v1 -> {
+                    new netflizVizio();
+                    bottomSheetDialog.dismiss();
+                });
+                binding.llPrimeVideo.setOnClickListener(v1 -> {
+                    new primeVideoVizio();
+                    bottomSheetDialog.dismiss();
+                });
+                binding.llRedbox.setOnClickListener(v1 -> {
+                    new redBoxVizio();
+                    bottomSheetDialog.dismiss();
+                });
+                binding.llXumo.setOnClickListener(v1 -> {
+                    new xumoVizio();
+                    bottomSheetDialog.dismiss();
+                });
+                bottomSheetDialog.show();
+            }
+        });
+
+        findViewById(R.id.cvTouch).setOnClickListener(v -> {
+            findViewById(R.id.llDial).setVisibility(View.GONE);
+            findViewById(R.id.cvTouchPad).setVisibility(View.VISIBLE);
+        });
+
+        findViewById(R.id.cvRemoteCircle).setOnClickListener(v -> {
+            findViewById(R.id.llDial).setVisibility(View.VISIBLE);
+            findViewById(R.id.cvTouchPad).setVisibility(View.GONE);
+        });
+
+        findViewById(R.id.rlTouch).setOnTouchListener(new SwipeListener());
+
+
         if (preferenceToken == null) {
             startPairing();
         }
     }
+
+
+    public class SwipeListener implements View.OnTouchListener {
+        private int min_distance = 100;
+        private float downX, downY, upX, upY;
+        View v;
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            this.v = v;
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN: {
+                    downX = event.getX();
+                    downY = event.getY();
+                    return true;
+                }
+                case MotionEvent.ACTION_UP: {
+                    upX = event.getX();
+                    upY = event.getY();
+
+                    float deltaX = downX - upX;
+                    float deltaY = downY - upY;
+                    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                        if (Math.abs(deltaX) > min_distance) {
+
+                            if (deltaX < 0) {
+                                this.onLeftToRightSwipe();
+                                return true;
+                            }
+                            if (deltaX > 0) {
+                                this.onRightToLeftSwipe();
+                                return true;
+                            }
+                        } else {
+
+                            return false;
+                        }
+                    } else {
+                        if (Math.abs(deltaY) > min_distance) {
+                            if (deltaY < 0) {
+                                this.onTopToBottomSwipe();
+                                return true;
+                            }
+                            if (deltaY > 0) {
+                                this.onBottomToTopSwipe();
+                                return true;
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public void onLeftToRightSwipe() {
+            new okRight();
+        }
+
+        public void onRightToLeftSwipe() {
+            new okLeft();
+        }
+
+        public void onTopToBottomSwipe() {
+            new okDown();
+        }
+
+        public void onBottomToTopSwipe() {
+            new btnUp();
+        }
+    }
+
 
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String str) {
     }

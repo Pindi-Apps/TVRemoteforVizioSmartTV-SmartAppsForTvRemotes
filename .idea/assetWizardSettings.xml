@@ -307,7 +307,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialiconsround/wifi_off/round_wifi_off_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialiconsround/fast_forward/round_fast_forward_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -318,7 +318,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_wifi_not_connected" />
+                            <entry key="outputName" value="ic_forward" />
                             <entry key="sourceFile" value="/D:\Android\New Work\Remote Ui Project\LgAndRukoMirrorDesign" />
                           </map>
                         </option>
