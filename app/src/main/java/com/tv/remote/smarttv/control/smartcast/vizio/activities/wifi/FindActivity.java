@@ -52,7 +52,6 @@ public class FindActivity extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter(this, R.layout.list_item_vizio);
         FindingAsync.execute(this);
         listView.setOnItemClickListener(new adapterClick());
-
         findViewById(R.id.ivBack).setOnClickListener(v -> finish());
     }
 

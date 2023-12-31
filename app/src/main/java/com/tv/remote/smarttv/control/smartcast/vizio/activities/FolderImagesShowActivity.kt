@@ -110,8 +110,6 @@ class FolderImagesShowActivity : BaseActivity<ActivityFolderImagesShowBinding>()
                 AppConstant.photosList.addAll(listPhotos)
                 goToNextWithData(PhotosCastActivity::class.java,it)
             }
-//            openOptionDialog()
-//            castToTv()
         }
 
         binding.rvAdapter.apply {
