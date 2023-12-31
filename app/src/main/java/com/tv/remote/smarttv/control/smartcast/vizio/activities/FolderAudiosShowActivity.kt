@@ -34,7 +34,6 @@ class FolderAudiosShowActivity : BaseActivity<ActivityFolderAudiosShowBinding>()
     var listPhotos: ArrayList<GalleryImagesModel> = ArrayList()
     var folderAdapter: AudioAdapter? = null
     private var taskFiles: TaskForFiles? = null
-    private var indexPosition = 0
     private var currentIndex: Int = -1
 
 
@@ -109,11 +108,19 @@ class FolderAudiosShowActivity : BaseActivity<ActivityFolderAudiosShowBinding>()
 
         listPhotos = ArrayList()
         folderAdapter = AudioAdapter(this, listPhotos) {
-            if (listPhotos.isNotEmpty()){
-                indexPosition = it
-                AppConstant.videoList.clear()
-                AppConstant.videoList.addAll(listPhotos)
-                goToNextWithData(AudioCastCastActivity::class.java,it)
+            if (listPhotos.isNotEmpty()) {
+                if (AppConstant.connectableDevice != null) {
+                    currentIndex = it
+                    AppConstant.audiosList.clear()
+                    AppConstant.audiosList.addAll(listPhotos)
+                    goToNextWithData(AudioCastCastActivity::class.java, currentIndex)
+                } else {
+                    if (isNetworkAvailable(this)) {
+                        goToNext(CastSearchActivity::class.java)
+                    } else {
+                        connectWifi()
+                    }
+                }
             }
         }
 
@@ -220,7 +227,7 @@ class FolderAudiosShowActivity : BaseActivity<ActivityFolderAudiosShowBinding>()
 //    }
 
     override fun actions() {
-        binding.icBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
     }

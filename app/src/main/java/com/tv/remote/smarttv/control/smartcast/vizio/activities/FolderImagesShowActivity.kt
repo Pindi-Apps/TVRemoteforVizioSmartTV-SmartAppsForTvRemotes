@@ -33,7 +33,6 @@ class FolderImagesShowActivity : BaseActivity<ActivityFolderImagesShowBinding>()
     private var indexPosition = 0
 
 
-
     override fun getViewBinding(): ActivityFolderImagesShowBinding {
         return ActivityFolderImagesShowBinding.inflate(layoutInflater)
     }
@@ -104,11 +103,19 @@ class FolderImagesShowActivity : BaseActivity<ActivityFolderImagesShowBinding>()
 
         listPhotos = ArrayList()
         folderAdapter = FolderDetailAdapter(this, listPhotos) {
-            if (listPhotos.isNotEmpty()){
-                indexPosition = it
-                AppConstant.photosList.clear()
-                AppConstant.photosList.addAll(listPhotos)
-                goToNextWithData(PhotosCastActivity::class.java,it)
+            if (listPhotos.isNotEmpty()) {
+                if (AppConstant.connectableDevice != null) {
+                    indexPosition = it
+                    AppConstant.photosList.clear()
+                    AppConstant.photosList.addAll(listPhotos)
+                    goToNextWithData(PhotosCastActivity::class.java, indexPosition)
+                } else {
+                    if (isNetworkAvailable(this)){
+                        goToNext(CastSearchActivity::class.java)
+                    }else{
+                        connectWifi()
+                    }
+                }
             }
         }
 
@@ -141,65 +148,9 @@ class FolderImagesShowActivity : BaseActivity<ActivityFolderImagesShowBinding>()
         super.onDestroy()
     }
 
-    fun details(){
-//        if (indexPosition != -1){
-//            if (listPhotos.isNotEmpty()){
-//                val model = listPhotos[indexPosition]
-//                val bottomSheet: BottomSheetBinding = BottomSheetBinding.inflate(layoutInflater)
-//                val bottom = BottomSheetDialog(this)
-//                bottom.setContentView(bottomSheet.root)
-//                bottom.show()
-//                val simpleDateFormat = SimpleDateFormat("dd:MM:yyyy", Locale.ENGLISH)
-//                val date = simpleDateFormat.format(model.file?.lastModified()).toString()
-//                bottomSheet.tvName.text = model.pictureName
-//                bottomSheet.tvPath.text = model.picturepath
-//                bottomSheet.tvDate.text = date
-//                val size = model.file?.length()?.let {
-//                    Formatter.formatFileSize(
-//                        this,
-//                        it
-//                    )
-//                }
-//                bottomSheet.tvSize.text = size?.toString()
-//            }
-//        }
+    fun details() {
+
     }
-
-//    fun sharePhoto() {
-//        if (currentIndex != -1) {
-//            if (listPhotos.isNotEmpty()) {
-//                val model = listPhotos[currentIndex]
-//                try {
-//                    val share = Intent(Intent.ACTION_SEND)
-//                    share.type = "image/jpeg"
-//                    share.putExtra(
-//                        Intent.EXTRA_STREAM,
-//                        Uri.parse(model.picturepath)
-//                    )
-//                    share.putExtra(
-//                        Intent.EXTRA_TEXT,
-//                        "Install this application for Roku Media Casting to TV \nhttps://play.google.com/store/apps/details?id=${this.packageName}"
-//                    )
-//                    startActivity(Intent.createChooser(share, "Share Image"))
-//                } catch (e: Exception) {
-//                    e.printStackTrace()
-//                    e.message?.let { showToast(it) }
-//                }
-//            }
-//        }
-//    }
-
-//    fun castToPhone(){
-//        if (indexPosition != -1){
-//            if (listPhotos.isNotEmpty()){
-//                val model = listPhotos[indexPosition]
-//                model.file?.let { AppConstant.localPhoto = it }
-//                goToNext(PhotosCastPhoneActivity::class.java)
-//            }
-//        }
-//    }
-
-
 
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -207,15 +158,10 @@ class FolderImagesShowActivity : BaseActivity<ActivityFolderImagesShowBinding>()
         if (taskFiles?.status == AsyncTaskForFiles.StatusFiles.RUNNING) {
             taskFiles?.cancel(true)
         }
-
     }
 
-//    fun castToTv(){
-//        goToNext(CastPhotosActivity::class.java)
-//    }
-
     override fun actions() {
-        binding.icBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
     }

@@ -18,7 +18,6 @@ class PhotosFolderFragment : BaseFragment<FragmentPhotosFolderBinding>() {
     var listFolder = ArrayList<ImageFolder>()
     var rvAdapter: GallaryAdapter2? = null
     private var taskFolder: TaskForFolder? = null
-    private var indexPosition = 0
 
     override fun getViewBinding(): FragmentPhotosFolderBinding {
         return FragmentPhotosFolderBinding.inflate(layoutInflater)

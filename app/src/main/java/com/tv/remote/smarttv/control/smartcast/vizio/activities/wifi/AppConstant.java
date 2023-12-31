@@ -1,5 +1,6 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi;
 
+import com.connectsdk.device.ConnectableDevice;
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.GalleryAdapter;
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.GalleryImagesModel;
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.ImageFolder;
@@ -20,5 +21,7 @@ public class AppConstant {
     public static final String format = "%s%s";
 
     public static final  String keyPress = "KEYPRESS";
+    public static ConnectableDevice connectableDevice = null;
+    public static final String iconUrl = "https://play-lh.googleusercontent.com/OMuRAG-ILX5XiYr7Yza2T4tMS5cv06t2klj9JXyKUuJfG2h5wt5Lo60f3k6a6Blix8uF=w480-h960-rw";
 
 }

@@ -15,10 +15,12 @@ import android.os.Build
 import android.os.Bundle
 import android.os.StrictMode
 import android.os.StrictMode.VmPolicy
+import android.provider.Settings
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.button.MaterialButton
 import com.tv.remote.smarttv.control.smartcast.vizio.R
 import tvremote.forroku.smart.tvremotecontrol.db.SessionManager
 import java.text.DecimalFormat
@@ -30,7 +32,6 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
     lateinit var binding: B
 
     var sessionManager: SessionManager? = null
-//    var sessionManager: SessionManager? = null
 
     protected fun showProgressDialog(dialog: (Dialog) -> Unit) {
         val wifiDialog = Dialog(this)
@@ -43,7 +44,6 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
         wifiDialog.setContentView(R.layout.progress_dialog)
         dialog.invoke(wifiDialog)
     }
-
 
 
 //    protected fun showAdDialog(activity: Activity, dialog: (Dialog) -> Unit){
@@ -77,7 +77,8 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
 
 
     protected fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork
         val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
         return networkCapabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
@@ -101,7 +102,7 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
 //        alert.invoke(alertDialog)
 //    }
 
-//    protected fun connectDialog(activity: Activity) {
+    //    protected fun connectDialog(activity: Activity) {
 //        runOnUiThread {
 //            val dialogBuilder = AlertDialog.Builder(activity)
 //            val inflater = this.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -133,28 +134,51 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
 //            }, 2000);
 //        }
 //    }
-//    protected fun connectWifi() {
-//        val wifiDialog = Dialog(this)
-//        try {
-//            wifiDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//        } catch (ne: Exception) {
-//            ne.printStackTrace()
-//        }
-//        wifiDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-//        wifiDialog.setContentView(R.layout.network_not_availble)
+    protected fun connectWifi() {
+        val wifiDialog = Dialog(this)
+        try {
+            wifiDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        } catch (ne: Exception) {
+            ne.printStackTrace()
+        }
+        wifiDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        wifiDialog.setContentView(R.layout.network_not_available)
 //        wifiDialog.findViewById<MaterialButton>(R.id.btnCancel).setOnClickListener {
 //            wifiDialog.dismiss()
 //        }
-//        wifiDialog.findViewById<MaterialButton>(R.id.btnConnect).setOnClickListener {
-//            try {
-//                startActivity(Intent(Settings.ACTION_WIFI_SETTINGS));
-//                wifiDialog.dismiss()
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//            }
-//        }
-//        wifiDialog.show()
-//    }
+        wifiDialog.findViewById<MaterialButton>(R.id.connect_wifi_button).setOnClickListener {
+            try {
+                wifiDialog.dismiss()
+                startActivity(Intent(Settings.ACTION_WIFI_SETTINGS));
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        wifiDialog.show()
+    }
+
+
+
+    protected fun disconnectCast(click :(Int) -> Unit) {
+        val wifiDialog = Dialog(this)
+        try {
+            wifiDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            wifiDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        } catch (ne: Exception) {
+            ne.printStackTrace()
+        }
+        wifiDialog.setContentView(R.layout.disconnect_cast_connection)
+        wifiDialog.findViewById<MaterialButton>(R.id.btnNo).setOnClickListener {
+            wifiDialog.dismiss()
+        }
+        wifiDialog.findViewById<MaterialButton>(R.id.btnDisconnect).setOnClickListener {
+            wifiDialog.dismiss()
+            click.invoke(1)
+        }
+        wifiDialog.show()
+    }
+
+
 
 
 //    protected  fun adLoadingDialog(adDialog: (Dialog) -> Unit){
@@ -208,7 +232,6 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
 //    }
 
 
-
 //    protected fun showConnectedDialog(dialog: (Dialog, DiCastConnectedBinding) -> Unit){
 //        val wifiDialog=Dialog(this)
 //
@@ -224,7 +247,6 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
 //        wifiDialog.setContentView(castBinding.root)
 //        dialog.invoke(wifiDialog , castBinding)
 //    }
-
 
 
 //    protected fun disconnectRemote(){
@@ -248,8 +270,6 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
 //
 //        disconectDialog.show()
 //    }
-
-
 
 
 //    protected fun connectionWifi() {
@@ -440,9 +460,6 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
 //        }
 //
 //    }
-
-
-
 
 
     abstract fun getViewBinding(): B

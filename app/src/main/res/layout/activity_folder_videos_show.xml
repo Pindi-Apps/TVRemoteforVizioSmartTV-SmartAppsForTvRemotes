@@ -8,29 +8,52 @@
     android:background="@color/app_color"
     tools:context=".activities.FolderVideosShowActivity">
 
-    <FrameLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp"
-        >
+        android:layout_height="wrap_content">
+
+
+        <View
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/app_color_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
-            android:id="@+id/ic_back"
-            android:layout_gravity="start"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/round_arrow_back_ios_24"
-            app:tint="@color/white" />
+            android:id="@+id/ivBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintStart_toStartOf="@+id/toolBar"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
+
         <TextView
-            android:id="@+id/folderName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:gravity="center"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Albums"
+            android:fontFamily="serif"
+            android:text="Audio Cast"
+            android:id="@+id/folderName"
+            android:maxLines="1"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            style="@style/textHeading"
-            android:textColor="@color/white"/>
-    </FrameLayout>
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toEndOf="@+id/toolBar"
+            app:layout_constraintStart_toStartOf="@+id/toolBar"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

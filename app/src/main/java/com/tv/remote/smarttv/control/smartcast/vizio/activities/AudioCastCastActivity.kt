@@ -11,6 +11,11 @@ import android.provider.MediaStore
 import android.view.Window
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.connectsdk.core.MediaInfo
+import com.connectsdk.core.SubtitleInfo
+import com.connectsdk.service.capability.MediaControl
+import com.connectsdk.service.capability.MediaPlayer
+import com.connectsdk.service.capability.VolumeControl
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.tv.remote.smarttv.control.smartcast.vizio.R
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.AudioAdapter
@@ -25,7 +30,10 @@ import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityPhotosC
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityVideoCastBinding
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.BottomSheetDesignAudiosBinding
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.BottomSheetDesignBinding
+import com.tv.remote.smarttv.control.smartcast.vizio.general.ApplicationClass
+import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.gone
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.loadImage
+import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.visible
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.io.File
 
@@ -33,6 +41,11 @@ class AudioCastCastActivity : BaseActivity<ActivityAudioCastBinding>() {
 
     private var listPhotos = ArrayList<GalleryImagesModel>()
     private var currentIndex: Int? = null
+    private var mediaPlayer: MediaPlayer? = null
+    private var subtitleBuilder: SubtitleInfo.Builder? = null
+
+    private var isMute: Boolean = false
+
     override fun getViewBinding(): ActivityAudioCastBinding {
         return ActivityAudioCastBinding.inflate(layoutInflater)
     }
@@ -41,6 +54,12 @@ class AudioCastCastActivity : BaseActivity<ActivityAudioCastBinding>() {
         currentIndex = intent.extras?.getInt("pos", 0)
         listPhotos.clear()
         listPhotos.addAll(AppConstant.audiosList)
+        mediaPlayer = AppConstant.connectableDevice?.getCapability(MediaPlayer::class.java)
+        subtitleBuilder = SubtitleInfo.Builder(
+            if (AppConstant.connectableDevice?.hasCapability(MediaPlayer.Subtitle_WebVTT) == true) "http://connectsdk.com/ConnectSDK.vtt" else "http://connectsdk.com/ConnectSDK.srt"
+        )
+        subtitleBuilder?.setLabel("English")?.setLanguage("en")
+        binding.pauseBtn.visible()
         loadImage()
     }
 
@@ -49,46 +68,15 @@ class AudioCastCastActivity : BaseActivity<ActivityAudioCastBinding>() {
         binding.ivBack.setOnClickListener {
             finish()
         }
-        binding.playListBtn.setOnClickListener {
-            val bottomSheet = BottomSheetDesignAudiosBinding.inflate(layoutInflater)
-            val bottom = BottomSheetDialog(this,R.style.MyTransparentBottomSheetDialogTheme)
-            bottom.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            bottom.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            bottom.setContentView(bottomSheet.root)
 
-//             GalleryAdapter(this, listPhotos) {
-//                AppConstant.photosList.clear()
-//                AppConstant.photosList.addAll(listPhotos)
-//                currentIndex?.let {index->
-//                    val model = listPhotos[index]
-//                    model.picturepath?.let { path ->
-//                        binding.cardImage.loadImage(path, this)
-//                        startFileService()
-//                    }
-//
-//
-//                }
-//            }
-            bottomSheet.bottomSheetRv.apply {
-                adapter = AudioAdapter(this@AudioCastCastActivity, listPhotos){
-                    currentIndex = it
-                    loadImage()
-                    this@AudioCastCastActivity.runOnUiThread {
-                        bottom.dismiss()
-                    }
-                }
-                layoutManager = LinearLayoutManager(this@AudioCastCastActivity)
-            }
-            bottom.show()
-        }
+
+
         binding.Nextbtn.setOnClickListener {
             currentIndex?.let { index ->
                 if (listPhotos.isNotEmpty()) {
                     if (index < listPhotos.size) {
-//                        if (index >= 1) {
-                            currentIndex = index.plus(1)
+                        currentIndex = index.plus(1)
                         loadImage()
-//                        }
                     }
                 }
             }
@@ -106,18 +94,84 @@ class AudioCastCastActivity : BaseActivity<ActivityAudioCastBinding>() {
             }
         }
 
-    }
 
 
-    private fun loadImage(){
-        currentIndex?.let { index ->
-            if (listPhotos.isNotEmpty()){
-                if (index < listPhotos.size){
-                    binding.nameAudio.text=(listPhotos[index].pictureName)
-                }
+        binding.playBtn.setOnClickListener {
+            binding.playBtn.gone()
+            binding.pauseBtn.visible()
+            AppConstant.connectableDevice?.getCapability(MediaControl::class.java)?.play(null)
+        }
+
+        binding.castBtn.setOnClickListener {
+            disconnectCast {
+                AppConstant.connectableDevice?.getCapability(MediaControl::class.java)?.stop(null)
+                AppConstant.connectableDevice?.disconnect()
+                AppConstant.connectableDevice = null
+                finish()
             }
         }
+
+
+
+
+        binding.pauseBtn.setOnClickListener {
+            binding.pauseBtn.gone()
+            binding.playBtn.visible()
+            AppConstant.connectableDevice?.getCapability(MediaControl::class.java)?.pause(null)
+        }
+
+        binding.stopBtn.setOnClickListener {
+            AppConstant.connectableDevice?.getCapability(MediaControl::class.java)?.stop(null)
+            finish()
+        }
+
+        binding.muteBtn.setOnClickListener {
+            isMute = !isMute
+            AppConstant.connectableDevice?.getCapability(VolumeControl::class.java)
+                ?.setMute(isMute, null)
+        }
+
+        binding.volUpBtn.setOnClickListener {
+            AppConstant.connectableDevice?.getCapability(VolumeControl::class.java)?.volumeUp(null)
+        }
+
+        binding.volDownBtn.setOnClickListener {
+            AppConstant.connectableDevice?.getCapability(VolumeControl::class.java)
+                ?.volumeDown(null)
+        }
+
+
+
     }
+
+
+    private fun loadImage() {
+        if (isNetworkAvailable(this)) {
+            if (AppConstant.connectableDevice != null) {
+                currentIndex?.let { index ->
+                    if (listPhotos.isNotEmpty()) {
+                        if (index < listPhotos.size) {
+                            val model = listPhotos[index]
+                            (application as? ApplicationClass)?.getHost()
+                                ?.putFile(model.picturepath)?.let { link ->
+                                    val mediaInfo = MediaInfo.Builder(
+                                        link, "audio/mp3"
+                                    ).setTitle(model.pictureName ?: "Audio").setDescription(model.picturepath ?: "Local Audio")
+                                        .setIcon(AppConstant.iconUrl)
+                                        .setSubtitleInfo(subtitleBuilder?.build()!!).build()
+                                    mediaPlayer?.playMedia(mediaInfo, false, null)
+                                }
+                        }
+                    }
+                }
+            }
+        } else {
+            AppConstant.connectableDevice?.disconnect()
+            AppConstant.connectableDevice = null
+            connectWifi()
+        }
+    }
+
 
 
 

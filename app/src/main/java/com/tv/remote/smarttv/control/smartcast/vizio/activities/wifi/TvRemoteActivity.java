@@ -800,38 +800,47 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
 //        findViewById(R.id.vudu_vizio).setOnClickListener(new vuduVizio());
 
 
-        findViewById(R.id.cvChannels).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(TvRemoteActivity.this);
-                ChannelBottomSheetBinding binding = ChannelBottomSheetBinding.inflate(getLayoutInflater());
-                bottomSheetDialog.setContentView(binding.getRoot());
-                binding.llHulu.setOnClickListener(v1 -> {
-                    new huluVizio();
-                    bottomSheetDialog.dismiss();
-                });
-                binding.llYoutube.setOnClickListener(v1 -> {
-                    new youtubeVizio();
-                    bottomSheetDialog.dismiss();
-                });
-                binding.llNetflix.setOnClickListener(v1 -> {
-                    new netflizVizio();
-                    bottomSheetDialog.dismiss();
-                });
-                binding.llPrimeVideo.setOnClickListener(v1 -> {
-                    new primeVideoVizio();
-                    bottomSheetDialog.dismiss();
-                });
-                binding.llRedbox.setOnClickListener(v1 -> {
-                    new redBoxVizio();
-                    bottomSheetDialog.dismiss();
-                });
-                binding.llXumo.setOnClickListener(v1 -> {
-                    new xumoVizio();
-                    bottomSheetDialog.dismiss();
-                });
-                bottomSheetDialog.show();
-            }
+        findViewById(R.id.cvChannels).setOnClickListener(v -> {
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(TvRemoteActivity.this);
+            ChannelBottomSheetBinding binding = ChannelBottomSheetBinding.inflate(getLayoutInflater());
+            bottomSheetDialog.setContentView(binding.getRoot());
+            binding.llHulu.setOnClickListener(v1 -> {
+//                new huluVizio();
+                TvRemoteActivity.this.P("null", 2, "3");
+                TvRemoteActivity.this.vibrator.vibrate(5);
+                bottomSheetDialog.dismiss();
+            });
+            binding.llYoutube.setOnClickListener(v1 -> {
+//                new youtubeVizio();
+                TvRemoteActivity.this.P("null", 5, "1");
+                TvRemoteActivity.this.vibrator.vibrate(5);
+                bottomSheetDialog.dismiss();
+            });
+            binding.llNetflix.setOnClickListener(v1 -> {
+//                new netflizVizio();
+                TvRemoteActivity.this.P("null", 3, "1");
+                TvRemoteActivity.this.vibrator.vibrate(5);
+                bottomSheetDialog.dismiss();
+            });
+            binding.llPrimeVideo.setOnClickListener(v1 -> {
+//                new primeVideoVizio();
+                TvRemoteActivity.this.P("null", 2, "4");
+                TvRemoteActivity.this.vibrator.vibrate(5);
+                bottomSheetDialog.dismiss();
+            });
+            binding.llRedbox.setOnClickListener(v1 -> {
+//                new redBoxVizio();
+                TvRemoteActivity.this.P("null", 2, "41");
+                TvRemoteActivity.this.vibrator.vibrate(5);
+                bottomSheetDialog.dismiss();
+            });
+            binding.llXumo.setOnClickListener(v1 -> {
+//                new xumoVizio();
+                TvRemoteActivity.this.P("{\"CAST_NAMESPACE\":\"urn:x-cast:com.google.cast.media\",\"CAST_MESSAGE\":{\"type\":\"LOAD\",\"media\":{},\"autoplay\":true,\"currentTime\":0,\"customData\":{}}}", 0, "36E1EA1F");
+                TvRemoteActivity.this.vibrator.vibrate(5);
+                bottomSheetDialog.dismiss();
+            });
+            bottomSheetDialog.show();
         });
 
         findViewById(R.id.cvTouch).setOnClickListener(v -> {
@@ -844,7 +853,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
             findViewById(R.id.cvTouchPad).setVisibility(View.GONE);
         });
 
-        findViewById(R.id.rlTouch).setOnTouchListener(new SwipeListener());
+        findViewById(R.id.cvTouch).setOnTouchListener(new SwipeListener());
 
 
         if (preferenceToken == null) {
@@ -909,19 +918,27 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         }
 
         public void onLeftToRightSwipe() {
-            new okRight();
+//            new okRight();
+            TvRemoteActivity.this.pressExecute(3, 7, AppConstant.keyPress);
+            TvRemoteActivity.this.vibrator.vibrate(5);
         }
 
         public void onRightToLeftSwipe() {
-            new okLeft();
+//            new okLeft();
+            TvRemoteActivity.this.pressExecute(3, 1, AppConstant.keyPress);
+            TvRemoteActivity.this.vibrator.vibrate(5);
         }
 
         public void onTopToBottomSwipe() {
-            new okDown();
+//            new okDown();
+            TvRemoteActivity.this.pressExecute(3, 0, AppConstant.keyPress);
+            TvRemoteActivity.this.vibrator.vibrate(5);
         }
 
         public void onBottomToTopSwipe() {
-            new btnUp();
+//            new btnUp();
+            TvRemoteActivity.this.pressExecute(3, 8, AppConstant.keyPress);
+            TvRemoteActivity.this.vibrator.vibrate(5);
         }
     }
 

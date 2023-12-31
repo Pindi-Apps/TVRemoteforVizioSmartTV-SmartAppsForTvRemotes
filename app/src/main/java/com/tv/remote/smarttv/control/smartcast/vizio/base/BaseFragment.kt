@@ -9,12 +9,14 @@ import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.button.MaterialButton
 import com.tv.remote.smarttv.control.smartcast.vizio.R
 import tvremote.forroku.smart.tvremotecontrol.db.SessionManager
 
@@ -27,6 +29,29 @@ abstract class BaseFragment<layoutId : ViewBinding> : Fragment() {
 
 
     protected var permissionArray: Array<String>? = null;
+
+
+
+    protected fun connectWifi() {
+        val wifiDialog = Dialog(requireActivity())
+        try {
+            wifiDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        } catch (ne: Exception) {
+            ne.printStackTrace()
+        }
+        wifiDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        wifiDialog.setContentView(R.layout.network_not_available)
+        wifiDialog.findViewById<MaterialButton>(R.id.connect_wifi_button).setOnClickListener {
+            try {
+                wifiDialog.dismiss()
+                startActivity(Intent(Settings.ACTION_WIFI_SETTINGS));
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        wifiDialog.show()
+    }
+
 
 
 

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_12sdp"
+        app:contentPadding="@dimen/_15sdp"
+        app:strokeWidth="0dp"
+        android:backgroundTint="@color/white"
+        app:cardElevation="@dimen/_4sdp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/castvizio"
+                android:layout_gravity="center"
+                app:tint="@color/app_color_2"
+                />
+
+
+
+            <TextView
+                style="@style/textHeading"
+                android:textSize="20sp"
+                android:text="Device Disconnect"
+                />
+
+
+
+            <TextView
+                android:layout_marginTop="@dimen/_3sdp"
+                style="@style/textNormal"
+                android:text="Are you sure you want to Disconnect this Cast Connection?"
+                />
+
+
+
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="@dimen/_3sdp"-->
+<!--                style="@style/textNormal"-->
+<!--                android:textColor="@android:color/holo_red_light"-->
+<!--                android:text="@string/if_you_are_disconnect_then_next_media_does_not_play_in_the_tv"-->
+<!--                />-->
+
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                android:orientation="horizontal">
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/btnDisconnect"
+                        style="@style/textNormal"
+                        android:includeFontPadding="false"
+                        android:backgroundTint="@color/app_color_2"
+                        app:cornerRadius="@dimen/remote_card_radius"
+                        android:textColor="@color/white"
+                        android:text="@string/cast_disconnect"
+                        />
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/btnNo"
+                        style="@style/textNormal"
+                        android:includeFontPadding="false"
+                        android:backgroundTint="@color/bg_color"
+                        app:cornerRadius="@dimen/remote_card_radius"
+                        android:textColor="@color/white"
+                        android:text="@string/no"
+                        />
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</layout>

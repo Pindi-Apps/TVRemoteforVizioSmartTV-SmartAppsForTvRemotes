@@ -8,7 +8,9 @@ import android.provider.MediaStore
 import android.text.format.Formatter
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.CastSearchActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosActivity
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosCastActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideoCastCastActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.GalleryAdapter
@@ -26,11 +28,10 @@ import java.util.Locale
 
 class VideosFragment : BaseFragment<FragmentVideosBinding>() {
 
-    var listPhotos=ArrayList<GalleryImagesModel>()
-    var imagesAdapter: GalleryAdapter?=null
+    var listPhotos = ArrayList<GalleryImagesModel>()
+    var imagesAdapter: GalleryAdapter? = null
     private var taskFiles: TaskForFiles? = null
     private var currentIndex: Int = -1
-    private var indexPosition = 0
 
 
     override fun getViewBinding(): FragmentVideosBinding {
@@ -38,62 +39,76 @@ class VideosFragment : BaseFragment<FragmentVideosBinding>() {
     }
 
     override fun initViews() {
-        imagesAdapter=GalleryAdapter(requireActivity(),listPhotos){
-            if (listPhotos.isNotEmpty()){
-                currentIndex = it
-                AppConstant.videoList.clear()
-                AppConstant.videoList.addAll(listPhotos)
-                goToNextWithData(VideoCastCastActivity::class.java,currentIndex)
+        imagesAdapter = GalleryAdapter(requireActivity(), listPhotos) {
+            if (listPhotos.isNotEmpty()) {
+                if (AppConstant.connectableDevice != null) {
+                    currentIndex = it
+                    AppConstant.videoList.clear()
+                    AppConstant.videoList.addAll(listPhotos)
+                    goToNextWithData(VideoCastCastActivity::class.java, currentIndex)
+                } else {
+                    if (isNetworkAvailable(requireActivity())){
+                        goToNext(CastSearchActivity::class.java)
+                    }else{
+                        connectWifi()
+                    }
+                }
             }
         }
 
         binding.photosRv.apply {
-            layoutManager=GridLayoutManager(requireActivity(),3)
-            adapter=imagesAdapter
+            layoutManager = GridLayoutManager(requireActivity(), 3)
+            adapter = imagesAdapter
 
 
         }
         startFileService()
     }
 
-    inner class TaskForFiles(var activity: VideosActivity, var fragment: VideosFragment, var dialog: Dialog):
-        AsyncTaskForFiles<Int, Int, ArrayList<GalleryImagesModel>>("Images Activity"){
+    inner class TaskForFiles(
+        var activity: VideosActivity, var fragment: VideosFragment, var dialog: Dialog
+    ) : AsyncTaskForFiles<Int, Int, ArrayList<GalleryImagesModel>>("Images Activity") {
         override fun onPreExecute() {
             super.onPreExecute()
 
         }
+
         override fun doInBackground(vararg params: Int?): ArrayList<GalleryImagesModel> {
-        val list=ArrayList<GalleryImagesModel>()
+            val list = ArrayList<GalleryImagesModel>()
             try {
-                val cursor:Cursor?=activity.applicationContext.contentResolver.query(
+                val cursor: Cursor? = activity.applicationContext.contentResolver.query(
                     MediaStore.Video.Media.EXTERNAL_CONTENT_URI, arrayOf(
                         MediaStore.Video.VideoColumns.DATA,
                         MediaStore.Video.VideoColumns.DISPLAY_NAME,
                         MediaStore.Video.VideoColumns.SIZE
-                    ),null,null,null
+                    ), null, null, null
                 )
                 cursor?.moveToFirst()
-                do{
-                    val pic=GalleryImagesModel()
-                    pic.pictureName=cursor?.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME)?.let { cursor.getString(it) }
-                    pic.picturepath=cursor?.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)?.let { cursor.getString(it) }
-                    pic.pictureSize=cursor?.getColumnIndexOrThrow(MediaStore.Video.Media.SIZE)?.let { cursor.getString(it) }
-                    pic.file=pic.picturepath?.let { File(it) }
+                do {
+                    val pic = GalleryImagesModel()
+                    pic.pictureName =
+                        cursor?.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME)
+                            ?.let { cursor.getString(it) }
+                    pic.picturepath = cursor?.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
+                        ?.let { cursor.getString(it) }
+                    pic.pictureSize = cursor?.getColumnIndexOrThrow(MediaStore.Video.Media.SIZE)
+                        ?.let { cursor.getString(it) }
+                    pic.file = pic.picturepath?.let { File(it) }
                     list.add(pic)
-                }while (cursor?.moveToNext()==true)
+                } while (cursor?.moveToNext() == true)
                 cursor?.close()
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
             return list
         }
 
         override fun onPostExecute(result: ArrayList<GalleryImagesModel>?) {
-            if (!activity.isFinishing){
-                activity.runOnUiThread{
+            if (!activity.isFinishing) {
+                activity.runOnUiThread {
 
                 }
-                result?.let { res->
+                result?.let { res ->
                     listPhotos.clear()
                     listPhotos.addAll(res)
                     fragment.imagesAdapter?.notifyDataSetChanged()
@@ -104,8 +119,8 @@ class VideosFragment : BaseFragment<FragmentVideosBinding>() {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    private fun startFileService(){
-        if (taskFiles?.status== AsyncTaskForFiles.StatusFiles.RUNNING){
+    private fun startFileService() {
+        if (taskFiles?.status == AsyncTaskForFiles.StatusFiles.RUNNING) {
             taskFiles?.cancel(true)
         }
 
@@ -116,6 +131,7 @@ class VideosFragment : BaseFragment<FragmentVideosBinding>() {
 
 
     }
+
     @OptIn(DelicateCoroutinesApi::class)
     private fun stopFilesService() {
         if (taskFiles?.status == AsyncTaskForFiles.StatusFiles.RUNNING) {
@@ -208,4 +224,4 @@ class VideosFragment : BaseFragment<FragmentVideosBinding>() {
 //            }
 //        }
 //    }
-    }
+}

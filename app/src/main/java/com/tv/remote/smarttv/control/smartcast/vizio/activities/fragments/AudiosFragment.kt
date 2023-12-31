@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.AudioCastCastActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.AudiosActivity
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.CastSearchActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosActivity
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideoCastCastActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.AudioAdapter
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.GalleryAdapter
@@ -30,11 +32,10 @@ import java.util.Locale
 
 class AudiosFragment : BaseFragment<FragmentAudiosBinding>() {
 
-    var listPhotos=ArrayList<GalleryImagesModel>()
-    var imagesAdapter: AudioAdapter?=null
+    var listPhotos = ArrayList<GalleryImagesModel>()
+    var imagesAdapter: AudioAdapter? = null
     private var taskFiles: TaskForFiles? = null
     private var currentIndex: Int = -1
-    private var indexPosition = 0
 
 
     override fun getViewBinding(): FragmentAudiosBinding {
@@ -42,65 +43,74 @@ class AudiosFragment : BaseFragment<FragmentAudiosBinding>() {
     }
 
     override fun initViews() {
-        imagesAdapter=AudioAdapter(requireActivity(),listPhotos){
-            if (listPhotos.isNotEmpty()){
-                currentIndex = it
-                AppConstant.audiosList.clear()
-                AppConstant.audiosList.addAll(listPhotos)
-                goToNextWithData(AudioCastCastActivity::class.java,currentIndex)
+        imagesAdapter = AudioAdapter(requireActivity(), listPhotos) {
+            if (listPhotos.isNotEmpty()) {
+                if (AppConstant.connectableDevice != null) {
+                    currentIndex = it
+                    AppConstant.audiosList.clear()
+                    AppConstant.audiosList.addAll(listPhotos)
+                    goToNextWithData(AudioCastCastActivity::class.java, currentIndex)
+                } else {
+                    if (isNetworkAvailable(requireActivity())) {
+                        goToNext(CastSearchActivity::class.java)
+                    } else {
+                        connectWifi()
+                    }
+                }
             }
-
-//            openOptionDialog()
-//            castToTv()
         }
 
         binding.photosRv.apply {
-            layoutManager=LinearLayoutManager(requireActivity())
-            adapter=imagesAdapter
-
-
+            layoutManager = LinearLayoutManager(requireActivity())
+            adapter = imagesAdapter
         }
         startFileService()
     }
 
-    inner class TaskForFiles(var activity: AudiosActivity, var fragment: AudiosFragment, var dialog: Dialog):
-        AsyncTaskForFiles<Int, Int, ArrayList<GalleryImagesModel>>("Images Activity"){
+    inner class TaskForFiles(
+        var activity: AudiosActivity, var fragment: AudiosFragment, var dialog: Dialog
+    ) : AsyncTaskForFiles<Int, Int, ArrayList<GalleryImagesModel>>("Audio Activity") {
         override fun onPreExecute() {
             super.onPreExecute()
 
         }
+
         override fun doInBackground(vararg params: Int?): ArrayList<GalleryImagesModel> {
-        val list=ArrayList<GalleryImagesModel>()
+            val list = ArrayList<GalleryImagesModel>()
             try {
-                val cursor:Cursor?=activity.applicationContext.contentResolver.query(
+                val cursor: Cursor? = activity.applicationContext.contentResolver.query(
                     MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, arrayOf(
                         MediaStore.Audio.AudioColumns.DATA,
                         MediaStore.Audio.AudioColumns.DISPLAY_NAME,
                         MediaStore.Audio.AudioColumns.SIZE
-                    ),null,null,null
+                    ), null, null, null
                 )
                 cursor?.moveToFirst()
-                do{
-                    val pic=GalleryImagesModel()
-                    pic.pictureName=cursor?.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME)?.let { cursor.getString(it) }
-                    pic.picturepath=cursor?.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)?.let { cursor.getString(it) }
-                    pic.pictureSize=cursor?.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE)?.let { cursor.getString(it) }
-                    pic.file=pic.picturepath?.let { File(it) }
+                do {
+                    val pic = GalleryImagesModel()
+                    pic.pictureName =
+                        cursor?.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME)
+                            ?.let { cursor.getString(it) }
+                    pic.picturepath = cursor?.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
+                        ?.let { cursor.getString(it) }
+                    pic.pictureSize = cursor?.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE)
+                        ?.let { cursor.getString(it) }
+                    pic.file = pic.picturepath?.let { File(it) }
                     list.add(pic)
-                }while (cursor?.moveToNext()==true)
+                } while (cursor?.moveToNext() == true)
                 cursor?.close()
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
             return list
         }
 
         override fun onPostExecute(result: ArrayList<GalleryImagesModel>?) {
-            if (!activity.isFinishing){
-                activity.runOnUiThread{
+            if (!activity.isFinishing) {
+                activity.runOnUiThread {
 
                 }
-                result?.let { res->
+                result?.let { res ->
                     listPhotos.clear()
                     listPhotos.addAll(res)
                     fragment.imagesAdapter?.notifyDataSetChanged()
@@ -111,8 +121,8 @@ class AudiosFragment : BaseFragment<FragmentAudiosBinding>() {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    private fun startFileService(){
-        if (taskFiles?.status== AsyncTaskForFiles.StatusFiles.RUNNING){
+    private fun startFileService() {
+        if (taskFiles?.status == AsyncTaskForFiles.StatusFiles.RUNNING) {
             taskFiles?.cancel(true)
         }
 
@@ -123,6 +133,7 @@ class AudiosFragment : BaseFragment<FragmentAudiosBinding>() {
 
 
     }
+
     @OptIn(DelicateCoroutinesApi::class)
     private fun stopFilesService() {
         if (taskFiles?.status == AsyncTaskForFiles.StatusFiles.RUNNING) {
@@ -215,4 +226,4 @@ class AudiosFragment : BaseFragment<FragmentAudiosBinding>() {
 //            }
 //        }
 //    }
-    }
+}

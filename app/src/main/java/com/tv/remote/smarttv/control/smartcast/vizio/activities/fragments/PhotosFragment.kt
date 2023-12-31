@@ -8,6 +8,7 @@ import android.provider.MediaStore
 import android.text.format.Formatter
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.CastSearchActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosCastActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.GalleryAdapter
@@ -28,7 +29,6 @@ class PhotosFragment : BaseFragment<FragmentPhotosBinding>() {
     var imagesAdapter: GalleryAdapter? = null
     private var taskFiles: TaskForFiles? = null
     private var currentIndex: Int = -1
-    private var indexPosition = 0
 
 
     override fun getViewBinding(): FragmentPhotosBinding {
@@ -38,12 +38,19 @@ class PhotosFragment : BaseFragment<FragmentPhotosBinding>() {
     override fun initViews() {
         imagesAdapter = GalleryAdapter(requireActivity(), listPhotos) {
             if (listPhotos.isNotEmpty()) {
-                currentIndex = it
-                AppConstant.photosList.clear()
-                AppConstant.photosList.addAll(listPhotos)
-                goToNextWithData(PhotosCastActivity::class.java, currentIndex)
+                if (AppConstant.connectableDevice != null) {
+                    currentIndex = it
+                    AppConstant.photosList.clear()
+                    AppConstant.photosList.addAll(listPhotos)
+                    goToNextWithData(PhotosCastActivity::class.java, currentIndex)
+                } else {
+                    if (isNetworkAvailable(requireActivity())){
+                        goToNext(CastSearchActivity::class.java)
+                    }else{
+                        connectWifi()
+                    }
+                }
             }
-
         }
 
         binding.photosRv.apply {

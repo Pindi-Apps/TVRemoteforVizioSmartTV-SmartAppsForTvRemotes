@@ -2,38 +2,25 @@ package com.tv.remote.smarttv.control.smartcast.vizio.activities
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.Intent
 import android.database.Cursor
-import android.media.Image
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.provider.MediaStore
-import android.text.format.Formatter
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.android.gms.cast.Cast
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.FolderDetailAdapter
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.background.AsyncTaskForFiles
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.GalleryImagesModel
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.ImageFolder
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.AppConstant
 import com.tv.remote.smarttv.control.smartcast.vizio.base.BaseActivity
-import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityFolderImagesShowBinding
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityFolderVideosShowBinding
 import kotlinx.coroutines.DelicateCoroutinesApi
 import java.io.File
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 class FolderVideosShowActivity : BaseActivity<ActivityFolderVideosShowBinding>() {
 
     var listPhotos: ArrayList<GalleryImagesModel> = ArrayList()
     var folderAdapter: FolderDetailAdapter? = null
     private var taskFiles: TaskForFiles? = null
-    private var indexPosition = 0
     private var currentIndex: Int = -1
-
 
 
     override fun getViewBinding(): ActivityFolderVideosShowBinding {
@@ -103,17 +90,22 @@ class FolderVideosShowActivity : BaseActivity<ActivityFolderVideosShowBinding>()
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun initViews() {
-
         listPhotos = ArrayList()
         folderAdapter = FolderDetailAdapter(this, listPhotos) {
-            if (listPhotos.isNotEmpty()){
-                indexPosition = it
-                AppConstant.videoList.clear()
-                AppConstant.videoList.addAll(listPhotos)
-                goToNextWithData(VideoCastCastActivity::class.java,it)
-//            openOptionDialog(
+            if (listPhotos.isNotEmpty()) {
+                if (AppConstant.connectableDevice != null) {
+                    currentIndex = it
+                    AppConstant.videoList.clear()
+                    AppConstant.videoList.addAll(listPhotos)
+                    goToNextWithData(VideoCastCastActivity::class.java, currentIndex)
+                } else {
+                    if (isNetworkAvailable(this)){
+                        goToNext(CastSearchActivity::class.java)
+                    }else{
+                        connectWifi()
+                    }
+                }
             }
-//            castToTv()
         }
 
         binding.rvAdapter.apply {
@@ -219,7 +211,7 @@ class FolderVideosShowActivity : BaseActivity<ActivityFolderVideosShowBinding>()
 //    }
 
     override fun actions() {
-        binding.icBack.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
     }
