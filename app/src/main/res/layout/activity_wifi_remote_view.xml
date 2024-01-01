@@ -1083,7 +1083,7 @@
                         android:layout_weight="1"
                         android:id="@+id/cvChannels"
                         android:orientation="horizontal"
-                        android:backgroundTint="@color/bg_color"
+                        android:backgroundTint="@android:color/holo_blue_light"
                         app:cardCornerRadius="@dimen/remote_card_radius"
                         app:cardElevation="@dimen/_4sdp"
                         app:strokeWidth="0dp">

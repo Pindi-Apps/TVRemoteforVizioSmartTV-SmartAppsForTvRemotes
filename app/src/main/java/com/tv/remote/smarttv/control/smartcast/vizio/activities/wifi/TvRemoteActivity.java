@@ -853,7 +853,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
             findViewById(R.id.cvTouchPad).setVisibility(View.GONE);
         });
 
-        findViewById(R.id.cvTouch).setOnTouchListener(new SwipeListener());
+        findViewById(R.id.cvTouchPad).setOnTouchListener(new SwipeListener());
 
 
         if (preferenceToken == null) {
