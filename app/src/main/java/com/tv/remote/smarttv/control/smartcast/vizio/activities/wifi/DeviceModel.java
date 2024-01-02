@@ -36,6 +36,7 @@ public class DeviceModel {
                 if (DeviceModel.this.device().contains("Vizio") || DeviceModel.this.device().contains("VIZIO") | DeviceModel.this.device().contains("vizio")) {
                     Editor edit;
                     if (FindActivity.arrayAdapter.getCount() > 0) {
+
                     } else if (DeviceModel.this.hostAddress().equals(FindActivity.vizioUrl)) {
                         if (DeviceModel.this.hostAddress().equals(FindActivity.vizioUrl)) {
                             if (FindActivity.textView != null)

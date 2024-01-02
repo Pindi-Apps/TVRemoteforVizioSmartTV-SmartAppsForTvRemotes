@@ -9,7 +9,7 @@ import javax.net.ssl.X509TrustManager;
 import okhttp3.CertificatePinner;
 
 public class Custom implements X509TrustManager {
-    // Replace the below pins with the actual SHA-256 fingerprints or public keys
+
     private static final String[] PINS = {
             "sha256/V/fU6Momogy9igcGCVa6ELoyAw/L5a+cCREgbQE03JU=",
     };

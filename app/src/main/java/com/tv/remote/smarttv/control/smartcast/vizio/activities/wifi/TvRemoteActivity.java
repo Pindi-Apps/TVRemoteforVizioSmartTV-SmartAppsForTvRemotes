@@ -462,7 +462,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                             TvRemoteActivity.this.R(str2, string);
                             Editor edit = TvRemoteActivity.this.getSharedPreferences("vizio_rate_us", 0).edit();
                             edit.putInt("vizio_rate_us_id", 5);
-                            edit.commit();
+                            edit.apply();
                             new Handler(Looper.getMainLooper()).postDelayed(new a(), 60000);
                         }
                         if (stringBuilder3.contains("Pairing request denied")) {
@@ -757,7 +757,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         setContentView(R.layout.activity_wifi_remote_view);
         base = "https://";
         String auth_token = "AUTH_TOKEN";
-        preferenceToken = defaultPreference(auth_token);
+//        preferenceToken = defaultPreference(auth_token);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("hello");
         stringBuilder.append(preferenceToken);
@@ -856,9 +856,9 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         findViewById(R.id.cvTouchPad).setOnTouchListener(new SwipeListener());
 
 
-        if (preferenceToken == null) {
+//        if (preferenceToken == null) {
             startPairing();
-        }
+//        }
     }
 
 
