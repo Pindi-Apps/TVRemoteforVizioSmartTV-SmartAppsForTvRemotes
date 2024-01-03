@@ -407,6 +407,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         }
 
         tokenExecute() {
+
         }
 
         public void run() {
@@ -780,8 +781,15 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
 //        findViewById(R.id.xumo_vizio).setOnClickListener(new xumoVizio());
 //        findViewById(R.id.hulu_vizio).setOnClickListener(new huluVizio());
         findViewById(R.id.power_off_vizio).setOnClickListener(new powerOff());
-        findViewById(R.id.volume_up).setOnClickListener(new volumeUp());
-        findViewById(R.id.volume_down).setOnClickListener(new volumeDown());
+        findViewById(R.id.volume_up).setOnClickListener(v -> {
+            TvRemoteActivity.this.pressExecute(5, 1, AppConstant.keyPress);
+            TvRemoteActivity.this.vibrator.vibrate(5);
+        });
+        findViewById(R.id.volume_down).setOnClickListener(v -> {
+            TvRemoteActivity.this.pressExecute(5, 0, AppConstant.keyPress);
+            TvRemoteActivity.this.vibrator.vibrate(5);
+
+        });
         findViewById(R.id.cvMute).setOnClickListener(new Mute());
         findViewById(R.id.channel_up).setOnClickListener(new channelUp());
         findViewById(R.id.channel_down).setOnClickListener(new channelDown());
