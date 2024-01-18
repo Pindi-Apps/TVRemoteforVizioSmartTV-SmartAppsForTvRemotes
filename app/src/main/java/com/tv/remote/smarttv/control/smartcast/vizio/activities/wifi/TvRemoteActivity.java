@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.telephony.IccOpenLogicalChannelResponse;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -577,7 +578,23 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                 stringBuilder.append(", \"ACTION\": \"");
                 stringBuilder.append(this.H0);
                 stringBuilder.append("\" }]}");
-                String stringBuilder2 = stringBuilder.toString();
+                String stringBuilder2 = "{\n" +
+                        "    \"KEYLIST\": [\n" +
+                        "        {\n" +
+                        "            \"CODESET\": " + this.F0 + ",\n" +
+                        "            \"CODE\": " + this.G0 + ",\n" +
+                        "            \"ACTION\": \"" + this.H0 + "\"\n" +
+                        "        }\n" +
+                        "    ]\n" +
+                        "}";
+
+
+
+
+
+
+
+
                 Log.d("Command", stringBuilder2);
                 URL url = new URL(format);
                 TvRemoteActivity.verify();
@@ -638,6 +655,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                 String stringBuilder2 = stringBuilder.toString();
                 Log.d("Json", stringBuilder2);
                 URL url = new URL(format);
+                Log.i("TAG", "run: url=" + url);
                 TvRemoteActivity.verify();
                 HttpsURLConnection httpsURLConnection = (HttpsURLConnection) url.openConnection();
                 httpsURLConnection.setHostnameVerifier(TvRemoteActivity.this.hostnameVerifier);
@@ -758,7 +776,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         setContentView(R.layout.activity_wifi_remote_view);
         base = "https://";
         String auth_token = "AUTH_TOKEN";
-//        preferenceToken = defaultPreference(auth_token);
+        preferenceToken = defaultPreference(auth_token);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("hello");
         stringBuilder.append(preferenceToken);
@@ -864,9 +882,9 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         findViewById(R.id.cvTouchPad).setOnTouchListener(new SwipeListener());
 
 
-//        if (preferenceToken == null) {
+        if (preferenceToken == null) {
             startPairing();
-//        }
+        }
     }
 
 
