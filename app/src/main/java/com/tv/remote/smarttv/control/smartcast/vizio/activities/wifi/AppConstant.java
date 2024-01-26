@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class AppConstant {
 
-    public static final String vizioMatric = "AndroidRemote";
+    public static final String vizioMatric = "VizioRemote";
     public static File localPhoto  = null;
     public static ImageFolder imageFolderPath=null;
     public static ArrayList<GalleryImagesModel> photosList = new ArrayList<>();
@@ -19,6 +19,7 @@ public class AppConstant {
 
 
     public static final String format = "%s%s";
+    public static final String PreferenceName = "VizioRemote";
 
     public static final  String keyPress = "KEYPRESS";
     public static ConnectableDevice connectableDevice = null;

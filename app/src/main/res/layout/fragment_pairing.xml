@@ -1,87 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_color"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_alignParentTop="true">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/pairing_text"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:layout_marginBottom="10dp"-->
+    <!--            android:text="@string/pairing_explanation"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="15dp" />-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/pairing_desc"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:layout_below="@id/pairing_text"-->
+    <!--            android:layout_marginBottom="10dp"-->
+    <!--            android:text="Unlocking Entertainment: Enter the Code, Ignite the Connection!"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="13dp" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/pairing_pin"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_below="@+id/pairing_desc"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:focusable="true"-->
+    <!--            android:focusableInTouchMode="true"-->
+    <!--            android:hint="@string/pairing_pin_hint"-->
+    <!--            android:inputType="number"-->
+    <!--            android:paddingLeft="30dp"-->
+    <!--            android:paddingRight="30dp"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            >-->
+
+    <!--            <requestFocus />-->
+    <!--        </EditText>-->
+
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:gravity="center"-->
+    <!--            android:layout_below="@+id/pairing_pin"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:orientation="horizontal">-->
+
+    <!--            <Button-->
+    <!--                android:id="@+id/pairing_cancel"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginHorizontal="10dp"-->
+    <!--                android:background="@drawable/oval_buttons_fs"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:text="Cancel" />-->
+
+    <!--            <Button-->
+    <!--                android:id="@+id/pairing_ok"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginLeft="5dp"-->
+    <!--                android:background="@drawable/oval_buttons_fs"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:text="Pair" />-->
+
+    <!--        </LinearLayout>-->
+    <!--    </RelativeLayout>-->
+
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-       >
-
-        <TextView
-            android:id="@+id/pairing_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/pairing_explanation"
-            android:textColor="@color/white"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/pairing_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/pairing_text"
-            android:layout_marginBottom="10dp"
-            android:text="Unlocking Entertainment: Enter the Code, Ignite the Connection!"
-            android:textColor="@color/white"
-            android:textSize="13dp" />
-
-        <EditText
-            android:id="@+id/pairing_pin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/pairing_desc"
-            android:layout_centerHorizontal="true"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:hint="@string/pairing_pin_hint"
-            android:inputType="number"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:textColor="@color/white"
-            >
-
-            <requestFocus />
-        </EditText>
-
+        app:cardElevation="3dp"
+        app:cardCornerRadius="@dimen/_12sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/_10sdp"
+        android:backgroundTint="@color/app_color"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_below="@+id/pairing_pin"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/pairing_cancel"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/oval_buttons_fs"
-                android:singleLine="true"
-                android:text="Cancel" />
+                android:fontFamily="@font/albra"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Pairing code"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/pairing_ok"
+            <TextView
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/oval_buttons_fs"
-                android:singleLine="true"
-                android:text="Pair" />
+                android:fontFamily="@font/albra"
+                android:text="Please enter your pin code to connect Vizio"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <com.chaos.view.PinView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:gravity="center"
+                android:itemBackground="@color/white"
+                android:textColor="@color/black"
+                app:itemRadius="@dimen/_12sdp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/pairing_cancel"
+                    android:layout_width="wrap_content"
+                    app:cornerRadius="@dimen/_12sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/oval_buttons_fs"
+                    android:singleLine="true"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/albra"
+                    android:text="Cancel" />
+
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="@dimen/_12sdp"
+                    android:id="@+id/pairing_ok"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/albra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/oval_buttons_fs"
+                    android:singleLine="true"
+                    android:text="Pair" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
-    </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </RelativeLayout>

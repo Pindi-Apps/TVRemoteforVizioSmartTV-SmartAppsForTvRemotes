@@ -19,6 +19,7 @@ android {
         dataBinding.enable true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     viewBinding {
         enabled = true
     }

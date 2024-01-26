@@ -755,7 +755,8 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
     }
 
     public String defaultPreference(String str) {
-        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences defaultSharedPreferences = this.getSharedPreferences(AppConstant.PreferenceName , MODE_PRIVATE);
         return defaultSharedPreferences.getString(str, null);
     }
 
@@ -776,7 +777,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         setContentView(R.layout.activity_wifi_remote_view);
         base = "https://";
         String auth_token = "AUTH_TOKEN";
-        preferenceToken = defaultPreference(auth_token);
+        preferenceToken = defaultPreference(FindActivity.e1);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("hello");
         stringBuilder.append(preferenceToken);
@@ -882,9 +883,9 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         findViewById(R.id.cvTouchPad).setOnTouchListener(new SwipeListener());
 
 
-        if (preferenceToken == null) {
-            startPairing();
-        }
+//        if (preferenceToken == null) {
+//            startPairing();
+//        }
     }
 
 
