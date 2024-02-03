@@ -5,16 +5,24 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.multidex.MultiDex
+import androidx.multidex.MultiDexApplication
 import com.connectsdk.discovery.DiscoveryManager
 import com.connectsdk.service.DIALService
 import com.google.android.gms.ads.MobileAds
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.general.WebHost
 
-class ApplicationClass : Application() {
+class ApplicationClass : MultiDexApplication() {
 
 
     private var webHost: WebHost? = null
     private var serverStarted = false
+
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(base)
+    }
 
 
     override fun onCreate() {

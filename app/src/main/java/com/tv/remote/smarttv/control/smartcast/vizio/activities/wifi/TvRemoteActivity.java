@@ -538,8 +538,8 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                 TvRemoteActivity.this.pairingDialog.getWindow().setSoftInputMode(SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                 Button button = (Button) TvRemoteActivity.this.pairingDialog.findViewById(R.id.pairing_ok);
                 Button button2 = (Button) TvRemoteActivity.this.pairingDialog.findViewById(R.id.pairing_cancel);
-                TvRemoteActivity tvRemoteActivity_ = TvRemoteActivity.this;
-                tvRemoteActivity_.pairingEditText = (EditText) tvRemoteActivity_.pairingDialog.findViewById(R.id.pairing_pin);
+//                TvRemoteActivity tvRemoteActivity_ = TvRemoteActivity.this;
+//                tvRemoteActivity_.pairingEditText = (EditText) tvRemoteActivity_.pairingDialog.findViewById(R.id.pairing_pin);
                 button2.setOnClickListener(new cancelRunnable());
                 button.setOnClickListener(new b());
                 TvRemoteActivity.this.pairingDialog.setCancelable(false);
@@ -795,10 +795,6 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         findViewById(R.id.back_button).setOnClickListener(new backButton());
         findViewById(R.id.button_source).setOnClickListener(new btnSource());
         findViewById(R.id.info_button).setOnClickListener(new infoButton());
-//        findViewById(R.id.netflix_vizio).setOnClickListener(new netflizVizio());
-//        findViewById(R.id.primevideo_vizio).setOnClickListener(new primeVideoVizio());
-//        findViewById(R.id.xumo_vizio).setOnClickListener(new xumoVizio());
-//        findViewById(R.id.hulu_vizio).setOnClickListener(new huluVizio());
         findViewById(R.id.power_off_vizio).setOnClickListener(new powerOff());
         findViewById(R.id.volume_up).setOnClickListener(v -> {
             TvRemoteActivity.this.pressExecute(5, 1, AppConstant.keyPress);
@@ -816,7 +812,6 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         findViewById(R.id.ok_down).setOnClickListener(new okDown());
         findViewById(R.id.ok_left).setOnClickListener(new okLeft());
         findViewById(R.id.ok_right).setOnClickListener(new okRight());
-//        findViewById(R.id.redbox_vizio).setOnClickListener(new redBoxVizio());
         findViewById(R.id.watchfree_vizio).setOnClickListener(new watchFreeVizio());
         findViewById(R.id.play_button).setOnClickListener(new playButtonVizio());
         findViewById(R.id.fforward).setOnClickListener(new forwardVizio());
@@ -824,45 +819,36 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         findViewById(R.id.button_menu).setOnClickListener(new buttonMenu());
         findViewById(R.id.buttonhome).setOnClickListener(new buttonHome());
         findViewById(R.id.youtube_vizio).setOnClickListener(new youtubeVizio());
-//        findViewById(R.id.vudu_vizio).setOnClickListener(new vuduVizio());
-
-
         findViewById(R.id.cvChannels).setOnClickListener(v -> {
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(TvRemoteActivity.this);
             ChannelBottomSheetBinding binding = ChannelBottomSheetBinding.inflate(getLayoutInflater());
             bottomSheetDialog.setContentView(binding.getRoot());
             binding.llHulu.setOnClickListener(v1 -> {
-//                new huluVizio();
                 TvRemoteActivity.this.P("null", 2, "3");
                 TvRemoteActivity.this.vibrator.vibrate(5);
                 bottomSheetDialog.dismiss();
             });
             binding.llYoutube.setOnClickListener(v1 -> {
-//                new youtubeVizio();
                 TvRemoteActivity.this.P("null", 5, "1");
                 TvRemoteActivity.this.vibrator.vibrate(5);
                 bottomSheetDialog.dismiss();
             });
             binding.llNetflix.setOnClickListener(v1 -> {
-//                new netflizVizio();
                 TvRemoteActivity.this.P("null", 3, "1");
                 TvRemoteActivity.this.vibrator.vibrate(5);
                 bottomSheetDialog.dismiss();
             });
             binding.llPrimeVideo.setOnClickListener(v1 -> {
-//                new primeVideoVizio();
                 TvRemoteActivity.this.P("null", 2, "4");
                 TvRemoteActivity.this.vibrator.vibrate(5);
                 bottomSheetDialog.dismiss();
             });
             binding.llRedbox.setOnClickListener(v1 -> {
-//                new redBoxVizio();
                 TvRemoteActivity.this.P("null", 2, "41");
                 TvRemoteActivity.this.vibrator.vibrate(5);
                 bottomSheetDialog.dismiss();
             });
             binding.llXumo.setOnClickListener(v1 -> {
-//                new xumoVizio();
                 TvRemoteActivity.this.P("{\"CAST_NAMESPACE\":\"urn:x-cast:com.google.cast.media\",\"CAST_MESSAGE\":{\"type\":\"LOAD\",\"media\":{},\"autoplay\":true,\"currentTime\":0,\"customData\":{}}}", 0, "36E1EA1F");
                 TvRemoteActivity.this.vibrator.vibrate(5);
                 bottomSheetDialog.dismiss();
@@ -879,13 +865,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
             findViewById(R.id.llDial).setVisibility(View.VISIBLE);
             findViewById(R.id.cvTouchPad).setVisibility(View.GONE);
         });
-
         findViewById(R.id.cvTouchPad).setOnTouchListener(new SwipeListener());
-
-
-//        if (preferenceToken == null) {
-//            startPairing();
-//        }
     }
 
 

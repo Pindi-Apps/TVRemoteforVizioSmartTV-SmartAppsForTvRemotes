@@ -45,6 +45,8 @@ fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(windowToken, 0)
 }
+
+
 //fun View.setOnSingleClickListener(l: (View) -> Unit) {
 //    setOnClickListener(OnSingleClickListener(l))
 //}

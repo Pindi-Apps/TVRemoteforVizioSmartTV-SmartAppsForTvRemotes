@@ -3,6 +3,7 @@ package com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi;
 import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -11,10 +12,12 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -26,7 +29,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.chaos.view.PinView;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.AppExtKt;
 
 import org.json.JSONObject;
 
@@ -35,6 +40,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.DatagramSocket;
 import java.net.URL;
+import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -174,28 +180,36 @@ public class FindActivity extends AppCompatActivity {
 
         Dialog pairingDialog = new Dialog(FindActivity.this);
         pairingDialog.setContentView(R.layout.fragment_pairing);
-        pairingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        pairingDialog.getWindow().setSoftInputMode(SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+
+        if (pairingDialog.getWindow() != null){
+            pairingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
+
+
+
+
+//        pairingDialog.getWindow().setSoftInputMode(SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+
+
         Button button = (Button) pairingDialog.findViewById(R.id.pairing_ok);
         Button button2 = (Button) pairingDialog.findViewById(R.id.pairing_cancel);
-        EditText pairingEditText = (EditText) pairingDialog.findViewById(R.id.pairing_pin);
-        button2.setOnClickListener(v -> {
-            pairingDialog.dismiss();
-        });
+
+
+        PinView pairingEditText = (PinView) pairingDialog.findViewById(R.id.pinView);
+
+        InputMethodManager imm = (InputMethodManager) FindActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(pairingEditText, 0);
+
+
+        button2.setOnClickListener(v -> pairingDialog.dismiss());
         button.setOnClickListener(v -> {
-            pairingDialog.dismiss();
-            String token = pairingEditText.getText().toString().trim();
+            String token = Objects.requireNonNull(pairingEditText.getText()).toString().trim();
             if (token.isEmpty()) {
                 pairingEditText.setError("Filed Required");
             } else {
-
-                Executors.newSingleThreadExecutor().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        checkToken(pairingEditText.getText().toString().trim());
-                    }
-                });
-
+                pairingDialog.dismiss();
+                Log.i("TAG", "pairingDialog: token =" + token);
+                Executors.newSingleThreadExecutor().execute(() -> checkToken(token));
             }
         });
         pairingDialog.setCancelable(false);
@@ -307,12 +321,8 @@ public class FindActivity extends AppCompatActivity {
             Editor edit = FindActivity.this.getSharedPreferences("vizio_url", 0).edit();
             edit.putString("vizio_url_string", FindActivity.e1);
             edit.apply();
-//            FindActivity.this.startActivity(new Intent(FindActivity.this.getApplicationContext(), TvRemoteActivity.class));
 
-
-//            if (preferenceToken == null) {
-//                startPairing();
-//            }
+//            pairingDialog();
 
 
             String auth_token = FindActivity.e1;
@@ -327,8 +337,6 @@ public class FindActivity extends AppCompatActivity {
 
             }
 
-
-//            new PairingTask().execute();
 
         }
     }
