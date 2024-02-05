@@ -5,60 +5,139 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.ump.ConsentDebugSettings;
+import com.google.android.ump.ConsentForm;
+import com.google.android.ump.ConsentInformation;
+import com.google.android.ump.ConsentRequestParameters;
+import com.google.android.ump.UserMessagingPlatform;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SplashActivity extends AppCompatActivity {
 
 
     private InterstitialAd mInterstitial = null;
 
+    private ConsentInformation consentInformation;
+    private final AtomicBoolean isMobileAdsInitializeCalled = new AtomicBoolean(false);
+
+    private CountDownTimer countDownTimer = null;
+
+
+    private void loadInterstitial() {
+        InterstitialAd.load(this, getString(R.string.adMobInterstitialSplash), new AdRequest.Builder().build(), new InterstitialAdLoadCallback() {
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                mInterstitial = null;
+            }
+
+            @Override
+            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                super.onAdLoaded(interstitialAd);
+                mInterstitial = interstitialAd;
+                mInterstitial.setFullScreenContentCallback(new FullScreenContentCallback() {
+                    @Override
+                    public void onAdDismissedFullScreenContent() {
+                        super.onAdDismissedFullScreenContent();
+                        mInterstitial = null;
+                        goToNext();
+                    }
+                });
+
+            }
+        });
+    }
+
+
+    private void loadTimer() {
+        countDownTimer = new CountDownTimer(5000 , 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                if (!SplashActivity.this.isFinishing()){
+                    if (mInterstitial != null) {
+                        mInterstitial.show(SplashActivity.this);
+                    } else {
+                        goToNext();
+                    }
+                }
+            }
+        }.start();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (countDownTimer != null){
+            countDownTimer.cancel();
+        }
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        InterstitialAd.load(this, getString(R.string.adMobInterstitialSplash), new AdRequest.Builder().build(),
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        super.onAdFailedToLoad(loadAdError);
-                        mInterstitial = null;
-                    }
+        ConsentDebugSettings debugSettings = new ConsentDebugSettings.Builder(this)
+                .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
+                .addTestDeviceHashedId("B3EEABB8EE11C2BE770B684D95219ECB")
+                .build();
 
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        super.onAdLoaded(interstitialAd);
-                        mInterstitial = interstitialAd;
-                        mInterstitial.setFullScreenContentCallback(new FullScreenContentCallback() {
-                            @Override
-                            public void onAdDismissedFullScreenContent() {
-                                super.onAdDismissedFullScreenContent();
-                                mInterstitial = null;
-                                goToNext();
+        ConsentRequestParameters params = new ConsentRequestParameters
+                .Builder()
+                .setConsentDebugSettings(debugSettings)
+                .build();
+
+        consentInformation = UserMessagingPlatform.getConsentInformation(this);
+        consentInformation.reset();
+        consentInformation.requestConsentInfoUpdate(this, params, (ConsentInformation.OnConsentInfoUpdateSuccessListener) () -> {
+                    UserMessagingPlatform.loadAndShowConsentFormIfRequired(this, (ConsentForm.OnConsentFormDismissedListener) loadAndShowError -> {
+                                if (!this.isFinishing()){
+                                    if (consentInformation.canRequestAds()) {
+                                        initializeMobileAdsSdk();
+                                    } else {
+                                        loadTimer();
+                                    }
+                                }
                             }
-                        });
-
+                    );
+                },
+                (ConsentInformation.OnConsentInfoUpdateFailureListener) requestConsentError -> {
+                    if (!this.isFinishing()) {
+                        loadTimer();
                     }
                 });
 
+        if (consentInformation.canRequestAds()) {
+            initializeMobileAdsSdk();
+        }
+    }
 
 
-        new Handler().postDelayed(() -> {
-            if (mInterstitial != null) {
-                mInterstitial.show(this);
-            } else {
-                goToNext();
-            }
-        }, 2000);
-
+    private void initializeMobileAdsSdk() {
+        if (isMobileAdsInitializeCalled.getAndSet(true)) {
+            return;
+        }
+        MobileAds.initialize(this);
+        loadInterstitial();
+        loadTimer();
     }
 
 
@@ -73,10 +152,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     void goToNext() {
-
-        startActivity(new Intent(this, MainActivity.class));
+        this.startActivity(new Intent(this, MainActivity.class));
         this.finish();
-
     }
 
 }

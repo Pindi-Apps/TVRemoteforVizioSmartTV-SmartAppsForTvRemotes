@@ -51,7 +51,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.android.volley:volley:1.2.1'
-    implementation 'com.stanfy:gson-xml-java:0.1.7'
+//    implementation 'com.stanfy:gson-xml-java:0.1.7'
     implementation "androidx.multidex:multidex:2.0.1"
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
@@ -65,8 +65,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-process:2.6.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10"
     implementation ("com.nabinbhandari.android:permissions:3.8")
+    implementation("com.google.android.ump:user-messaging-platform:2.2.0")
 
-    
+
+
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
     implementation "com.github.ConnectSDK:Connect-SDK-Android:2.0.0"
     implementation 'com.google.android.gms:play-services-cast-framework:21.4.0'

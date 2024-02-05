@@ -9,25 +9,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="changing pin view continue">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/gallerystrok.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_channel.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_hulu.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_prime_video.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_red_box.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_remote_circle.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/minus.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/minus_new.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/musicalstroke.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mute.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/playlist_new.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/playlist_screen.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/plus.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sound_waves.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/stopnew.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/videostrok.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/volume_down.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/volume_up.webp" afterDir="false" />
+    <list default="true" id="04fe2c46-5b3a-4f05-8c59-8cbe07caadc5" name="Changes" comment="change pin design and flow">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/ad_loading.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
@@ -35,39 +18,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/FindActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/FindActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/wifi/TvRemoteActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/general/ApplicationClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/general/ApplicationClass.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/utils/extension/AppExt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/utils/extension/AppExt.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bg_layers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_layers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bg_ok.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/gallerystrok.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_channel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_hulu.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_prime_video.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_red_box.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_remote_circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/minus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/minus_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/musicalstroke.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mute.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/playlist_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/playlist_screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/sound_waves.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/stopnew.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/videostrok.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/volume_down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/volume_up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wifi_remote_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wifi_remote_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pairing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pairing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tv/remote/smarttv/control/smartcast/vizio/activities/SplashActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[e36ebf2]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/muhammadasad/.android/avd/Pixel_2_API_34.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -97,6 +55,7 @@
         <option value="resourceFile" />
         <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="layoutResourceFile_vertical" />
       </list>
     </option>
   </component>
@@ -554,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706274755380</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="change pin design and flow">
+      <created>1706990586965</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1706990586965</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -569,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="integrate firebase crash analytics" />
     <MESSAGE value="working on SSL Auth" />
     <MESSAGE value="working on Trust Manager" />
     <MESSAGE value="working on Trust Manager &#10;- part 2" />
@@ -594,7 +559,8 @@
     <MESSAGE value="push for commit" />
     <MESSAGE value="fixing keys crash" />
     <MESSAGE value="changing pin view continue" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing pin view continue" />
+    <MESSAGE value="change pin design and flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="change pin design and flow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
