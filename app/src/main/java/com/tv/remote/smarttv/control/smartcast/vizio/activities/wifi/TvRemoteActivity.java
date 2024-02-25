@@ -347,7 +347,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                 String format = String.format(AppConstant.format, TvRemoteActivity.base, TvRemoteActivity.this.pairingStart);
                 TvRemoteActivity tvRemoteActivity_ = TvRemoteActivity.this;
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(AppConstant.vizioMatric);
+                stringBuilder.append(AppConstant.vizioRemote);
                 stringBuilder.append("(");
                 stringBuilder.append(Build.MODEL);
                 stringBuilder.append(")");
@@ -421,7 +421,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                 String format = String.format(AppConstant.format, TvRemoteActivity.base, TvRemoteActivity.this.pair);
                 TvRemoteActivity tvRemoteActivity_2 = TvRemoteActivity.this;
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(AppConstant.vizioMatric);
+                stringBuilder.append(AppConstant.vizioRemote);
                 stringBuilder.append("(");
                 stringBuilder.append(Build.MODEL);
                 stringBuilder.append(")");
@@ -543,7 +543,9 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                 button2.setOnClickListener(new cancelRunnable());
                 button.setOnClickListener(new b());
                 TvRemoteActivity.this.pairingDialog.setCancelable(false);
-                TvRemoteActivity.this.pairingDialog.show();
+                if (!TvRemoteActivity.this.isFinishing()){
+                    TvRemoteActivity.this.pairingDialog.show();
+                }
             }
         }
 

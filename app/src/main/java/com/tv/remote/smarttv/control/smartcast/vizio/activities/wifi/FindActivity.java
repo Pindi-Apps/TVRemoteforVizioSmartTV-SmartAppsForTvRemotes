@@ -63,9 +63,6 @@ public class FindActivity extends AppCompatActivity {
     public static ProgressBar progressBar;
     public static String vizioUrl;
 
-
-    public static String n1;
-
     public static String preferenceToken;
     public static String responseBuilder;
 
@@ -122,7 +119,7 @@ public class FindActivity extends AppCompatActivity {
             base = auth_token;
             String format = String.format(AppConstant.format, base, "/pairing/start");
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(AppConstant.vizioMatric);
+            stringBuilder.append(AppConstant.vizioRemote);
             stringBuilder.append("(");
             stringBuilder.append(Build.MODEL);
             stringBuilder.append(")");
@@ -208,7 +205,7 @@ public class FindActivity extends AppCompatActivity {
                 pairingEditText.setError("Filed Required");
             } else {
                 pairingDialog.dismiss();
-                Log.i("TAG", "pairingDialog: token =" + token);
+//                Log.i("TAG", "pairingDialog: token =" + token);
                 Executors.newSingleThreadExecutor().execute(() -> checkToken(token));
             }
         });
@@ -225,7 +222,7 @@ public class FindActivity extends AppCompatActivity {
 
             String format = String.format(AppConstant.format, base, "/pairing/pair");
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(AppConstant.vizioMatric);
+            stringBuilder.append(AppConstant.vizioRemote);
             stringBuilder.append("(");
             stringBuilder.append(Build.MODEL);
             stringBuilder.append(")");

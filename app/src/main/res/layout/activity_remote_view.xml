@@ -34,6 +34,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/power"
+                    android:onClick="irSend"
                     android:backgroundTint="@android:color/holo_red_light"
                     android:orientation="horizontal"
                     android:visibility="visible"
@@ -92,6 +93,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:onClick="irSend"
                     android:id="@+id/btn_av"
                     android:backgroundTint="@color/bg_color"
                     android:orientation="horizontal"
@@ -144,6 +146,7 @@
                         android:id="@+id/button_up"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:onClick="irSend"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center">
@@ -166,6 +169,7 @@
                         <LinearLayout
                             android:id="@+id/button_left"
                             android:layout_width="0dp"
+                            android:onClick="irSend"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical">
@@ -182,6 +186,7 @@
                         <FrameLayout
                             android:id="@+id/button_ok"
                             android:layout_width="0dp"
+                            android:onClick="irSend"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center">
@@ -215,6 +220,7 @@
                         </FrameLayout>
 
                         <LinearLayout
+                            android:onClick="irSend"
                             android:id="@+id/button_right"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -233,6 +239,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:onClick="irSend"
                         android:id="@+id/button_down"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -266,6 +273,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/r_buttton"
+                    android:onClick="irSend"
                     android:backgroundTint="@android:color/holo_red_light"
                     android:orientation="horizontal"
                     android:visibility="visible"
@@ -290,6 +298,7 @@
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:id="@+id/g_buttton"
+                    android:onClick="irSend"
                     android:backgroundTint="@android:color/holo_green_light"
                     android:orientation="horizontal"
                     app:cardCornerRadius="@dimen/remote_card_radius"
@@ -311,6 +320,7 @@
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:id="@+id/y_buttton"
+                    android:onClick="irSend"
                     android:backgroundTint="#C9F2F233"
                     android:orientation="horizontal"
                     app:cardCornerRadius="@dimen/remote_card_radius"
@@ -332,6 +342,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:onClick="irSend"
                     android:id="@+id/b_buttton"
                     android:backgroundTint="@color/black"
                     android:orientation="horizontal"
@@ -382,6 +393,7 @@
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:padding="@dimen/_5sdp"
+                            android:onClick="irSend"
                             android:src="@drawable/ic_plus"
                             app:tint="@color/white" />
 
@@ -401,6 +413,7 @@
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:padding="@dimen/_5sdp"
+                            android:onClick="irSend"
                             android:src="@drawable/ic_minus_round"
                             app:tint="@color/white" />
 
@@ -421,6 +434,7 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:id="@+id/index"
+                        android:onClick="irSend"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_marginHorizontal="@dimen/_10sdp"
                         android:backgroundTint="@color/bg_color"
@@ -446,6 +460,7 @@
                         android:layout_height="@dimen/_45sdp"
                         android:layout_gravity="center"
                         android:id="@+id/chanel_list"
+                        android:onClick="irSend"
                         android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_6sdp"
                         android:backgroundTint="@color/bg_color"
@@ -473,6 +488,7 @@
                         android:layout_gravity="bottom"
                         android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_6sdp"
+                        android:onClick="irSend"
                         android:backgroundTint="@color/bg_color"
                         android:id="@+id/menu"
                         android:orientation="horizontal"
@@ -499,6 +515,7 @@
                         android:layout_gravity="bottom"
                         android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_6sdp"
+                        android:onClick="irSend"
                         android:backgroundTint="@color/bg_color"
                         android:orientation="horizontal"
                         app:cardCornerRadius="@dimen/remote_card_radius"
@@ -543,6 +560,7 @@
                             android:layout_weight="1"
                             android:padding="@dimen/_8sdp"
                             android:rotation="90"
+                            android:onClick="irSend"
                             android:src="@drawable/round_arrow_back_ios_24"
                             app:tint="@color/white" />
 
@@ -563,6 +581,7 @@
                             android:layout_weight="1"
                             android:padding="@dimen/_8sdp"
                             android:rotation="-90"
+                            android:onClick="irSend"
                             android:src="@drawable/round_arrow_back_ios_24"
                             app:tint="@color/white" />
 

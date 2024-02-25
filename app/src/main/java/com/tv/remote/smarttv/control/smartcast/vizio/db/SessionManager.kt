@@ -1,4 +1,4 @@
-package tvremote.forroku.smart.tvremotecontrol.db
+package com.tv.remote.smarttv.control.smartcast.vizio.db
 
 import android.content.Context
 import android.content.SharedPreferences

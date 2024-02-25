@@ -1,4 +1,4 @@
-package tvremote.forroku.smart.tvremotecontrol.base
+package com.tv.remote.smarttv.control.smartcast.vizio.base
 
 import android.app.Activity
 import android.app.Dialog
@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.button.MaterialButton
 import com.tv.remote.smarttv.control.smartcast.vizio.R
-import tvremote.forroku.smart.tvremotecontrol.db.SessionManager
+import com.tv.remote.smarttv.control.smartcast.vizio.db.SessionManager
 
 abstract class BaseFragment<layoutId : ViewBinding> : Fragment() {
 

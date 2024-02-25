@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.button.MaterialButton
 import com.tv.remote.smarttv.control.smartcast.vizio.R
-import tvremote.forroku.smart.tvremotecontrol.db.SessionManager
+import com.tv.remote.smarttv.control.smartcast.vizio.db.SessionManager
 import java.text.DecimalFormat
 import kotlin.math.log10
 import kotlin.math.pow

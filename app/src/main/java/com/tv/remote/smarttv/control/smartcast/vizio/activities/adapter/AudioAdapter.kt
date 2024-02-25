@@ -12,12 +12,12 @@ import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.GalleryIma
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.loadImage
 
 class AudioAdapter(
-    var activity: Activity,
-    var list: ArrayList<GalleryImagesModel>,
-    var click: (Int) -> Unit
+    private var activity: Activity,
+    private var list: ArrayList<GalleryImagesModel>,
+    private var click: (Int) -> Unit
 ) : RecyclerView.Adapter<AudiosViewHodler>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AudiosViewHodler {
-        var view = LayoutInflater.from(activity).inflate(R.layout.audios_design, parent, false)
+        val view = LayoutInflater.from(activity).inflate(R.layout.audios_design, parent, false)
         return AudiosViewHodler(view)
 
     }
@@ -27,12 +27,9 @@ class AudioAdapter(
     }
 
     override fun onBindViewHolder(holder: AudiosViewHodler, position: Int) {
-        var get = list[position]
-//        get.picturepath?.let {
-//            holder.image.loadImage(it, activity)
-//        }
-            holder.name.text=get.pictureName
-            holder.detail.text=get.picturepath
+        val get = list[position]
+        holder.name.text = get.pictureName
+        holder.detail.text = get.picturepath
         holder.itemView.setOnClickListener {
             click.invoke(position)
         }
@@ -42,7 +39,6 @@ class AudioAdapter(
 }
 
 class AudiosViewHodler(view: View) : RecyclerView.ViewHolder(view) {
-//    var image = view.findViewById<ImageView>(R.id.cvImage)
     var name = view.findViewById<TextView>(R.id.VideoTextName)
     var detail = view.findViewById<TextView>(R.id.tvDetail)
 

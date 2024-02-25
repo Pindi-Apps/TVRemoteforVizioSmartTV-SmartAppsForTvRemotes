@@ -1,13 +1,9 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities.fragments
 
 import android.app.Dialog
-import android.content.Intent
 import android.database.Cursor
-import android.net.Uri
 import android.provider.MediaStore
-import android.text.format.Formatter
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.CastSearchActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosCastActivity
@@ -16,12 +12,9 @@ import com.tv.remote.smarttv.control.smartcast.vizio.activities.background.Async
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.GalleryImagesModel
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.AppConstant
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.FragmentPhotosBinding
-import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.showToast
 import kotlinx.coroutines.DelicateCoroutinesApi
-import tvremote.forroku.smart.tvremotecontrol.base.BaseFragment
+import com.tv.remote.smarttv.control.smartcast.vizio.base.BaseFragment
 import java.io.File
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 class PhotosFragment : BaseFragment<FragmentPhotosBinding>() {
 

@@ -299,6 +299,10 @@ class CastSearchActivity : BaseActivity<ActivityCastSearchBinding>() , Discovery
 
     override fun actions() {
 
+        binding.ivBack.setOnClickListener {
+            this.finish()
+        }
+
     }
 
 

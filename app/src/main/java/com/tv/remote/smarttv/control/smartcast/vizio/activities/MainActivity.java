@@ -14,6 +14,8 @@ import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.view.View;
 import android.view.Window;
@@ -137,12 +139,50 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.cvWifiRemote.setOnClickListener(v -> {
+
             if (mInterstitialAd != null) {
-                mInterstitialAd.show(this);
+
+                Dialog progressDialog = new Dialog(MainActivity.this);
+                try {
+                    if (progressDialog.getWindow() != null) {
+                        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    }
+                    progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    progressDialog.setContentView(R.layout.ad_loading);
+                    progressDialog.setCancelable(false);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+
+                if (!MainActivity.this.isFinishing()){
+                    progressDialog.show();
+                }
+
+                new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                    if (!MainActivity.this.isFinishing()){
+                        if (progressDialog.isShowing()){
+                            progressDialog.dismiss();
+                        }
+                        mInterstitialAd.show(MainActivity.this);
+                    }
+                }, 1200);
+
+
             } else {
-                startActivity(new Intent(MainActivity.this, FindActivity.class));
+
+                if (isNetworkAvailable(MainActivity.this)) {
+                    MainActivity.this.startActivity(new Intent(MainActivity.this, FindActivity.class));
+                } else {
+                    connectWifi();
+                }
+
+
+
             }
+
         });
+
+
         binding.cvIrRemote.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RemoteViewActivity.class).putExtra("brand_name", "Vizio")));
         binding.cvScreenMirror.setOnClickListener(v -> startActivity(new Intent(this, ConnectionActivity.class)));
         binding.cvRateUs.setOnClickListener(v -> startActivity(new Intent(this, GuideActivity.class)));
@@ -197,7 +237,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onAdDismissedFullScreenContent() {
                         super.onAdDismissedFullScreenContent();
                         mInterstitialAd = null;
-                        startActivity(new Intent(MainActivity.this, FindActivity.class));
+                        if (isNetworkAvailable(MainActivity.this)) {
+                            MainActivity.this.startActivity(new Intent(MainActivity.this, FindActivity.class));
+                        } else {
+                            connectWifi();
+                        }
 
                     }
                 });
@@ -208,6 +252,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this, BackActivity.class));
+        MainActivity.this.startActivity(new Intent(this, BackActivity.class));
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class AppConstant {
 
-    public static final String vizioMatric = "VizioRemote";
+    public static final String vizioRemote = "VizioRemote";
     public static File localPhoto  = null;
     public static ImageFolder imageFolderPath=null;
     public static ArrayList<GalleryImagesModel> photosList = new ArrayList<>();

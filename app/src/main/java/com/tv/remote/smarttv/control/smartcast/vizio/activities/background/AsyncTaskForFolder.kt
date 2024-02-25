@@ -1,4 +1,4 @@
-package tvremote.forroku.smart.tvremotecontrol.background
+package com.tv.remote.smarttv.control.smartcast.vizio.activities.background
 
 import android.util.Log
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.ImageFolder
@@ -16,8 +16,8 @@ abstract class AsyncTaskForFolder<Params, Progress, Result>(val taskName: String
     }
 
     var status: Status = Status.PENDING
-    var preJob: Job? = null
-    var bgJob: Deferred<Result>? = null
+    private var preJob: Job? = null
+    private var bgJob: Deferred<Result>? = null
     abstract fun doInBackground(vararg params: Params?): Result
     open fun onProgressUpdate(values: ImageFolder?) {}
     open fun onPostExecute(result: Result?) {}
@@ -34,10 +34,6 @@ abstract class AsyncTaskForFolder<Params, Progress, Result>(val taskName: String
         execute(Dispatchers.Default, *params)
     }
 
-    /**
-     * Executes background tasks sequentially with other background tasks in the queue using
-     * single thread executor @Executors.newSingleThreadExecutor().
-     */
     @DelicateCoroutinesApi
     fun executeOnExecutor(vararg params: Params?) {
         if (threadPoolExecutor == null) {
@@ -62,7 +58,6 @@ abstract class AsyncTaskForFolder<Params, Progress, Result>(val taskName: String
 
         status = Status.RUNNING
 
-        // it can be used to setup UI - it should have access to Main Thread
         GlobalScope.launch(Dispatchers.Main) {
             preJob = launch(Dispatchers.Main) {
                 printLog("$taskName onPreExecute started")
@@ -76,7 +71,7 @@ abstract class AsyncTaskForFolder<Params, Progress, Result>(val taskName: String
             preJob!!.join()
             if (!isCancelled) {
                 withContext(Dispatchers.Main) {
-                    onPostExecute(bgJob!!.await())
+                    onPostExecute(bgJob?.await())
                     printLog("$taskName doInBackground finished")
                     status = Status.FINISHED
                 }
@@ -95,7 +90,7 @@ abstract class AsyncTaskForFolder<Params, Progress, Result>(val taskName: String
             status = Status.FINISHED
             if (bgJob!!.isCompleted) {
                 GlobalScope.launch(Dispatchers.Main) {
-                    onCancelled(bgJob!!.await())
+                    onCancelled(bgJob?.await())
                 }
             }
             preJob?.cancel(CancellationException("PreExecute: Coroutine Task cancelled"))
@@ -106,7 +101,6 @@ abstract class AsyncTaskForFolder<Params, Progress, Result>(val taskName: String
 
     @DelicateCoroutinesApi
     fun publishProgress(progress: ImageFolder) {
-        //need to update main thread
         GlobalScope.launch(Dispatchers.Main) {
             if (!isCancelled) {
                 onProgressUpdate(progress)

@@ -67,6 +67,8 @@ public class RemoteViewActivity extends AppCompatActivity {
                     builder.append(range.getMaxFrequency());
                     builder.append(" : ");
                 }
+            }else {
+                alert_dialog();
             }
         } catch (Exception asd) {
             asd.printStackTrace();
@@ -119,7 +121,9 @@ public class RemoteViewActivity extends AppCompatActivity {
     private void alert_dialog() {
         Dialog alertDialog = new Dialog(this);
         alertDialog.setContentView(R.layout.alert_dialog);
-        alertDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        if (alertDialog.getWindow() != null){
+            alertDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        }
         alertDialog.show();
         try {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -127,12 +131,6 @@ public class RemoteViewActivity extends AppCompatActivity {
             ne.printStackTrace();
         }
         ImageView cancel_btn = alertDialog.findViewById(R.id.cross_btn);
-        ImageView ok_btn = alertDialog.findViewById(R.id.home_btn);
-//        ok_btn.setOnClickListener(view -> {
-//            startActivity(new Intent(getApplicationContext(), Choose_tv_type.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-//            finish();
-//            alertDialog.dismiss();
-//        });
         cancel_btn.setOnClickListener(view -> alertDialog.dismiss());
         alertDialog.show();
     }

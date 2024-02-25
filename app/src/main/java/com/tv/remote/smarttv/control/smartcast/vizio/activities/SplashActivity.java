@@ -2,11 +2,17 @@ package com.tv.remote.smarttv.control.smartcast.vizio.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.Looper;
+import android.view.Window;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -62,7 +68,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
     private void loadTimer() {
-        countDownTimer = new CountDownTimer(5000 , 1000) {
+        countDownTimer = new CountDownTimer(2000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
@@ -70,12 +76,31 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                if (!SplashActivity.this.isFinishing()){
-                    if (mInterstitial != null) {
-                        mInterstitial.show(SplashActivity.this);
-                    } else {
-                        goToNext();
-                    }
+                if (!SplashActivity.this.isFinishing()) {
+                    goToNext();
+
+//                    if (mInterstitial != null) {
+//
+//                        Dialog progressDialog = new Dialog(SplashActivity.this);
+//                        try {
+//                            if (progressDialog.getWindow() != null) {
+//                                progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                            }
+//                            progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                            progressDialog.setContentView(R.layout.ad_loading);
+//                            progressDialog.setCancelable(false);
+//                        } catch (Exception exception) {
+//                            exception.printStackTrace();
+//                        }
+//
+//                        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+//                            if (!SplashActivity.this.isFinishing()) {
+//                                mInterstitial.show(SplashActivity.this);
+//                            }
+//                        }, 1200);
+//                    } else {
+//                        goToNext();
+//                    }
                 }
             }
         }.start();
@@ -84,7 +109,7 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (countDownTimer != null){
+        if (countDownTimer != null) {
             countDownTimer.cancel();
         }
         super.onDestroy();
@@ -95,21 +120,21 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        ConsentDebugSettings debugSettings = new ConsentDebugSettings.Builder(this)
-                .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
-                .addTestDeviceHashedId("B3EEABB8EE11C2BE770B684D95219ECB")
-                .build();
+//        ConsentDebugSettings debugSettings = new ConsentDebugSettings.Builder(this)
+//                .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
+//                .addTestDeviceHashedId("sdfs")
+//                .build();
 
         ConsentRequestParameters params = new ConsentRequestParameters
                 .Builder()
-                .setConsentDebugSettings(debugSettings)
+//                .setConsentDebugSettings(debugSettings)
                 .build();
 
         consentInformation = UserMessagingPlatform.getConsentInformation(this);
-        consentInformation.reset();
-        consentInformation.requestConsentInfoUpdate(this, params, (ConsentInformation.OnConsentInfoUpdateSuccessListener) () -> {
-                    UserMessagingPlatform.loadAndShowConsentFormIfRequired(this, (ConsentForm.OnConsentFormDismissedListener) loadAndShowError -> {
-                                if (!this.isFinishing()){
+//        consentInformation.reset();
+        consentInformation.requestConsentInfoUpdate(this, params, () -> {
+                    UserMessagingPlatform.loadAndShowConsentFormIfRequired(this, loadAndShowError -> {
+                                if (!this.isFinishing()) {
                                     if (consentInformation.canRequestAds()) {
                                         initializeMobileAdsSdk();
                                     } else {
@@ -119,7 +144,7 @@ public class SplashActivity extends AppCompatActivity {
                             }
                     );
                 },
-                (ConsentInformation.OnConsentInfoUpdateFailureListener) requestConsentError -> {
+                requestConsentError -> {
                     if (!this.isFinishing()) {
                         loadTimer();
                     }
@@ -136,7 +161,7 @@ public class SplashActivity extends AppCompatActivity {
             return;
         }
         MobileAds.initialize(this);
-        loadInterstitial();
+//        loadInterstitial();
         loadTimer();
     }
 

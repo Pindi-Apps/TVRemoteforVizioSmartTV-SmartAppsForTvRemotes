@@ -10,8 +10,8 @@ import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.ImageFolde
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.AppConstant
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.FragmentPhotosFolderBinding
 import kotlinx.coroutines.DelicateCoroutinesApi
-import tvremote.forroku.smart.tvremotecontrol.background.AsyncTaskForFolder
-import tvremote.forroku.smart.tvremotecontrol.base.BaseFragment
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.background.AsyncTaskForFolder
+import com.tv.remote.smarttv.control.smartcast.vizio.base.BaseFragment
 
 class PhotosFolderFragment : BaseFragment<FragmentPhotosFolderBinding>() {
 

@@ -3,17 +3,15 @@ package com.tv.remote.smarttv.control.smartcast.vizio.activities.fragments
 import android.database.Cursor
 import android.provider.MediaStore
 import androidx.recyclerview.widget.GridLayoutManager
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.FolderImagesShowActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.FolderVideosShowActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.GallaryAdapter2
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.ImageFolder
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.AppConstant
-import com.tv.remote.smarttv.control.smartcast.vizio.databinding.FragmentPhotosFolderBinding
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.FragmentVideosFolderBinding
 import kotlinx.coroutines.DelicateCoroutinesApi
-import tvremote.forroku.smart.tvremotecontrol.background.AsyncTaskForFolder
-import tvremote.forroku.smart.tvremotecontrol.base.BaseFragment
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.background.AsyncTaskForFolder
+import com.tv.remote.smarttv.control.smartcast.vizio.base.BaseFragment
 
 class VideosFolderFragment : BaseFragment<FragmentVideosFolderBinding>() {
 

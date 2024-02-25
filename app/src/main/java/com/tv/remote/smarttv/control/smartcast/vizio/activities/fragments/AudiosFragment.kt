@@ -1,34 +1,20 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities.fragments
 
 import android.app.Dialog
-import android.content.Intent
 import android.database.Cursor
-import android.net.Uri
 import android.provider.MediaStore
-import android.text.format.Formatter
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.AudioCastCastActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.AudiosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.CastSearchActivity
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.PhotosActivity
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideoCastCastActivity
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.VideosActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.AudioAdapter
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.GalleryAdapter
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.background.AsyncTaskForFiles
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.GalleryImagesModel
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.AppConstant
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.FragmentAudiosBinding
-import com.tv.remote.smarttv.control.smartcast.vizio.databinding.FragmentPhotosBinding
-import com.tv.remote.smarttv.control.smartcast.vizio.databinding.FragmentVideosBinding
-import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.showToast
 import kotlinx.coroutines.DelicateCoroutinesApi
-import tvremote.forroku.smart.tvremotecontrol.base.BaseFragment
+import com.tv.remote.smarttv.control.smartcast.vizio.base.BaseFragment
 import java.io.File
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 class AudiosFragment : BaseFragment<FragmentAudiosBinding>() {
 
