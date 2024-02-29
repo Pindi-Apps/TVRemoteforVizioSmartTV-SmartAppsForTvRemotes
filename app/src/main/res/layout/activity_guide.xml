@@ -69,15 +69,14 @@
                 style="@style/textNormal"
                 android:textColor="@color/app_color"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:text="Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here "
+                android:text="When you open the app, simply tap on the WiFi Remote option to utilize the remote control functionality via WiFi."
                 />
 
             <ImageView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_140sdp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/btn_yodo1_close"
+                android:src="@drawable/shot1"
                 />
 
 
@@ -99,15 +98,14 @@
                 style="@style/textNormal"
                 android:textColor="@color/app_color"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:text="Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here "
+                android:text="Choose the brand of your TV remote to establish a connection with it."
                 />
 
             <ImageView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_140sdp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/btn_yodo1_close"
+                android:src="@drawable/shot2"
                 />
 
 
@@ -130,20 +128,8 @@
                 style="@style/textNormal"
                 android:textColor="@color/app_color"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:text="Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here "
+                android:text="Now you're ready to enjoy seamless remote control functionality"
                 />
-
-            <ImageView
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_140sdp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/btn_yodo1_close"
-                />
-
-
-
-
         </LinearLayout>
 
     </ScrollView>

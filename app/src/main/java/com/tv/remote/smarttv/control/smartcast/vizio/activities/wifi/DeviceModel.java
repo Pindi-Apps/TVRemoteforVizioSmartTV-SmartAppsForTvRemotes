@@ -34,6 +34,7 @@ public class DeviceModel {
 
             public void run() {
                 if (DeviceModel.this.device().contains("Vizio") || DeviceModel.this.device().contains("VIZIO") | DeviceModel.this.device().contains("vizio")) {
+
                     Editor edit;
                     if (FindActivity.arrayAdapter.getCount() > 0) {
 

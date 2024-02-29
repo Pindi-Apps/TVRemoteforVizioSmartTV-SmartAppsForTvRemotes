@@ -426,6 +426,7 @@ public class FindActivity extends AppCompatActivity {
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar_vizio);
         FindActivity.progressBar = progressBar;
         progressBar.setIndeterminate(true);
+
         arrayAdapter = new ArrayAdapter(this, R.layout.list_item_vizio);
         FindingAsync.execute(this);
         listView.setOnItemClickListener(new adapterClick());
