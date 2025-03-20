@@ -24,8 +24,13 @@ import com.google.android.ump.ConsentDebugSettings;
 import com.google.android.ump.ConsentForm;
 import com.google.android.ump.ConsentInformation;
 import com.google.android.ump.ConsentRequestParameters;
+import com.google.android.ump.FormError;
 import com.google.android.ump.UserMessagingPlatform;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+import com.tv.remote.smarttv.control.smartcast.vizio.general.ApplicationClass;
+import com.tv.remote.smarttv.control.smartcast.vizio.general.GoogleMobileAdsConsentManager;
+
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -34,12 +39,9 @@ public class SplashActivity extends AppCompatActivity {
 
 
     private InterstitialAd mInterstitial = null;
-
-    private ConsentInformation consentInformation;
+    private GoogleMobileAdsConsentManager googleMobileAdsConsentManager;
     private final AtomicBoolean isMobileAdsInitializeCalled = new AtomicBoolean(false);
-
     private CountDownTimer countDownTimer = null;
-
 
     private void loadInterstitial() {
         InterstitialAd.load(this, getString(R.string.adMobInterstitialSplash), new AdRequest.Builder().build(), new InterstitialAdLoadCallback() {
@@ -68,39 +70,22 @@ public class SplashActivity extends AppCompatActivity {
 
 
     private void loadTimer() {
-        countDownTimer = new CountDownTimer(2000, 1000) {
+        countDownTimer = new CountDownTimer(9000, 1000) {
             @Override
-            public void onTick(long millisUntilFinished) {
-
-            }
+            public void onTick(long millisUntilFinished) {}
 
             @Override
             public void onFinish() {
                 if (!SplashActivity.this.isFinishing()) {
-                    goToNext();
-
-//                    if (mInterstitial != null) {
-//
-//                        Dialog progressDialog = new Dialog(SplashActivity.this);
-//                        try {
-//                            if (progressDialog.getWindow() != null) {
-//                                progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//                            }
-//                            progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//                            progressDialog.setContentView(R.layout.ad_loading);
-//                            progressDialog.setCancelable(false);
-//                        } catch (Exception exception) {
-//                            exception.printStackTrace();
-//                        }
-//
-//                        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-//                            if (!SplashActivity.this.isFinishing()) {
-//                                mInterstitial.show(SplashActivity.this);
-//                            }
-//                        }, 1200);
-//                    } else {
-//                        goToNext();
-//                    }
+                    if (((ApplicationClass) getApplication()).adAvailable()) {
+                        ((ApplicationClass) getApplication()).showAdIfAvailable(SplashActivity.this, () -> {
+                            if (googleMobileAdsConsentManager.getCanRequestAds()) {
+                                goToNext();
+                            }
+                        });
+                    } else {
+                        goToNext();
+                    }
                 }
             }
         }.start();
@@ -119,39 +104,23 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        initConsent();
+    }
 
-//        ConsentDebugSettings debugSettings = new ConsentDebugSettings.Builder(this)
-//                .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
-//                .addTestDeviceHashedId("sdfs")
-//                .build();
+    private void initConsent() {
+        googleMobileAdsConsentManager = GoogleMobileAdsConsentManager.Companion.getInstance(getApplicationContext());
+        googleMobileAdsConsentManager.gatherConsent(this, error -> {
+            if (googleMobileAdsConsentManager.getCanRequestAds()) {
+                initializeMobileAdsSdk();
+            } else {
+                loadTimer();
+            }
+        });
 
-        ConsentRequestParameters params = new ConsentRequestParameters
-                .Builder()
-//                .setConsentDebugSettings(debugSettings)
-                .build();
-
-        consentInformation = UserMessagingPlatform.getConsentInformation(this);
-//        consentInformation.reset();
-        consentInformation.requestConsentInfoUpdate(this, params, () -> {
-                    UserMessagingPlatform.loadAndShowConsentFormIfRequired(this, loadAndShowError -> {
-                                if (!this.isFinishing()) {
-                                    if (consentInformation.canRequestAds()) {
-                                        initializeMobileAdsSdk();
-                                    } else {
-                                        loadTimer();
-                                    }
-                                }
-                            }
-                    );
-                },
-                requestConsentError -> {
-                    if (!this.isFinishing()) {
-                        loadTimer();
-                    }
-                });
-
-        if (consentInformation.canRequestAds()) {
+        if (googleMobileAdsConsentManager.getCanRequestAds()) {
             initializeMobileAdsSdk();
+        }else {
+            loadTimer();
         }
     }
 
@@ -160,8 +129,8 @@ public class SplashActivity extends AppCompatActivity {
         if (isMobileAdsInitializeCalled.getAndSet(true)) {
             return;
         }
-        MobileAds.initialize(this);
-//        loadInterstitial();
+
+        MobileAds.initialize(getApplicationContext());
         loadTimer();
     }
 
@@ -180,5 +149,4 @@ public class SplashActivity extends AppCompatActivity {
         this.startActivity(new Intent(this, MainActivity.class));
         this.finish();
     }
-
 }

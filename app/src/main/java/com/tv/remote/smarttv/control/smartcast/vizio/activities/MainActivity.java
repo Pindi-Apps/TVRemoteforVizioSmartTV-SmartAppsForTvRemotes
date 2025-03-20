@@ -19,10 +19,8 @@ import android.view.View;
 import android.view.Window;
 
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
@@ -36,9 +34,6 @@ import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.FindActivit
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityMainBinding;
 import com.tv.remote.smarttv.control.smartcast.vizio.general.PermissionHelper;
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.AppExtKt;
-
-import java.util.ArrayList;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 

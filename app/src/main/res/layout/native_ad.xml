@@ -42,7 +42,7 @@
                     android:id="@+id/ad_headline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/ad_app_name"
+                    android:text="Everyscan: Identify Everything"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -52,11 +52,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:text="@string/ad_description"
+                    android:text="Everyscan is an Ai Photo lens identify any object by taking image on your mobile camera"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
-
-
 
             </LinearLayout>
 
@@ -78,32 +76,25 @@
                     android:backgroundTint="@color/app_color"
                     android:ellipsize="end"
                     android:gravity="center"
-                    android:src="@drawable/ad_logo"
+                    android:src="@drawable/everyscan"
                     android:textSize="12sp" />
-
             </LinearLayout>
-
         </LinearLayout>
 
-
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/ad_call_to_action"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:cornerRadius="6dp"
-            android:id="@+id/ad_call_to_action"
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@color/app_color"
+            android:ellipsize="end"
+            android:gravity="center"
             android:paddingVertical="15dp"
             android:text="OPEN"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:backgroundTint="@color/app_color"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:textSize="12sp" />
-
-
+            android:textSize="12sp"
+            app:cornerRadius="6dp" />
     </LinearLayout>
-
-
 </LinearLayout>
