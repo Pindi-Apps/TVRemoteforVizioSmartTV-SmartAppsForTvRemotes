@@ -31,15 +31,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
-import com.nabinbhandari.android.permissions.PermissionHandler
-import com.nabinbhandari.android.permissions.Permissions
 import com.tv.remote.smarttv.control.smartcast.vizio.R
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.GalleryImagesModel
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.general.AppConstant
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
-
 
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -100,22 +97,6 @@ fun formatMillis(millisec: Int): String {
         String.format("%d:%02d", minutes, seconds)
     }
     return time
-}
-
-
-
-fun Activity.permissionsChecker(permissions: Array<String>, value: (Boolean) -> Unit) {
-    Permissions.check(this, permissions, null, null, object : PermissionHandler() {
-        override fun onGranted() {
-            value.invoke(true)
-        }
-
-        override fun onDenied(context: Context?, deniedPermissions: ArrayList<String>?) {
-            super.onDenied(context, deniedPermissions)
-            showToast("Permission Denied!")
-            value.invoke(false)
-        }
-    })
 }
 
 
@@ -748,22 +729,6 @@ fun Activity.showToast(message: String) {
 //        }
 //    })
 //}
-
-
-fun Fragment.permissionsChecker(permissions: Array<String>, value: (Boolean) -> Unit) {
-    Permissions.check(requireActivity(), permissions, null, null, object : PermissionHandler() {
-        override fun onGranted() {
-            value.invoke(true)
-        }
-
-        override fun onDenied(context: Context?, deniedPermissions: ArrayList<String>?) {
-            super.onDenied(context, deniedPermissions)
-            showToast("Permission Denied!")
-            value.invoke(false)
-        }
-    })
-}
-
 
 fun Fragment.showToast(message: String) {
     Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()

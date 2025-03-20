@@ -40,8 +40,6 @@ class ApplicationClass : MultiDexApplication() {
 
         DIALService.registerApp("Levak")
         DiscoveryManager.init(this)
-
-
     }
 
     private fun isNetworkAvailable(context: Context): Boolean {

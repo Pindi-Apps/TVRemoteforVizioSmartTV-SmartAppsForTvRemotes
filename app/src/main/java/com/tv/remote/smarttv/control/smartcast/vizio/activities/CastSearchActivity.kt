@@ -158,7 +158,6 @@ class CastSearchActivity : BaseActivity<ActivityCastSearchBinding>() , Discovery
             }
         }
 
-
         override fun onDeviceReady(connectableDevice: ConnectableDevice) {
             try {
                 if (this@CastSearchActivity.pinDialog != null && this@CastSearchActivity.pinDialog?.isShowing == true && !this@CastSearchActivity.isFinishing) {
@@ -244,20 +243,16 @@ class CastSearchActivity : BaseActivity<ActivityCastSearchBinding>() , Discovery
 
     private fun getDevices(): HashMap<String, String>? {
         val devicesList = HashMap<String, String>()
-//        devicesList["com.connectsdk.service.WebOSTVService"] =
-//            "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
-//        devicesList["com.connectsdk.service.NetcastTVService"] = "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
-//        devicesList["com.connectsdk.service.DLNAService"] = "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
-//        devicesList["com.connectsdk.service.DIALService"] = "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
+        devicesList["com.connectsdk.service.DIALService"] = "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
         devicesList["com.connectsdk.service.RokuService"] = "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
         devicesList["com.connectsdk.service.CastService"] = "com.connectsdk.discovery.provider.CastDiscoveryProvider"
+        devicesList["com.connectsdk.service.WebOSTVService"] = "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
+//        devicesList["com.connectsdk.service.NetcastTVService"] = "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
+//        devicesList["com.connectsdk.service.DLNAService"] = "com.connectsdk.discovery.provider.SSDPDiscoveryProvider"
 //        devicesList["com.connectsdk.service.AirPlayService"] = "com.connectsdk.discovery.provider.ZeroconfDiscoveryProvider"
 //        devicesList["com.connectsdk.service.FireTVService"] = "com.connectsdk.discovery.provider.FireTVDiscoveryProvider"
-
-
         return devicesList
     }
-
 
     private fun startSearch() {
         try {
@@ -271,14 +266,6 @@ class CastSearchActivity : BaseActivity<ActivityCastSearchBinding>() , Discovery
                     exception.printStackTrace()
                 }
             }
-            val videoFilter = CapabilityFilter(
-                MediaPlayer.Display_Video, MediaControl.Any, VolumeControl.Volume_Up_Down
-            )
-
-            val imageCapabilities = CapabilityFilter(
-                MediaPlayer.Display_Image
-            )
-            DiscoveryManager.getInstance().setCapabilityFilters(videoFilter, imageCapabilities)
             DiscoveryManager.getInstance().pairingLevel = DiscoveryManager.PairingLevel.ON
             DiscoveryManager.getInstance().addListener(this)
             DiscoveryManager.getInstance().start()
@@ -288,22 +275,14 @@ class CastSearchActivity : BaseActivity<ActivityCastSearchBinding>() , Discovery
         }
     }
 
-
-
-
-
     override fun onDestroy() {
         trackerRunnable?.let { trackerHandler?.removeCallbacks(it) }
         super.onDestroy()
     }
 
     override fun actions() {
-
         binding.ivBack.setOnClickListener {
             this.finish()
         }
-
     }
-
-
 }

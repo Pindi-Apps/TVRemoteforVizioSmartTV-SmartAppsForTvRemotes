@@ -1,7 +1,5 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities;
 
-import static com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.AppExtKt.permissionsChecker;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -20,40 +18,39 @@ import android.provider.Settings;
 import android.view.View;
 import android.view.Window;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.google.android.material.button.MaterialButton;
-import com.nabinbhandari.android.permissions.PermissionHandler;
-import com.nabinbhandari.android.permissions.Permissions;
-import com.tv.remote.smarttv.control.smartcast.vizio.BuildConfig;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.AppConstant;
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.FindActivity;
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityMainBinding;
+import com.tv.remote.smarttv.control.smartcast.vizio.general.PermissionHelper;
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.AppExtKt;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
+
     String[] array;
-
-
+    ActivityMainBinding binding;
     private InterstitialAd mInterstitialAd;
-
+    private PermissionHelper permissionHelper;
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
-
 
     protected void connectWifi() {
         Dialog wifiDialog = new Dialog(this);
@@ -139,9 +136,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.cvWifiRemote.setOnClickListener(v -> {
-
             if (mInterstitialAd != null) {
-
                 Dialog progressDialog = new Dialog(MainActivity.this);
                 try {
                     if (progressDialog.getWindow() != null) {
@@ -166,22 +161,14 @@ public class MainActivity extends AppCompatActivity {
                         mInterstitialAd.show(MainActivity.this);
                     }
                 }, 1200);
-
-
             } else {
-
                 if (isNetworkAvailable(MainActivity.this)) {
                     MainActivity.this.startActivity(new Intent(MainActivity.this, FindActivity.class));
                 } else {
                     connectWifi();
                 }
-
-
-
             }
-
         });
-
 
         binding.cvIrRemote.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RemoteViewActivity.class).putExtra("brand_name", "Vizio")));
         binding.cvScreenMirror.setOnClickListener(v -> startActivity(new Intent(this, ConnectionActivity.class)));
@@ -194,22 +181,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private final ActivityResultLauncher<String[]> resultLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+                permissionHelper.handlePermissionsResult(result);
+            });
+
+    PermissionHelper.Callback permissionCallback = new PermissionHelper.Callback() {
+        @Override
+        public void onPermissionResult(boolean isGranted) {
+            if (isGranted && targetActivity != null) {
+                Intent intent = new Intent(MainActivity.this, targetActivity);
+                startActivity(intent);
+            }
+        }
+    };
+
+    private Class<? extends Activity> targetActivity;
+
     private void checkPermission(Class<? extends Activity> clazz) {
-        Permissions.check(this, array, null, null, new PermissionHandler() {
-            @Override
-            public void onGranted() {
-                AppExtKt.openActivity(MainActivity.this, clazz);
-            }
-
-            @Override
-            public void onDenied(Context context, ArrayList<String> deniedPermissions) {
-                super.onDenied(context, deniedPermissions);
-                AppExtKt.showToast(MainActivity.this, "Permission Denied!");
-            }
-        });
-
+        targetActivity = clazz;
+        permissionHelper = new PermissionHelper(this, array, resultLauncher, permissionCallback);
+        permissionHelper.checkAndRequestPermissions();
     }
-
 
     private void openLink(String link) {
         try {
@@ -218,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
             exception.printStackTrace();
         }
     }
-
 
     private void loadInterstitial() {
         InterstitialAd.load(this, getString(R.string.adMobInterstitial), new AdRequest.Builder().build(), new InterstitialAdLoadCallback() {
@@ -247,7 +239,6 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
     }
 
     @Override

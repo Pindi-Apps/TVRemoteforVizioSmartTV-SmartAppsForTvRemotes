@@ -17,8 +17,12 @@ import android.os.StrictMode
 import android.os.StrictMode.VmPolicy
 import android.provider.Settings
 import android.view.Window
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.button.MaterialButton
 import com.tv.remote.smarttv.control.smartcast.vizio.R
@@ -307,11 +311,13 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
         setContentView(binding.root)
         val builder = VmPolicy.Builder()
         StrictMode.setVmPolicy(builder.build())
+        enableEdgeToEdge()
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            binding.root.updatePadding(top = systemBars.top, bottom = systemBars.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
         sessionManager = SessionManager(this)
-//        permissionArray = arrayOf(
-//            android.Manifest.permission.READ_EXTERNAL_STORAGE,
-//            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-//        )
         initViews()
         actions()
     }

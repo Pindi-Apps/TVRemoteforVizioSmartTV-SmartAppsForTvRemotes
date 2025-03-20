@@ -171,8 +171,4 @@ class AudioCastCastActivity : BaseActivity<ActivityAudioCastBinding>() {
             connectWifi()
         }
     }
-
-
-
-
 }

@@ -230,8 +230,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="@dimen/_10sdp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/_10sdp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -239,17 +239,17 @@
                         android:layout_weight="1"
                         android:fontFamily="sans-serif"
                         android:gravity="center|start"
-                        android:text="Media Casting"
                         android:paddingHorizontal="@dimen/_15sdp"
+                        android:text="Media Casting"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
 
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -375,16 +375,10 @@
                         <include
                             android:id="@+id/adLayout"
                             layout="@layout/native_ad" />
-
-
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
-
             </LinearLayout>
-
-
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>

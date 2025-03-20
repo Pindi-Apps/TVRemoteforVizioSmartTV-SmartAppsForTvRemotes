@@ -3,24 +3,23 @@ plugins {
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
     id 'org.jetbrains.kotlin.android'
-
 }
 
 android {
     namespace 'com.tv.remote.smarttv.control.smartcast.vizio'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.tv.remote.smarttv.control.smartcast.vizio"
         minSdk 24
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "1.0"
         dataBinding.enable true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "API_BASE_URL", "\"https://api.example.com/\""
-        resConfigs "en"
+        resourceConfigurations += ['en']
     }
 
     viewBinding {
@@ -39,8 +38,8 @@ android {
 
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_20
+        targetCompatibility JavaVersion.VERSION_20
     }
 }
 
@@ -66,13 +65,10 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:33.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics'
-    implementation 'com.google.android.gms:play-services-ads:23.3.0'
+    implementation 'com.google.android.gms:play-services-ads:24.1.0'
     implementation 'androidx.lifecycle:lifecycle-process:2.8.4'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20"
-    implementation ("com.nabinbhandari.android:permissions:3.8")
     implementation("com.google.android.ump:user-messaging-platform:3.0.0")
-
-
 
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
     implementation "com.github.ConnectSDK:Connect-SDK-Android:2.0.0"

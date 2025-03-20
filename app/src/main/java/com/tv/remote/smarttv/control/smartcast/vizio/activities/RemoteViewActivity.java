@@ -117,7 +117,6 @@ public class RemoteViewActivity extends AppCompatActivity {
         }
     }
 
-
     private void alert_dialog() {
         Dialog alertDialog = new Dialog(this);
         alertDialog.setContentView(R.layout.alert_dialog);
