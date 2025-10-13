@@ -1,41 +1,17 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.activities
 
-import android.app.Dialog
-import android.database.Cursor
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.provider.CalendarContract.Colors
-import android.provider.MediaStore
-import android.view.Window
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.connectsdk.core.MediaInfo
 import com.connectsdk.core.SubtitleInfo
 import com.connectsdk.service.capability.MediaControl
 import com.connectsdk.service.capability.MediaPlayer
 import com.connectsdk.service.capability.VolumeControl
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.tv.remote.smarttv.control.smartcast.vizio.R
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.AudioAdapter
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.adapter.GalleryAdapter
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.background.AsyncTaskForFiles
-import com.tv.remote.smarttv.control.smartcast.vizio.activities.fragments.PhotosFragment
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.model.GalleryImagesModel
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.AppConstant
 import com.tv.remote.smarttv.control.smartcast.vizio.base.BaseActivity
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityAudioCastBinding
-import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityPhotosCastBinding
-import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityVideoCastBinding
-import com.tv.remote.smarttv.control.smartcast.vizio.databinding.BottomSheetDesignAudiosBinding
-import com.tv.remote.smarttv.control.smartcast.vizio.databinding.BottomSheetDesignBinding
 import com.tv.remote.smarttv.control.smartcast.vizio.general.ApplicationClass
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.gone
-import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.loadImage
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.visible
-import kotlinx.coroutines.DelicateCoroutinesApi
-import java.io.File
 
 class AudioCastCastActivity : BaseActivity<ActivityAudioCastBinding>() {
 
