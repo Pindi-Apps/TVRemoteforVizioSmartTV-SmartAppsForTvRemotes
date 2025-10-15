@@ -23,6 +23,7 @@ import com.google.android.gms.ads.appopen.AppOpenAd
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.general.WebHost
 import java.util.Date
 import com.tv.remote.smarttv.control.smartcast.vizio.R
+import com.tv.remote.smarttv.control.smartcast.vizio.activities.ConnectionActivity
 
 class ApplicationClass : MultiDexApplication(), Application.ActivityLifecycleCallbacks, DefaultLifecycleObserver {
 
@@ -90,15 +91,21 @@ class ApplicationClass : MultiDexApplication(), Application.ActivityLifecycleCal
 
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
-        currentActivity?.let {
-            if (appOpenAdManager.isAdAvailable()) {
-                showAdIfAvailable(it, object : OnShowAdCompleteListener{
-                    override fun onShowAdComplete() {
-                        loadAd(it)
-                    }
-                })
-            } else {
-                loadAd(it)
+        if (currentActivity !is ConnectionActivity) {
+            currentActivity?.let {
+                if (appOpenAdManager.isAdAvailable()) {
+                    showAdIfAvailable(it, object : OnShowAdCompleteListener{
+                        override fun onShowAdComplete() {
+                            loadAd(it)
+                        }
+                    })
+                } else {
+                    loadAd(it)
+                }
+            }
+        } else {
+            if (!appOpenAdManager.isAdAvailable()) {
+                currentActivity?.let { loadAd(it) }
             }
         }
     }
