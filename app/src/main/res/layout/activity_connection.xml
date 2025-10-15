@@ -1,144 +1,292 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.GuideActivity">
+    android:background="@color/md3_background"
+    tools:context=".activities.ConnectionActivity">
 
-    <View
-        android:id="@+id/toolBar"
+    <!-- Material 3 AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#0662C3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ivBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintStart_toStartOf="@+id/toolBar"
-        app:layout_constraintTop_toTopOf="@+id/toolBar" />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="Connection"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintEnd_toEndOf="@+id/toolBar"
-        app:layout_constraintStart_toStartOf="@+id/toolBar"
-        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+        android:background="@color/md3_surface"
+        android:elevation="0dp"
+        app:elevation="0dp">
 
-
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/app_color"
-        android:orientation="vertical"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolBar">
-
-
-        <LinearLayout
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/md3_surface">
 
-
-            <ImageView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:padding="8dp"
-                android:src="@drawable/ic_cast"
-                app:tint="@color/white"
+                android:layout_height="match_parent">
 
-                />
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cvConnect"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/white"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="serif"
-                    android:gravity="center"
-                    android:text="Tap to Connect"
-                    android:textColor="@color/app_color" />
-
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <LinearLayout
-                android:id="@+id/nativeSTTL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/barrier">
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="Back"
+                    app:tint="@color/md3_on_surface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:text="Advertisement"
-                    android:textSize="18sp" />
+                    android:text="Connection"
+                    android:textColor="@color/md3_on_surface"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/bold"
+                    android:letterSpacing="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="48dp"
+            android:paddingBottom="32dp">
+
+            <!-- Cast Icon Container -->
+            <FrameLayout
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:background="@drawable/bg_cast_icon_container">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_cast"
+                    app:tint="@color/md3_primary" />
+
+            </FrameLayout>
+
+            <!-- Connection Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Connect to Your Device"
+                android:textColor="@color/md3_on_surface"
+                android:textSize="26sp"
+                android:fontFamily="@font/bold"
+                android:letterSpacing="0.0"
+                android:gravity="center" />
+
+            <!-- Connection Description -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="16dp"
+                android:text="Tap the button below to discover and connect to your smart TV or casting device"
+                android:textColor="@color/md3_on_surface_variant"
+                android:textSize="16sp"
+                android:fontFamily="@font/albra"
+                android:letterSpacing="0.01"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp" />
+
+            <!-- Connect Button -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvConnect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginHorizontal="16dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/md3_primary"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="24dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cvNativeAd"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_wifi_connected"
+                        app:tint="@color/md3_background" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
-                        android:backgroundTint="@color/white"
-                        app:cardCornerRadius="15dp"
-                        app:cardElevation="3dp"
-                        app:strokeWidth="0dp">
+                        android:layout_marginStart="12dp"
+                        android:text="Tap to Connect"
+                        android:textColor="@color/md3_background"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/bold"
+                        android:letterSpacing="0.0" />
 
-                        <include
-                            android:id="@+id/adLayout"
-                            layout="@layout/native_ad" />
-
-
-                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
+            <!-- Connection Tips Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginHorizontal="16dp"
+                app:cardBackgroundColor="@color/md3_surface_variant"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Tips Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_help"
+                            app:tint="@color/md3_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Connection Tips"
+                            android:textColor="@color/md3_on_surface"
+                            android:textSize="17sp"
+                            android:fontFamily="@font/bold"
+                            android:letterSpacing="0.0" />
+
+                    </LinearLayout>
+
+                    <!-- Tip 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        android:gravity="start">
+
+                        <TextView
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/bg_cast_icon_container"
+                            android:backgroundTint="@color/md3_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Make sure your device and TV are on the same WiFi network"
+                            android:textColor="@color/md3_on_surface_variant"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/albra"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp" />
+
+                    </LinearLayout>
+
+                    <!-- Tip 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="start">
+
+                        <TextView
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/bg_cast_icon_container"
+                            android:backgroundTint="@color/md3_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Enable casting or screen mirroring on your TV"
+                            android:textColor="@color/md3_on_surface_variant"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/albra"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp" />
+
+                    </LinearLayout>
+
+                    <!-- Tip 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="start">
+
+                        <TextView
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/bg_cast_icon_container"
+                            android:backgroundTint="@color/md3_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Keep your TV turned on during connection"
+                            android:textColor="@color/md3_on_surface_variant"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/albra"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
+    </androidx.core.widget.NestedScrollView>
 
-    </ScrollView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

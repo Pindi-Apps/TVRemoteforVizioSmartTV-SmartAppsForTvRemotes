@@ -1,74 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color"
-    android:orientation="vertical"
+    android:background="@color/md3_background"
     tools:context=".activities.AudiosActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <View
-            android:id="@+id/toolBar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/app_color_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/ivBack"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ic_back"
-            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-            app:layout_constraintStart_toStartOf="@+id/toolBar"
-            app:layout_constraintTop_toTopOf="@+id/toolBar" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif"
-            android:text="Audios"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-            app:layout_constraintEnd_toEndOf="@+id/toolBar"
-            app:layout_constraintStart_toStartOf="@+id/toolBar"
-            app:layout_constraintTop_toTopOf="@+id/toolBar" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_marginTop="@dimen/_5sdp"
+    <!-- Material 3 AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        app:tabBackground="@drawable/tab_selecter"
-        app:tabIndicatorColor="@color/white"
-        app:tabIndicator="@null"
-        app:tabInlineLabel="true"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="#8C8B8B" />
+        android:background="@color/md3_surface"
+        android:elevation="0dp"
+        app:elevation="0dp">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/md3_surface">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="Back"
+                    app:tint="@color/md3_on_surface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Audios"
+                    android:textColor="@color/md3_on_surface"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/bold"
+                    android:letterSpacing="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <!-- Modern Tab Layout -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/md3_surface"
+            android:elevation="0dp"
+            app:tabBackground="@drawable/tab_selecter"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabIndicator="@null"
+            app:tabInlineLabel="true"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/md3_on_surface"
+            app:tabTextColor="@color/md3_on_surface_variant"
+            app:tabRippleColor="@color/md3_primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- ViewPager Content -->
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@color/md3_background"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,138 +1,371 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md3_background"
     tools:context=".activities.GuideActivity">
 
-    <View
+    <!-- Material 3 AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/app_color_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ivBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintStart_toStartOf="@+id/toolBar"
-        app:layout_constraintTop_toTopOf="@+id/toolBar" />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="How to use"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintEnd_toEndOf="@+id/toolBar"
-        app:layout_constraintStart_toStartOf="@+id/toolBar"
-        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+        android:background="@color/md3_surface"
+        android:elevation="0dp"
+        app:elevation="0dp">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/md3_surface">
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="Back"
+                    app:tint="@color/md3_on_surface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="How to Use"
+                    android:textColor="@color/md3_on_surface"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/bold"
+                    android:letterSpacing="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolBar">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="32dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/textHeading"
-                android:textColor="@color/app_color_2"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:text="Step no: 1"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/textNormal"
-                android:textColor="@color/app_color"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:text="When you open the app, simply tap on the WiFi Remote option to utilize the remote control functionality via WiFi."
-                />
-
-            <ImageView
-                android:layout_marginTop="10dp"
+            <!-- Intro Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_140sdp"
-                android:src="@drawable/shot1"
-                />
-
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/textHeading"
-                android:textColor="@color/app_color_2"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:text="Step no: 2"
-                />
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/md3_primary_container"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/textNormal"
-                android:textColor="@color/app_color"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:text="Choose the brand of your TV remote to establish a connection with it."
-                />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-            <ImageView
-                android:layout_marginTop="10dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quick Setup Guide"
+                        android:textColor="@color/md3_primary"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/bold"
+                        android:letterSpacing="0.0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Follow these simple steps to connect your TV"
+                        android:textColor="@color/md3_on_surface"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/albra"
+                        android:letterSpacing="0.01"
+                        android:alpha="0.8" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Step 1 Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_140sdp"
-                android:src="@drawable/shot2"
-                />
-
-
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/textHeading"
-                android:textColor="@color/app_color_2"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:text="Step no: 3"
-                />
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/md3_surface"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Step Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_connect_button"
+                            android:backgroundTint="@color/md3_primary"
+                            android:text="1"
+                            android:textColor="@color/md3_background"
+                            android:textSize="22sp"
+                            android:fontFamily="@font/bold"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="Tap WiFi Remote"
+                            android:textColor="@color/md3_on_surface"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/bold"
+                            android:letterSpacing="0.0" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="When you open the app, simply tap on the WiFi Remote option to utilize the remote control functionality via WiFi."
+                        android:textColor="@color/md3_on_surface_variant"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/albra"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="4dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/md3_surface_variant">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/shot1"
+                            android:scaleType="fitCenter"
+                            android:contentDescription="Step 1 Screenshot" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Step 2 Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/textNormal"
-                android:textColor="@color/app_color"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:text="Now you're ready to enjoy seamless remote control functionality"
-                />
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/md3_surface"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Step Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_connect_button"
+                            android:backgroundTint="@color/md3_primary"
+                            android:text="2"
+                            android:textColor="@color/md3_background"
+                            android:textSize="22sp"
+                            android:fontFamily="@font/bold"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="Select TV Brand"
+                            android:textColor="@color/md3_on_surface"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/bold"
+                            android:letterSpacing="0.0" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="Choose the brand of your TV remote to establish a connection with it."
+                        android:textColor="@color/md3_on_surface_variant"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/albra"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="4dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/md3_surface_variant">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/shot2"
+                            android:scaleType="fitCenter"
+                            android:contentDescription="Step 2 Screenshot" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Step 3 Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/md3_surface"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Step Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_connect_button"
+                            android:backgroundTint="@color/md3_primary"
+                            android:text="3"
+                            android:textColor="@color/md3_background"
+                            android:textSize="22sp"
+                            android:fontFamily="@font/bold"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="Start Controlling"
+                            android:textColor="@color/md3_on_surface"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/bold"
+                            android:letterSpacing="0.0" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Now you're ready to enjoy seamless remote control functionality"
+                        android:textColor="@color/md3_on_surface_variant"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/albra"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="4dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Success Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/container_quaternary"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_help"
+                        android:contentDescription="Success Icon"
+                        app:tint="@color/feature_quaternary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="You're all set! Enjoy controlling your TV"
+                        android:textColor="@color/md3_on_surface"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/bold"
+                        android:letterSpacing="0.0" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

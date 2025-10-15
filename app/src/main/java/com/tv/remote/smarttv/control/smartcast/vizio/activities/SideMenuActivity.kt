@@ -41,24 +41,32 @@ class SideMenuActivity : BaseActivity<NavLayoutBinding>() {
         }
 
         binding.ivMenu.setOnClickListener {
-            finish()
+            this@SideMenuActivity.finish()
         }
 
         binding.navRate.setOnClickListener { v ->
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID)
+
+            try {
+
+
+                this@SideMenuActivity.startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID)
+                    )
                 )
-            )
+
+            }catch (exception : Exception){
+                exception.printStackTrace()
+            }
+
         }
         binding.navMoreApps.setOnClickListener { v ->
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse(getString(R.string.moreAppsLink))
-                )
-            )
+           try {
+                this@SideMenuActivity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.moreAppsLink))))
+            }catch (exception : Exception){
+                exception.printStackTrace()
+            }
         }
 
         binding.llShare.setOnClickListener {
@@ -70,7 +78,7 @@ class SideMenuActivity : BaseActivity<NavLayoutBinding>() {
         }
 
         binding.navHome.setOnClickListener {
-            finish()
+            this@SideMenuActivity.finish()
         }
 
 

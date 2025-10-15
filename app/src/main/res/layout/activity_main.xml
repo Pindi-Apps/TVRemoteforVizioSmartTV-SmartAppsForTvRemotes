@@ -1,385 +1,418 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color"
-    android:orientation="vertical"
+    android:background="@color/md3_background"
     tools:context=".activities.MainActivity">
 
-    <FrameLayout
+    <!-- App Bar with Modern Design -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/app_color_2"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:background="@color/md3_surface"
+        android:elevation="0dp"
+        app:elevation="0dp">
 
-        <ImageView
-            android:id="@+id/ivMenu"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
-            android:padding="3dp"
-            android:src="@drawable/ic_menu" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/md3_surface">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="Vizio Remote"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/ivCast"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:layout_marginEnd="5dp"
-            android:padding="3dp"
-            android:src="@drawable/castvizio"
-            app:tint="@color/white" />
-    </FrameLayout>
+                <ImageView
+                    android:id="@+id/ivMenu"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_menu"
+                    android:contentDescription="Menu"
+                    app:tint="@color/md3_on_surface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
-    <ScrollView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vizio Remote"
+                    android:textColor="@color/md3_on_surface"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/bold"
+                    android:letterSpacing="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivCast"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="4dp"
+                    android:padding="12dp"
+                    android:src="@drawable/castvizio"
+                    android:contentDescription="Cast"
+                    app:tint="@color/md3_primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="32dp">
 
-
+            <!-- Feature Cards Grid -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
+                <!-- Row 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:baselineAligned="false">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvRateUs"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_5sdp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/bg_color"
-                    app:cardCornerRadius="10dp">
+                    <!-- How to Use Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvRateUs"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/container_primary"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <ImageView
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:padding="15dp"
-                            android:src="@drawable/ic_help" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:text="How to Use"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            android:padding="20dp">
 
-                </com.google.android.material.card.MaterialCardView>
+                            <View
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/ic_help"
+                                android:backgroundTint="@color/feature_primary" />
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="How to Use"
+                                android:textColor="@color/md3_on_surface"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/albra"
+                                android:letterSpacing="0.01"
+                                android:gravity="center" />
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvIrRemote"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/bg_color"
-                    app:cardCornerRadius="10dp">
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                    <!-- IR Remote Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvIrRemote"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/container_secondary"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp">
 
-                        <ImageView
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:padding="15dp"
-                            android:src="@drawable/ic_ir_remote" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:text="IR Remote"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            android:padding="20dp">
 
-                </com.google.android.material.card.MaterialCardView>
+                            <View
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/ic_ir_remote"
+                                android:backgroundTint="@color/feature_secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="IR Remote"
+                                android:textColor="@color/md3_on_surface"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/albra"
+                                android:letterSpacing="0.01"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Row 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:baselineAligned="false">
+
+                    <!-- Screen Mirror Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvScreenMirror"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/container_tertiary"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="20dp">
+
+                            <View
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/ic_screen_mirror"
+                                android:backgroundTint="@color/feature_tertiary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Screen Mirror"
+                                android:textColor="@color/md3_on_surface"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/albra"
+                                android:letterSpacing="0.01"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- WiFi Remote Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvWifiRemote"
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/container_quaternary"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="20dp">
+
+                            <View
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/ic_wifi_remote"
+                                android:backgroundTint="@color/feature_quaternary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="WiFi Remote"
+                                android:textColor="@color/md3_on_surface"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/albra"
+                                android:letterSpacing="0.01"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
+            <!-- Media Casting Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="Media Casting"
+                android:textColor="@color/md3_on_surface"
+                android:textSize="18sp"
+                android:fontFamily="@font/bold"
+                android:letterSpacing="0.0" />
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvScreenMirror"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_5sdp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/bg_color"
-                    app:cardCornerRadius="@dimen/_10sdp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:padding="15dp"
-                            android:src="@drawable/ic_screen_mirror" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif"
-                            android:gravity="center"
-                            android:text="Screen Mirror"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvWifiRemote"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/bg_color"
-                    app:cardCornerRadius="@dimen/_10sdp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:padding="15dp"
-                            android:src="@drawable/ic_wifi_remote" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif"
-                            android:gravity="center"
-                            android:text="Wifi Remote"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-
-            </LinearLayout>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="10dp"
-                app:cardBackgroundColor="@color/bg_color"
-                app:cardCornerRadius="10dp">
-
+                app:cardBackgroundColor="@color/md3_surface_variant"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingVertical="@dimen/_10sdp">
+                    android:orientation="horizontal"
+                    android:paddingVertical="24dp"
+                    android:paddingHorizontal="8dp">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif"
-                        android:gravity="center|start"
-                        android:paddingHorizontal="@dimen/_15sdp"
-                        android:text="Media Casting"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
+                    <!-- Photos -->
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="horizontal">
+                        android:id="@+id/photosBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:background="?attr/selectableItemBackgroundBorderless">
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                        <View
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/gallerystrok"
+                            android:backgroundTint="@color/md3_primary" />
 
-                            <ImageView
-                                android:id="@+id/photosBtn"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/gallerystrok"
-                                app:tint="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="sans-serif"
-                                android:gravity="center"
-                                android:text="Photos"
-                                android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/videosBtn"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/videostrok"
-                                app:tint="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="sans-serif"
-                                android:gravity="center"
-                                android:text="Videos"
-                                android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/audiosBtn"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/musicalstroke"
-                                app:tint="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="sans-serif"
-                                android:gravity="center"
-                                android:text="Audios"
-                                android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-
-                        </LinearLayout>
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Photos"
+                            android:textColor="@color/md3_on_surface"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/albra"
+                            android:letterSpacing="0.01" />
 
                     </LinearLayout>
 
+                    <!-- Videos -->
+                    <LinearLayout
+                        android:id="@+id/videosBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:background="?attr/selectableItemBackgroundBorderless">
+
+                        <View
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/videostrok"
+                            android:backgroundTint="@color/md3_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Videos"
+                            android:textColor="@color/md3_on_surface"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/albra"
+                            android:letterSpacing="0.01" />
+
+                    </LinearLayout>
+
+                    <!-- Audios -->
+                    <LinearLayout
+                        android:id="@+id/audiosBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:background="?attr/selectableItemBackgroundBorderless">
+
+                        <View
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/musicalstroke"
+                            android:backgroundTint="@color/md3_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Audios"
+                            android:textColor="@color/md3_on_surface"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/albra"
+                            android:letterSpacing="0.01" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
 
-            </com.google.android.material.card.MaterialCardView>
-
-
+            <!-- Native Ad Section -->
             <LinearLayout
                 android:id="@+id/nativeSTTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="24dp"
                 android:visibility="gone"
-                android:orientation="vertical"
-                android:paddingHorizontal="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/barrier">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvNativeAd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:backgroundTint="@color/white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeWidth="0dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cvNativeAd"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
-                        android:backgroundTint="@color/white"
-                        app:cardCornerRadius="6dp"
-                        app:cardElevation="3dp"
-                        app:strokeWidth="0dp">
+                    <include
+                        android:id="@+id/adLayout"
+                        layout="@layout/native_ad" />
 
-                        <include
-                            android:id="@+id/adLayout"
-                            layout="@layout/native_ad" />
-                    </com.google.android.material.card.MaterialCardView>
-                </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
 
-</LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

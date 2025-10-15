@@ -13,9 +13,9 @@
     <!-- Default state (unselected) -->
     <item>
         <shape>
-            <gradient android:startColor="@color/app_color"
-                android:angle="270"
+            <solid android:color="#1E1E1E"
                 />
+
         </shape>
     </item>
 </selector>

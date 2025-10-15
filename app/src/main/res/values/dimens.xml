@@ -90,4 +90,17 @@
 
     <dimen name="remote_card_radius">12.00dp</dimen>
 
+    <!-- Modern MainActivity Dimensions -->
+    <dimen name="main_spacing_xs">4dp</dimen>
+    <dimen name="main_spacing_sm">8dp</dimen>
+    <dimen name="main_spacing_md">16dp</dimen>
+    <dimen name="main_spacing_lg">24dp</dimen>
+    <dimen name="main_spacing_xl">32dp</dimen>
+
+    <dimen name="main_card_radius">16dp</dimen>
+    <dimen name="main_card_elevation">8dp</dimen>
+    <dimen name="main_feature_card_height">140dp</dimen>
+    <dimen name="main_media_icon_size">40dp</dimen>
+    <dimen name="main_toolbar_height">64dp</dimen>
+
 </resources>

@@ -10,14 +10,36 @@
     <color name="app_color">#313234</color>
     <color name="bg_color">#424242</color>
 
-
-
     <color name="native_ad_background_color">#1010</color>
-
-
 
     <color name="app_color_2">#0662C3</color>
     <color name="remote_background_color">#202124</color>
 
+    <!-- Material Design 3 Color System -->
+    <color name="md3_background">#121212</color>
+    <color name="md3_surface">#1E1E1E</color>
+    <color name="md3_surface_variant">#2C2C2C</color>
+    <color name="md3_primary">#A8C7FA</color>
+    <color name="md3_primary_container">#1E3A5F</color>
+    <color name="md3_secondary">#FFB4AB</color>
+    <color name="md3_secondary_container">#93000A</color>
+    <color name="md3_tertiary">#B4ECFF</color>
+    <color name="md3_on_background">#E6E1E5</color>
+    <color name="md3_on_surface">#E6E1E5</color>
+    <color name="md3_on_surface_variant">#C7C5CA</color>
+    <color name="md3_outline">#918F96</color>
+    <color name="md3_outline_variant">#48464C</color>
+
+    <!-- Feature Colors -->
+    <color name="feature_primary">#6C8EEF</color>
+    <color name="feature_secondary">#FF7597</color>
+    <color name="feature_tertiary">#4FC3F7</color>
+    <color name="feature_quaternary">#81C784</color>
+
+    <!-- Container Colors -->
+    <color name="container_primary">#1A2332</color>
+    <color name="container_secondary">#2D1B1F</color>
+    <color name="container_tertiary">#172329</color>
+    <color name="container_quaternary">#1B2A1E</color>
 
 </resources>

@@ -57,10 +57,10 @@ public class ConnectionActivity extends AppCompatActivity {
             return WindowInsetsCompat.CONSUMED;
         });
 
-        findViewById(R.id.ivBack).setOnClickListener(v -> finish());
+        binding.ivBack.setOnClickListener(v -> finish());
 
 
-        findViewById(R.id.cvConnect).setOnClickListener(v -> {
+        binding.cvConnect.setOnClickListener(v -> {
             try {
                 startActivity(new Intent("android.settings.CAST_SETTINGS"));
             } catch (Exception exception1) {
@@ -68,19 +68,7 @@ public class ConnectionActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.ad_call_to_action).setOnClickListener(v -> openLink(getString(R.string.adLink)));
-    }
-
-    private void openLink(String link) {
-        try {
-            this.startActivity(
-                    new Intent(Intent.ACTION_VIEW, Uri.parse(link)).addFlags(
-                            Intent.FLAG_ACTIVITY_NEW_TASK
-                    ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            );
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
+//        findViewById(R.id.ad_call_to_action).setOnClickListener(v -> openLink(getString(R.string.adLink)));
     }
 
 

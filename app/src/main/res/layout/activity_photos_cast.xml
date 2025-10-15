@@ -1,147 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color"
-    android:orientation="vertical"
+    android:background="@color/md3_background"
     tools:context=".activities.PhotosCastActivity">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Material 3 AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/md3_surface"
+        android:elevation="0dp"
+        app:elevation="0dp">
 
-
-        <View
-            android:id="@+id/toolBar"
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/app_color_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/md3_surface">
 
-        <ImageView
-            android:id="@+id/ivBack"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ic_back"
-            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-            app:layout_constraintStart_toStartOf="@+id/toolBar"
-            app:layout_constraintTop_toTopOf="@+id/toolBar" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif"
-            android:maxLines="1"
-            android:text="Photos Cast"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-            app:layout_constraintEnd_toEndOf="@+id/toolBar"
-            app:layout_constraintStart_toStartOf="@+id/toolBar"
-            app:layout_constraintTop_toTopOf="@+id/toolBar" />
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="Back"
+                    app:tint="@color/md3_on_surface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Photos Cast"
+                    android:maxLines="1"
+                    android:textColor="@color/md3_on_surface"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/bold"
+                    android:letterSpacing="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </com.google.android.material.appbar.MaterialToolbar>
 
-    <ScrollView
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="32dp">
 
+            <!-- Photo Display Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="20dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
+                android:layout_height="280dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/md3_surface"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp">
 
                 <ImageView
                     android:id="@+id/cardImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
+                    android:contentDescription="Current Photo"
                     android:src="@drawable/sound_waves" />
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Playback Controls Row 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:baselineAligned="false">
 
+                <!-- Previous Button -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        app:cardBackgroundColor="@color/bg_color"
-                        app:cardCornerRadius="20dp"
-                        app:strokeColor="@color/app_color"
-                        app:strokeWidth="5dp">
+                        android:layout_height="64dp"
+                        app:cardBackgroundColor="@color/md3_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/md3_outline_variant"
+                        app:strokeWidth="1dp">
 
-                        <LinearLayout
+                        <ImageView
+                            android:id="@+id/previousBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/previousBtn"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:padding="7dp"
-                                android:rotation="180"
-                                android:src="@drawable/ic_next" />
-                        </LinearLayout>
+                            android:padding="16dp"
+                            android:rotation="180"
+                            android:contentDescription="Previous"
+                            app:tint="@color/md3_on_surface"
+                            android:src="@drawable/ic_next" />
                     </com.google.android.material.card.MaterialCardView>
-
 
                 </LinearLayout>
 
+                <!-- Play/Pause Button -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="8dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        app:cardBackgroundColor="@color/bg_color"
-                        app:cardCornerRadius="20dp"
-                        app:strokeColor="@color/app_color"
-                        app:strokeWidth="5dp">
+                        android:layout_height="64dp"
+                        app:cardBackgroundColor="@color/md3_primary"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
 
                         <FrameLayout
                             android:id="@+id/llPlay"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
+                            android:layout_height="match_parent">
 
                             <ImageView
                                 android:id="@+id/playBtn"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:padding="7dp"
+                                android:padding="16dp"
+                                android:contentDescription="Play"
+                                app:tint="@color/md3_background"
                                 android:src="@drawable/ic_play"
                                 android:visibility="gone" />
 
@@ -149,167 +161,140 @@
                                 android:id="@+id/pauseBtn"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:padding="7dp"
+                                android:padding="16dp"
+                                android:contentDescription="Pause"
+                                app:tint="@color/md3_background"
                                 android:src="@drawable/ic_pause"
                                 android:visibility="gone" />
-
 
                         </FrameLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-
                 </LinearLayout>
 
+                <!-- Next Button -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        app:cardBackgroundColor="@color/bg_color"
-                        app:cardCornerRadius="20dp"
-                        app:strokeColor="@color/app_color"
-                        app:strokeWidth="5dp">
+                        android:layout_height="64dp"
+                        app:cardBackgroundColor="@color/md3_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/md3_outline_variant"
+                        app:strokeWidth="1dp">
 
-                        <LinearLayout
+                        <ImageView
+                            android:id="@+id/Nextbtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/Nextbtn"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:padding="7dp"
-                                android:src="@drawable/ic_next" />
-                        </LinearLayout>
+                            android:padding="16dp"
+                            android:contentDescription="Next"
+                            app:tint="@color/md3_on_surface"
+                            android:src="@drawable/ic_next" />
                     </com.google.android.material.card.MaterialCardView>
-
 
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- Playback Controls Row 2 -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
+                <!-- Cast Button -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        app:cardBackgroundColor="@color/bg_color"
-                        app:cardCornerRadius="20dp"
-                        app:strokeColor="@color/app_color"
-                        app:strokeWidth="5dp">
+                        android:layout_height="64dp"
+                        app:cardBackgroundColor="@color/md3_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/md3_outline_variant"
+                        app:strokeWidth="1dp">
 
-                        <LinearLayout
+                        <ImageView
+                            android:id="@+id/castBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/castBtn"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:src="@drawable/castvizio"
-                                app:tint="@color/white" />
-                        </LinearLayout>
+                            android:padding="16dp"
+                            android:contentDescription="Cast"
+                            app:tint="@color/md3_on_surface"
+                            android:src="@drawable/castvizio" />
                     </com.google.android.material.card.MaterialCardView>
-
 
                 </LinearLayout>
 
+                <!-- Stop Button -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="8dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        app:cardBackgroundColor="@color/bg_color"
-                        app:cardCornerRadius="20dp"
-                        app:strokeColor="@color/app_color"
-                        app:strokeWidth="5dp">
+                        android:layout_height="64dp"
+                        app:cardBackgroundColor="@color/md3_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/md3_outline_variant"
+                        app:strokeWidth="1dp">
 
-                        <LinearLayout
+                        <ImageView
+                            android:id="@+id/stopBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/stopBtn"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:src="@drawable/stopnew"
-                                app:tint="@color/white" />
-                        </LinearLayout>
+                            android:padding="16dp"
+                            android:contentDescription="Stop"
+                            app:tint="@color/md3_on_surface"
+                            android:src="@drawable/stopnew" />
                     </com.google.android.material.card.MaterialCardView>
-
 
                 </LinearLayout>
 
+                <!-- Playlist Button -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        app:cardBackgroundColor="@color/bg_color"
-                        app:cardCornerRadius="20dp"
-                        app:strokeColor="@color/app_color"
-                        app:strokeWidth="5dp">
+                        android:layout_height="64dp"
+                        app:cardBackgroundColor="@color/md3_surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/md3_outline_variant"
+                        app:strokeWidth="1dp">
 
-                        <LinearLayout
+                        <ImageView
+                            android:id="@+id/playListBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/playListBtn"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:src="@drawable/playlist_screen"
-                                app:tint="@color/white" />
-                        </LinearLayout>
+                            android:padding="16dp"
+                            android:contentDescription="Playlist"
+                            app:tint="@color/md3_on_surface"
+                            android:src="@drawable/playlist_screen" />
                     </com.google.android.material.card.MaterialCardView>
-
 
                 </LinearLayout>
             </LinearLayout>
-
 
         </LinearLayout>
 
+    </androidx.core.widget.NestedScrollView>
 
-    </ScrollView>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
