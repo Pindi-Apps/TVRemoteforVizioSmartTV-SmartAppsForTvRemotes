@@ -250,16 +250,17 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
                 android:id="@+id/cvTouchPad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
-                android:layout_height="match_parent"
-                app:cardElevation="5dp"
+                android:backgroundTint="@color/bg_color"
                 android:visibility="invisible"
                 app:cardCornerRadius="@dimen/remote_card_radius"
-                android:backgroundTint="@color/bg_color"
-                android:layout_gravity="center">
+                app:cardElevation="5dp">
+
                 <RelativeLayout
                     android:id="@+id/rlTouch"
                     android:layout_width="match_parent"
@@ -279,10 +280,10 @@
             android:orientation="horizontal">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvMute"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/cvMute"
                 android:backgroundTint="@color/bg_color"
                 android:orientation="horizontal"
                 app:cardCornerRadius="@dimen/remote_card_radius"
@@ -299,13 +300,13 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
                 android:id="@+id/back_button"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
                 android:backgroundTint="@color/bg_color"
+                android:orientation="horizontal"
                 app:cardCornerRadius="@dimen/remote_card_radius"
                 app:cardElevation="@dimen/_4sdp"
                 app:strokeWidth="0dp">
@@ -319,11 +320,11 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/buttonhome"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:id="@+id/buttonhome"
                 android:backgroundTint="@color/bg_color"
                 android:orientation="horizontal"
                 app:cardCornerRadius="@dimen/remote_card_radius"
@@ -342,10 +343,10 @@
 
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/info_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/info_button"
                 android:backgroundTint="@color/bg_color"
                 android:orientation="horizontal"
                 app:cardCornerRadius="@dimen/remote_card_radius"
@@ -435,56 +436,54 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button_menu"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/_5sdp"
                         android:layout_weight="1"
-                        android:id="@+id/button_menu"
                         android:backgroundTint="@color/bg_color"
                         android:orientation="horizontal"
-                        android:layout_marginEnd="@dimen/_5sdp"
                         app:cardCornerRadius="@dimen/remote_card_radius"
                         app:cardElevation="@dimen/_4sdp"
                         app:strokeWidth="0dp">
 
                         <TextView
+                            style="@style/textHeading"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="@dimen/_10sdp"
-                            android:text="Menu"
-                            style="@style/textHeading"
-                            android:textColor="@color/white"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
                             android:ellipsize="end"
                             android:gravity="center"
-                            />
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Menu"
+                            android:textColor="@color/white" />
 
                     </com.google.android.material.card.MaterialCardView>
 
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button_source"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:id="@+id/button_source"
-                        android:orientation="horizontal"
                         android:backgroundTint="@color/bg_color"
+                        android:orientation="horizontal"
                         app:cardCornerRadius="@dimen/remote_card_radius"
                         app:cardElevation="@dimen/_4sdp"
                         app:strokeWidth="0dp">
 
                         <TextView
+                            style="@style/textHeading"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="@dimen/_10sdp"
-                            android:text="Input"
-                            style="@style/textHeading"
-                            android:textColor="@color/white"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
                             android:ellipsize="end"
                             android:gravity="center"
-                            />
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Input"
+                            android:textColor="@color/white" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -498,40 +497,39 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/play_button"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/_5sdp"
                         android:layout_weight="1"
-                        android:id="@+id/play_button"
                         android:backgroundTint="@color/bg_color"
                         android:orientation="horizontal"
-                        android:layout_marginEnd="@dimen/_5sdp"
                         app:cardCornerRadius="@dimen/remote_card_radius"
                         app:cardElevation="@dimen/_4sdp"
                         app:strokeWidth="0dp">
 
                         <TextView
+                            style="@style/textHeading"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="@dimen/_10sdp"
-                            android:text="Play"
-                            style="@style/textHeading"
-                            android:textColor="@color/white"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
                             android:ellipsize="end"
                             android:gravity="center"
-                            />
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Play"
+                            android:textColor="@color/white" />
 
                     </com.google.android.material.card.MaterialCardView>
 
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cvChannels"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:id="@+id/cvChannels"
-                        android:orientation="horizontal"
                         android:backgroundTint="@android:color/holo_blue_light"
+                        android:orientation="horizontal"
                         app:cardCornerRadius="@dimen/remote_card_radius"
                         app:cardElevation="@dimen/_4sdp"
                         app:strokeWidth="0dp">
@@ -556,13 +554,13 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/freverse"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/_5sdp"
                         android:layout_weight="1"
-                        android:id="@+id/freverse"
                         android:backgroundTint="@color/bg_color"
                         android:orientation="horizontal"
-                        android:layout_marginEnd="@dimen/_5sdp"
                         app:cardCornerRadius="@dimen/remote_card_radius"
                         app:cardElevation="@dimen/_4sdp"
                         app:strokeWidth="0dp">
@@ -578,12 +576,12 @@
 
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/fforward"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:id="@+id/fforward"
-                        android:orientation="horizontal"
                         android:backgroundTint="@color/bg_color"
+                        android:orientation="horizontal"
                         app:cardCornerRadius="@dimen/remote_card_radius"
                         app:cardElevation="@dimen/_4sdp"
                         app:strokeWidth="0dp">
@@ -600,7 +598,6 @@
 
 
                 </LinearLayout>
-
 
 
             </LinearLayout>
@@ -667,40 +664,38 @@
             android:orientation="horizontal">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/youtube_vizio"
                 android:layout_width="0dp"
-                android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_red_light"
                 android:orientation="horizontal"
-                android:id="@+id/youtube_vizio"
                 android:visibility="visible"
                 app:cardCornerRadius="@dimen/remote_card_radius"
                 app:cardElevation="@dimen/_4sdp"
                 app:strokeWidth="0dp">
 
                 <TextView
+                    style="@style/textHeading"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/_10sdp"
-                    android:text="Youtube"
-                    style="@style/textHeading"
-                    android:textColor="@color/white"
-                    android:includeFontPadding="false"
-                    android:maxLines="1"
                     android:ellipsize="end"
                     android:gravity="center"
-                    />
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:padding="@dimen/_10sdp"
+                    android:text="Youtube"
+                    android:textColor="@color/white" />
             </com.google.android.material.card.MaterialCardView>
 
 
-
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
                 android:id="@+id/watchfree_vizio"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_orange_light"
                 android:orientation="horizontal"
                 android:visibility="visible"
@@ -709,17 +704,16 @@
                 app:strokeWidth="0dp">
 
                 <TextView
+                    style="@style/textHeading"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/_10sdp"
-                    android:text="Watch+ Free"
-                    style="@style/textHeading"
-                    android:textColor="@color/white"
-                    android:includeFontPadding="false"
-                    android:maxLines="1"
                     android:ellipsize="end"
                     android:gravity="center"
-                    />
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:padding="@dimen/_10sdp"
+                    android:text="Watch+ Free"
+                    android:textColor="@color/white" />
             </com.google.android.material.card.MaterialCardView>
 
 
@@ -727,13 +721,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            />
-
-
-
-
-
+            android:layout_height="@dimen/_50sdp" />
 
 
     </LinearLayout>

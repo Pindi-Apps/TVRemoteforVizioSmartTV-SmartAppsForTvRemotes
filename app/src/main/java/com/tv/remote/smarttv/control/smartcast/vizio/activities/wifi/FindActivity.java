@@ -28,9 +28,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.chaos.view.PinView;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityWifiRemoteBinding;
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.AppExtKt;
 
 import org.json.JSONObject;
@@ -421,7 +427,22 @@ public class FindActivity extends AppCompatActivity {
 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.activity_wifi_remote);
+        ActivityWifiRemoteBinding binding = ActivityWifiRemoteBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+
+        insetsController.setAppearanceLightStatusBars(true);
+        insetsController.setAppearanceLightNavigationBars(true);
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
+            Insets systemBars = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+                            | WindowInsetsCompat.Type.displayCutout()
+                            | WindowInsetsCompat.Type.ime()
+            );
+
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
         listView = (ListView) findViewById(R.id.listdevices);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar_vizio);
         FindActivity.progressBar = progressBar;

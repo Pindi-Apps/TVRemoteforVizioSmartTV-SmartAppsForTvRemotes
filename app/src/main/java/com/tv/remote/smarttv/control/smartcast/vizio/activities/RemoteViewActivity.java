@@ -2,6 +2,11 @@ package com.tv.remote.smarttv.control.smartcast.vizio.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -20,6 +25,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityRemoteViewBinding;
 import com.tv.remote.smarttv.control.smartcast.vizio.remoteConfig.irRemote.ConsumerIrManager;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,7 +53,22 @@ public class RemoteViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_remote_view);
+        ActivityRemoteViewBinding binding = ActivityRemoteViewBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+
+        insetsController.setAppearanceLightStatusBars(true);
+        insetsController.setAppearanceLightNavigationBars(true);
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
+            Insets systemBars = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+                            | WindowInsetsCompat.Type.displayCutout()
+                            | WindowInsetsCompat.Type.ime()
+            );
+
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
         irData = new SparseArray<String>();
         new Handler().postDelayed(this::remotes_codes, 200);
         consumerIrManager = ConsumerIrManager.getSupportConsumerIrManager(this);

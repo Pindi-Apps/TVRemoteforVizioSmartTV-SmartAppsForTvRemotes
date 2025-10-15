@@ -24,9 +24,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.tv.remote.smarttv.control.smartcast.vizio.R;
+import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityWifiRemoteViewBinding;
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ChannelBottomSheetBinding;
 
 import org.json.JSONException;
@@ -770,13 +776,25 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
         new Thread(new tokenExecute()).start();
     }
 
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.activity_wifi_remote_view);
+        ActivityWifiRemoteViewBinding viewBinding = ActivityWifiRemoteViewBinding.inflate(getLayoutInflater());
+        setContentView(viewBinding.getRoot());
+        WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+
+        insetsController.setAppearanceLightStatusBars(true);
+        insetsController.setAppearanceLightNavigationBars(true);
+        ViewCompat.setOnApplyWindowInsetsListener(viewBinding.getRoot(), (v, insets) -> {
+            Insets systemBars = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+                            | WindowInsetsCompat.Type.displayCutout()
+                            | WindowInsetsCompat.Type.ime()
+            );
+
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
+
         base = "https://";
         String auth_token = "AUTH_TOKEN";
         preferenceToken = defaultPreference(FindActivity.e1);

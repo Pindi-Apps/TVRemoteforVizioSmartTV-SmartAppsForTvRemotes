@@ -1,6 +1,5 @@
 package com.tv.remote.smarttv.control.smartcast.vizio.base
 
-
 import android.Manifest
 import android.app.Activity
 import android.app.Dialog
@@ -21,6 +20,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.viewbinding.ViewBinding
@@ -30,7 +30,6 @@ import com.tv.remote.smarttv.control.smartcast.vizio.db.SessionManager
 import java.text.DecimalFormat
 import kotlin.math.log10
 import kotlin.math.pow
-
 
 abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
     lateinit var binding: B
@@ -311,10 +310,11 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
         setContentView(binding.root)
         val builder = VmPolicy.Builder()
         StrictMode.setVmPolicy(builder.build())
-        enableEdgeToEdge()
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            binding.root.updatePadding(top = systemBars.top, bottom = systemBars.bottom)
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightNavigationBars = true
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout() or WindowInsetsCompat.Type.ime())
+            v.updatePadding(systemBars.left,systemBars.top,systemBars.right,systemBars.bottom)
             WindowInsetsCompat.CONSUMED
         }
         sessionManager = SessionManager(this)

@@ -18,10 +18,16 @@ import android.provider.Settings;
 import android.view.View;
 import android.view.Window;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -83,6 +89,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+
+        insetsController.setAppearanceLightStatusBars(true);
+        insetsController.setAppearanceLightNavigationBars(true);
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
+            Insets systemBars = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+                            | WindowInsetsCompat.Type.displayCutout()
+                            | WindowInsetsCompat.Type.ime()
+            );
+
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
+
         loadInterstitial();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             array = new String[]{android.Manifest.permission.READ_MEDIA_AUDIO, android.Manifest.permission.READ_MEDIA_IMAGES, android.Manifest.permission.READ_MEDIA_VIDEO};
@@ -174,6 +195,12 @@ public class MainActivity extends AppCompatActivity {
         binding.audiosBtn.setOnClickListener(view -> checkPermission(AudiosActivity.class));
         binding.adLayout.adCallToAction.setOnClickListener(v -> openLink(getString(R.string.adLink)));
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, BackActivity.class));
+            }
+        });
     }
 
     private final ActivityResultLauncher<String[]> resultLauncher =
@@ -234,10 +261,5 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        MainActivity.this.startActivity(new Intent(this, BackActivity.class));
     }
 }
