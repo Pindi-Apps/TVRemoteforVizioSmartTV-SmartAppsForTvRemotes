@@ -46,6 +46,11 @@ public class PermissionHelper {
     }
 
     public void handlePermissionsResult(Map<String, Boolean> result) {
+        // An empty result means the request was cancelled/interrupted, not that everything was granted.
+        if (result.isEmpty()) {
+            callback.onPermissionResult(false);
+            return;
+        }
         boolean allGranted = true;
         for (Boolean isGranted : result.values()) {
             if (!isGranted) {

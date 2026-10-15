@@ -29,6 +29,7 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
@@ -38,6 +39,7 @@ import com.tv.remote.smarttv.control.smartcast.vizio.R;
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.AppConstant;
 import com.tv.remote.smarttv.control.smartcast.vizio.activities.wifi.FindActivity;
 import com.tv.remote.smarttv.control.smartcast.vizio.databinding.ActivityMainBinding;
+import com.tv.remote.smarttv.control.smartcast.vizio.general.GoogleMobileAdsConsentManager;
 import com.tv.remote.smarttv.control.smartcast.vizio.general.PermissionHelper;
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.extension.AppExtKt;
 
@@ -45,12 +47,46 @@ public class MainActivity extends AppCompatActivity {
 
     String[] array;
     ActivityMainBinding binding;
+    private static final String KEY_TARGET_ACTIVITY = "key_target_activity";
+
     private InterstitialAd mInterstitialAd;
     private PermissionHelper permissionHelper;
+    private final Handler adHandler = new Handler(Looper.getMainLooper());
+    private Dialog adProgressDialog;
+    private Runnable showAdRunnable;
 
     @Override
     protected void onDestroy() {
+        // The delayed ad runnable must not outlive this activity's window (e.g. on recreation).
+        if (showAdRunnable != null) {
+            adHandler.removeCallbacks(showAdRunnable);
+            showAdRunnable = null;
+        }
+        dismissAdProgressDialog();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (targetActivity != null) {
+            outState.putString(KEY_TARGET_ACTIVITY, targetActivity.getName());
+        }
+    }
+
+    private void dismissAdProgressDialog() {
+        if (adProgressDialog != null && adProgressDialog.isShowing()) {
+            adProgressDialog.dismiss();
+        }
+        adProgressDialog = null;
+    }
+
+    private void openWifiRemote() {
+        if (isNetworkAvailable(MainActivity.this)) {
+            MainActivity.this.startActivity(new Intent(MainActivity.this, FindActivity.class));
+        } else {
+            connectWifi();
+        }
     }
 
     protected void connectWifi() {
@@ -110,6 +146,18 @@ public class MainActivity extends AppCompatActivity {
         } else {
             array = new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
         }
+        // Created in onCreate so a permission result delivered to a recreated activity always has a handler.
+        permissionHelper = new PermissionHelper(this, array, resultLauncher, permissionCallback);
+        if (savedInstanceState != null) {
+            String targetName = savedInstanceState.getString(KEY_TARGET_ACTIVITY);
+            if (targetName != null) {
+                try {
+                    targetActivity = Class.forName(targetName).asSubclass(Activity.class);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
 
         binding.ivCast.setOnClickListener(new View.OnClickListener() {
@@ -152,6 +200,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.cvWifiRemote.setOnClickListener(v -> {
+            if (showAdRunnable != null) {
+                return;
+            }
             if (mInterstitialAd != null) {
                 Dialog progressDialog = new Dialog(MainActivity.this);
                 try {
@@ -167,22 +218,25 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!MainActivity.this.isFinishing()){
                     progressDialog.show();
+                    adProgressDialog = progressDialog;
                 }
 
-                new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                    if (!MainActivity.this.isFinishing()){
-                        if (progressDialog.isShowing()){
-                            progressDialog.dismiss();
-                        }
-                        mInterstitialAd.show(MainActivity.this);
+                showAdRunnable = () -> {
+                    showAdRunnable = null;
+                    dismissAdProgressDialog();
+                    if (MainActivity.this.isFinishing()) {
+                        return;
                     }
-                }, 1200);
+                    InterstitialAd interstitialAd = mInterstitialAd;
+                    if (interstitialAd != null) {
+                        interstitialAd.show(MainActivity.this);
+                    } else {
+                        openWifiRemote();
+                    }
+                };
+                adHandler.postDelayed(showAdRunnable, 1200);
             } else {
-                if (isNetworkAvailable(MainActivity.this)) {
-                    MainActivity.this.startActivity(new Intent(MainActivity.this, FindActivity.class));
-                } else {
-                    connectWifi();
-                }
+                openWifiRemote();
             }
         });
 
@@ -222,7 +276,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkPermission(Class<? extends Activity> clazz) {
         targetActivity = clazz;
-        permissionHelper = new PermissionHelper(this, array, resultLauncher, permissionCallback);
         permissionHelper.checkAndRequestPermissions();
     }
 
@@ -235,6 +288,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadInterstitial() {
+        if (!GoogleMobileAdsConsentManager.Companion.getInstance(getApplicationContext()).getCanRequestAds()) {
+            return;
+        }
         InterstitialAd.load(this, getString(R.string.adMobInterstitial), new AdRequest.Builder().build(), new InterstitialAdLoadCallback() {
             @Override
             public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
@@ -251,12 +307,14 @@ public class MainActivity extends AppCompatActivity {
                     public void onAdDismissedFullScreenContent() {
                         super.onAdDismissedFullScreenContent();
                         mInterstitialAd = null;
-                        if (isNetworkAvailable(MainActivity.this)) {
-                            MainActivity.this.startActivity(new Intent(MainActivity.this, FindActivity.class));
-                        } else {
-                            connectWifi();
-                        }
+                        openWifiRemote();
+                    }
 
+                    @Override
+                    public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                        super.onAdFailedToShowFullScreenContent(adError);
+                        mInterstitialAd = null;
+                        openWifiRemote();
                     }
                 });
             }

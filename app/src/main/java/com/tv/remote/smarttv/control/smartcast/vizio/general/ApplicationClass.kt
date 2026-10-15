@@ -18,7 +18,6 @@ import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.appopen.AppOpenAd
 import com.tv.remote.smarttv.control.smartcast.vizio.utils.general.WebHost
 import java.util.Date
@@ -42,7 +41,7 @@ class ApplicationClass : MultiDexApplication(), Application.ActivityLifecycleCal
 
     override fun onCreate() {
         super<MultiDexApplication>.onCreate()
-        MobileAds.initialize(this)
+        // MobileAds is initialized in SplashActivity, off the main thread, only after consent allows it.
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         appOpenAdManager = AppOpenAdManager()
@@ -145,7 +144,7 @@ class ApplicationClass : MultiDexApplication(), Application.ActivityLifecycleCal
         private var loadTime: Long = 0
 
         fun loadAd(context: Context) {
-            if (isLoadingAd || isAdAvailable()) {
+            if (isLoadingAd || isAdAvailable() || !googleMobileAdsConsentManager.canRequestAds) {
                 return
             }
 

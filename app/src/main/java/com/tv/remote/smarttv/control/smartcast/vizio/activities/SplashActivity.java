@@ -75,6 +75,10 @@ public class SplashActivity extends AppCompatActivity {
 
 
     private void loadTimer() {
+        // loadTimer() can be reached twice (immediate check + consent callback); keep a single timer.
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
         countDownTimer = new CountDownTimer(9000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {}
@@ -151,7 +155,8 @@ public class SplashActivity extends AppCompatActivity {
             return;
         }
 
-        MobileAds.initialize(getApplicationContext());
+        // Initialize on a background thread, as shown in the AdMob Android quick start.
+        new Thread(() -> MobileAds.initialize(getApplicationContext(), initializationStatus -> {})).start();
         loadTimer();
     }
 

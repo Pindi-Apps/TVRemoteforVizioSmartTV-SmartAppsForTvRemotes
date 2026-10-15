@@ -549,7 +549,7 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                 button2.setOnClickListener(new cancelRunnable());
                 button.setOnClickListener(new b());
                 TvRemoteActivity.this.pairingDialog.setCancelable(false);
-                if (!TvRemoteActivity.this.isFinishing()){
+                if (!TvRemoteActivity.this.isFinishing() && !TvRemoteActivity.this.isDestroyed()){
                     TvRemoteActivity.this.pairingDialog.show();
                 }
             }
