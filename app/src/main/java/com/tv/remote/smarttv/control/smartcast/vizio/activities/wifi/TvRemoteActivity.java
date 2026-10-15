@@ -467,7 +467,8 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
                         if (stringBuilder3.contains(str2)) {
                             String string = jSONObject.getJSONObject("ITEM").getString(str2);
                             TvRemoteActivity.preferenceToken = string;
-                            TvRemoteActivity.this.R(str2, string);
+                            // Keyed by TV IP, the same key defaultPreference() / FindActivity read, so the pairing survives app restarts.
+                            TvRemoteActivity.this.R(FindActivity.e1, string);
                             Editor edit = TvRemoteActivity.this.getSharedPreferences("vizio_rate_us", 0).edit();
                             edit.putInt("vizio_rate_us_id", 5);
                             edit.apply();
@@ -720,7 +721,8 @@ public class TvRemoteActivity extends AppCompatActivity implements OnSharedPrefe
     }
 
     private void R(String str, String str2) {
-        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        // Same store that defaultPreference() reads from.
+        SharedPreferences defaultSharedPreferences = this.getSharedPreferences(AppConstant.PreferenceName, MODE_PRIVATE);
         sharedPreferences = defaultSharedPreferences;
         Editor edit = defaultSharedPreferences.edit();
         edit.putString(str, str2);

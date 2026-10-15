@@ -68,6 +68,9 @@ public class DeviceModel {
                     edit = SavingRunnable.this.activity.getSharedPreferences("vizio_saved_device", 0).edit();
                     edit.putString("vizio_device", String.valueOf(DeviceModel.this.device()));
                     edit.apply();
+                    if (SavingRunnable.this.activity instanceof FindActivity) {
+                        ((FindActivity) SavingRunnable.this.activity).autoConnectIfLastDevice(this.deviceModel.hostAddress());
+                    }
                 }
                 if (FindActivity.arrayAdapter != null)
                     FindActivity.arrayAdapter.notifyDataSetChanged();

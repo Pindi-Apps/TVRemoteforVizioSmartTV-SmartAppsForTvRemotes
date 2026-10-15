@@ -315,6 +315,26 @@ public class FindActivity extends AppCompatActivity {
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String str) {
     }
 
+    private boolean autoConnecting = false;
+
+    /**
+     * Called when discovery confirms a Vizio TV. If it is the last TV the user connected to and its
+     * auth token is saved, open the remote directly (same path as tapping it in the list).
+     */
+    void autoConnectIfLastDevice(String hostAddress) {
+        if (autoConnecting || isFinishing() || isDestroyed() || hostAddress == null) {
+            return;
+        }
+        String lastIp = getSharedPreferences("vizio_url", 0).getString("vizio_url_string", null);
+        if (hostAddress.equals(lastIp) && defaultPreference(hostAddress) != null) {
+            autoConnecting = true;
+            FindActivity.e1 = hostAddress;
+            preferenceToken = defaultPreference(hostAddress);
+            FindActivity.this.startActivity(new Intent(FindActivity.this.getApplicationContext(), TvRemoteActivity.class));
+            FindActivity.this.finish();
+        }
+    }
+
 
     class adapterClick implements OnItemClickListener {
 
